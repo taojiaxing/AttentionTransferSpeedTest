@@ -1,6 +1,7 @@
 ﻿using AttentionTransferSpeedTest;
 using System;
 using System.Drawing;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace AttentionTransferSpeedTest
@@ -11,7 +12,9 @@ namespace AttentionTransferSpeedTest
         private int Y;
         private AutoSizeFormClass asc = new AutoSizeFormClass();
         private System.Media.SoundPlayer s = new System.Media.SoundPlayer("resources/music/start_music.wav");
-
+        private Thread t1;
+        private Thread t2;
+       
         private void PanelIsDisplay(int p)
         {
             panel1.Visible = false;
@@ -21,6 +24,7 @@ namespace AttentionTransferSpeedTest
             panel5.Visible = false;
             panel6.Visible = false;
             panel7.Visible = false;
+            panel8.Visible = false;
             switch (p)
             {
                 case 1:
@@ -64,6 +68,11 @@ namespace AttentionTransferSpeedTest
                         panel7.Visible = true;
                     }
                     break;
+                case 8:
+                    {
+                        panel8.Visible = true;
+                    }
+                    break;
             }
         }
 
@@ -71,9 +80,8 @@ namespace AttentionTransferSpeedTest
         {
             InitializeComponent();
             PanelIsDisplay(1);
-
             s.Play();
-            this.Load += new EventHandler(Form1_Load);
+            //this.Load += new EventHandler(Form1_Load);
         }
 
         private void setControls(float newx, float newy, Control cons)
@@ -195,10 +203,47 @@ namespace AttentionTransferSpeedTest
 
         private void start_Click_1(object sender, EventArgs e)
         {
-            PanelIsDisplay(2);
+            PanelIsDisplay(8);
             s.Stop();
-            s.SoundLocation = "resources/music/info_music.wav";
+            s.SoundLocation = "resources/music/bgm.wav";
             s.Play();
+            ship2.Visible = false;
+            t1 = new Thread(() =>
+            {
+                Thread.Sleep(6000);
+                Invoke(new Action(() =>
+                {
+                    ship2.Visible = true;
+                }));
+            });
+            t1.IsBackground = true;
+            t1.Start();
+            t2 = new Thread(()=> {
+                
+                for (int i = 0; i < 10000; i++)
+                {
+                    for(int j = 1; j < 7; j++)
+                    {
+                        Invoke(new Action(() =>
+                        {
+                            panel8.BackgroundImage = Image.FromFile(Application.StartupPath + @"/resources/photos/bg" + j + ".jpg");
+                            panel8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+                        }));
+                        
+                        Thread.Sleep(3000);
+                    }
+                }
+            });
+            t2.IsBackground = true;
+            t2.Start();
+        }
+
+        private void ship2_Click(object sender, EventArgs e)
+        {
+            t1.Abort();
+            t2.Abort();
+            s.Stop();
+            PanelIsDisplay(2);
         }
     }
 }
