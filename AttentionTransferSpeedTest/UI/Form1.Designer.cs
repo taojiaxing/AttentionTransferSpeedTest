@@ -54,6 +54,9 @@
             this.panel7 = new System.Windows.Forms.Panel();
             this.skip = new System.Windows.Forms.Button();
             this.Submit2 = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.文件ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.设置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -61,6 +64,7 @@
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel7.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -69,9 +73,9 @@
             this.panel1.Controls.Add(this.start);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Location = new System.Drawing.Point(0, 28);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(784, 562);
+            this.panel1.Size = new System.Drawing.Size(784, 534);
             this.panel1.TabIndex = 0;
             // 
             // start
@@ -118,9 +122,9 @@
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.label7);
-            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Location = new System.Drawing.Point(0, 28);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(784, 562);
+            this.panel2.Size = new System.Drawing.Size(784, 534);
             this.panel2.TabIndex = 1;
             // 
             // Submit
@@ -220,9 +224,9 @@
             // 
             this.panel3.AutoSize = true;
             this.panel3.Controls.Add(this.Continue1);
-            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Location = new System.Drawing.Point(0, 28);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(784, 562);
+            this.panel3.Size = new System.Drawing.Size(784, 534);
             this.panel3.TabIndex = 20;
             // 
             // Continue1
@@ -239,9 +243,9 @@
             // 
             this.panel4.AutoSize = true;
             this.panel4.Controls.Add(this.Continue2);
-            this.panel4.Location = new System.Drawing.Point(0, 0);
+            this.panel4.Location = new System.Drawing.Point(0, 28);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(784, 562);
+            this.panel4.Size = new System.Drawing.Size(784, 534);
             this.panel4.TabIndex = 1;
             // 
             // Continue2
@@ -258,9 +262,9 @@
             // 
             this.panel5.AutoSize = true;
             this.panel5.Controls.Add(this.Continue3);
-            this.panel5.Location = new System.Drawing.Point(0, 0);
+            this.panel5.Location = new System.Drawing.Point(0, 28);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(784, 562);
+            this.panel5.Size = new System.Drawing.Size(784, 543);
             this.panel5.TabIndex = 1;
             // 
             // Continue3
@@ -277,9 +281,9 @@
             // 
             this.panel6.AutoSize = true;
             this.panel6.Controls.Add(this.label8);
-            this.panel6.Location = new System.Drawing.Point(0, 0);
+            this.panel6.Location = new System.Drawing.Point(0, 28);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(784, 562);
+            this.panel6.Size = new System.Drawing.Size(784, 534);
             this.panel6.TabIndex = 1;
             // 
             // label8
@@ -296,9 +300,9 @@
             this.panel7.AutoSize = true;
             this.panel7.Controls.Add(this.skip);
             this.panel7.Controls.Add(this.Submit2);
-            this.panel7.Location = new System.Drawing.Point(0, 0);
+            this.panel7.Location = new System.Drawing.Point(0, 28);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(784, 562);
+            this.panel7.Size = new System.Drawing.Size(784, 534);
             this.panel7.TabIndex = 1;
             // 
             // skip
@@ -321,12 +325,36 @@
             this.Submit2.UseVisualStyleBackColor = true;
             this.Submit2.Click += new System.EventHandler(this.Submit2_Click);
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.文件ToolStripMenuItem,
+            this.设置ToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(784, 25);
+            this.menuStrip1.TabIndex = 6;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // 文件ToolStripMenuItem
+            // 
+            this.文件ToolStripMenuItem.Name = "文件ToolStripMenuItem";
+            this.文件ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
+            this.文件ToolStripMenuItem.Text = "文件";
+            // 
+            // 设置ToolStripMenuItem
+            // 
+            this.设置ToolStripMenuItem.Name = "设置ToolStripMenuItem";
+            this.设置ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
+            this.设置ToolStripMenuItem.Text = "设置";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.panel6);
@@ -334,6 +362,7 @@
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel3);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -345,6 +374,8 @@
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             this.panel7.ResumeLayout(false);
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -378,6 +409,9 @@
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Button Submit2;
         private System.Windows.Forms.Button skip;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem 文件ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 设置ToolStripMenuItem;
     }
 }
 
