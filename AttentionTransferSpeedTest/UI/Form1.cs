@@ -1,18 +1,70 @@
-﻿using System;
+﻿using AttentionTransferSpeedTest;
+using System;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace brainTest
+namespace AttentionTransferSpeedTest
 {
     public partial class Form1 : Form
     {
         private int X;
         private int Y;
         private AutoSizeFormClass asc = new AutoSizeFormClass();
-
+        System.Media.SoundPlayer s = new System.Media.SoundPlayer("resoures/start_music.wav");
+        private void PanelIsDisplay(int p)
+        {
+            panel1.Visible = false;
+            panel2.Visible = false;
+            panel3.Visible = false;
+            panel4.Visible = false;
+            panel5.Visible = false;
+            panel6.Visible = false;
+            panel7.Visible = false;
+            switch (p)
+            {
+                case 1:
+                    {
+                        panel1.Visible = true;
+                    }
+                    break;
+                case 2:
+                    {
+                        panel2.Visible = true;
+                    }
+                    break;
+                case 3:
+                    {
+                        panel3.Visible = true;
+                    }
+                    break;
+                case 4:
+                    {
+                        panel4.Visible = true;
+                    }
+                    break;
+                case 5:
+                    {
+                        panel5.Visible = true;
+                    }
+                    break;
+                case 6:
+                    {
+                        panel6.Visible = true;
+                    }
+                    break;
+                case 7:
+                    {
+                        panel7.Visible = true;
+                    }
+                    break;
+            }
+        }
         public Form1()
         {
             InitializeComponent();
+            PanelIsDisplay(1);
+           
+            s.Play();
             this.Load += new EventHandler(Form1_Load);
         }
 
@@ -82,10 +134,6 @@ namespace brainTest
             setTag(this);//调用方法
         }
 
-        private void start_Click(object sender, EventArgs e)
-        {
-        }
-
         private void Form1_Resize(object sender, EventArgs e)
 
         {
@@ -107,6 +155,44 @@ namespace brainTest
             label2.Top = Convert.ToInt32(label2.Top + 10);
 
             start.Top = Convert.ToInt32(label2.Top + this.Height * 0.2);
+        }
+
+        private void Submit_Click(object sender, EventArgs e)
+        {
+            PanelIsDisplay(3);
+        }
+
+        private void Continue1_Click(object sender, EventArgs e)
+        {
+            PanelIsDisplay(4);
+        }
+
+        private void Continue2_Click(object sender, EventArgs e)
+        {
+            PanelIsDisplay(5);
+        }
+
+        private void Continue3_Click(object sender, EventArgs e)
+        {
+            PanelIsDisplay(6);
+        }
+
+        private void Submit2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void skip_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void start_Click_1(object sender, EventArgs e)
+        {
+            PanelIsDisplay(2);
+            s.Stop();
+            s.SoundLocation = "resoures/info_music.wav";
+            s.Play();
         }
     }
 }
