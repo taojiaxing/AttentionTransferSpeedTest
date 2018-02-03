@@ -33,6 +33,10 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.SQLite, Version=1.0.107.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packages\System.Data.SQLite.DLL</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -43,6 +47,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAL\DBO\Questionnaire.cs" />
+    <Compile Include="DAL\DBO\User.cs" />
+    <Compile Include="DAL\Gateway\BaseGateway.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SYS\AutoSizeFormClass.cs" />
@@ -76,25 +83,37 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="BLL\" />
-    <Folder Include="DAL\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="resoures\music\info_music.wav">
+    <Content Include="packages\System.Data.SQLite.DLL" />
+    <Content Include="resources\music\info_music.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="resoures\music\Continue1_music.wav">
+    <Content Include="resources\music\Continue1_music.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="resoures\music\Continue2_music.wav">
+    <Content Include="resources\music\Continue2_music.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="resoures\music\finish_music.wav">
+    <Content Include="resources\music\finish_music.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="resoures\music\OperationGuide_music.wav">
+    <Content Include="resources\music\OperationGuide_music.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="resoures\music\start_music.wav">
+    <Content Include="resources\music\start_music.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\photos\1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\photos\2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\photos\3.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\photos\5.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

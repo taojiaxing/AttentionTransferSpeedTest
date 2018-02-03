@@ -10,7 +10,8 @@ namespace AttentionTransferSpeedTest
         private int X;
         private int Y;
         private AutoSizeFormClass asc = new AutoSizeFormClass();
-        System.Media.SoundPlayer s = new System.Media.SoundPlayer("resources/music/start_music.wav");
+        private System.Media.SoundPlayer s = new System.Media.SoundPlayer("resources/music/start_music.wav");
+
         private void PanelIsDisplay(int p)
         {
             panel1.Visible = false;
@@ -27,31 +28,37 @@ namespace AttentionTransferSpeedTest
                         panel1.Visible = true;
                     }
                     break;
+
                 case 2:
                     {
                         panel2.Visible = true;
                     }
                     break;
+
                 case 3:
                     {
                         panel3.Visible = true;
                     }
                     break;
+
                 case 4:
                     {
                         panel4.Visible = true;
                     }
                     break;
+
                 case 5:
                     {
                         panel5.Visible = true;
                     }
                     break;
+
                 case 6:
                     {
                         panel6.Visible = true;
                     }
                     break;
+
                 case 7:
                     {
                         panel7.Visible = true;
@@ -59,11 +66,12 @@ namespace AttentionTransferSpeedTest
                     break;
             }
         }
+
         public Form1()
         {
             InitializeComponent();
             PanelIsDisplay(1);
-           
+
             s.Play();
             this.Load += new EventHandler(Form1_Load);
         }
@@ -179,12 +187,10 @@ namespace AttentionTransferSpeedTest
 
         private void Submit2_Click(object sender, EventArgs e)
         {
-
         }
 
         private void skip_Click(object sender, EventArgs e)
         {
-
         }
 
         private void start_Click_1(object sender, EventArgs e)

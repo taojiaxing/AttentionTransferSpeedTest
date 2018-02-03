@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Windows.Forms;
 
-class AutoSizeFormClass
+internal class AutoSizeFormClass
 {
     //(1).声明结构,只记录窗体和其控件的初始位置和大小。
     public struct controlRect
@@ -11,13 +11,16 @@ class AutoSizeFormClass
         public int Width;
         public int Height;
     }
+
     //(2).声明 1个对象
     //注意这里不能使用控件列表记录 List nCtrl;，因为控件的关联性，记录的始终是当前的大小。
     //      public List oldCtrl= new List();//这里将西文的大于小于号都过滤掉了，只能改为中文的，使用中要改回西文
     public List<controlRect> oldCtrl = new List<controlRect>();
-    int ctrlNo = 0;//1;
-                   //(3). 创建两个函数
-                   //(3.1)记录窗体和其控件的初始位置和大小,
+
+    private int ctrlNo = 0;//1;
+
+    //(3). 创建两个函数
+    //(3.1)记录窗体和其控件的初始位置和大小,
     public void controllInitializeSize(Control mForm)
     {
         controlRect cR;
@@ -27,6 +30,7 @@ class AutoSizeFormClass
                           //this.WindowState = (System.Windows.Forms.FormWindowState)(2);//记录完控件的初始位置和大小后，再最大化
                           //0 - Normalize , 1 - Minimize,2- Maximize
     }
+
     private void AddControl(Control ctl)
     {
         foreach (Control c in ctl.Controls)
@@ -41,6 +45,7 @@ class AutoSizeFormClass
                 AddControl(c);//窗体内其余控件还可能嵌套控件(比如panel),要单独抽出,因为要递归调用
         }
     }
+
     //(3.2)控件自适应大小,
     public void controlAutoSize(Control mForm)
     {
@@ -59,6 +64,7 @@ class AutoSizeFormClass
         ctrlNo = 1;//进入=1，第0个为窗体本身,窗体内的控件,从序号1开始
         AutoScaleControl(mForm, wScale, hScale);//窗体内其余控件还可能嵌套控件(比如panel),要单独抽出,因为要递归调用
     }
+
     private void AutoScaleControl(Control ctl, float wScale, float hScale)
     {
         int ctrLeft0, ctrTop0, ctrWidth0, ctrHeight0;
@@ -90,18 +96,16 @@ class AutoSizeFormClass
                 int widths = 0;
                 for (int i = 0; i < dgv.Columns.Count; i++)
                 {
-                    dgv.AutoResizeColumn(i, DataGridViewAutoSizeColumnMode.AllCells);  // 自动调整列宽  
-                    widths += dgv.Columns[i].Width;   // 计算调整列后单元列的宽度和                       
+                    dgv.AutoResizeColumn(i, DataGridViewAutoSizeColumnMode.AllCells);  // 自动调整列宽
+                    widths += dgv.Columns[i].Width;   // 计算调整列后单元列的宽度和
                 }
-                if (widths >= ctl.Size.Width)  // 如果调整列的宽度大于设定列宽  
-                    dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;  // 调整列的模式 自动  
+                if (widths >= ctl.Size.Width)  // 如果调整列的宽度大于设定列宽
+                    dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;  // 调整列的模式 自动
                 else
-                    dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;  // 如果小于 则填充  
+                    dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;  // 如果小于 则填充
 
                 Cursor.Current = Cursors.Default;
             }
         }
-
-
     }
 }
