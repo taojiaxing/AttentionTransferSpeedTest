@@ -44,6 +44,17 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.Continue1 = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.Continue2 = new System.Windows.Forms.Button();
@@ -62,6 +73,8 @@
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.panel9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -72,9 +85,7 @@
             // 
             // panel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.panel1.AutoSize = true;
             this.panel1.Controls.Add(this.start);
             this.panel1.Controls.Add(this.label2);
@@ -248,11 +259,122 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel3.AutoSize = true;
+            this.panel3.Controls.Add(this.panel9);
             this.panel3.Controls.Add(this.Continue1);
             this.panel3.Location = new System.Drawing.Point(0, 28);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(784, 531);
             this.panel3.TabIndex = 20;
+            // 
+            // panel9
+            // 
+            this.panel9.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.panel9.AutoSize = true;
+            this.panel9.Controls.Add(this.label17);
+            this.panel9.Controls.Add(this.label16);
+            this.panel9.Controls.Add(this.label15);
+            this.panel9.Controls.Add(this.label14);
+            this.panel9.Controls.Add(this.label13);
+            this.panel9.Controls.Add(this.pictureBox1);
+            this.panel9.Controls.Add(this.label12);
+            this.panel9.Controls.Add(this.label11);
+            this.panel9.Controls.Add(this.label10);
+            this.panel9.Controls.Add(this.label9);
+            this.panel9.Location = new System.Drawing.Point(88, 16);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(604, 451);
+            this.panel9.TabIndex = 1;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(136, 414);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(167, 12);
+            this.label17.TabIndex = 9;
+            this.label17.Text = "7)\t本测试大约需要5分钟时间。";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(136, 386);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(269, 12);
+            this.label16.TabIndex = 8;
+            this.label16.Text = "6)\t测试过程中两眼请盯住屏幕中心点，不得移动。";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(136, 358);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(317, 12);
+            this.label15.TabIndex = 7;
+            this.label15.Text = "5)\t下一次呈现的指针指向和圆盘内的条纹方向会随机改变。";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(136, 330);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(257, 12);
+            this.label14.TabIndex = 6;
+            this.label14.Text = "中条纹的方向。（如上图你应该按【╲】键）。";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(136, 297);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(317, 12);
+            this.label13.TabIndex = 5;
+            this.label13.Text = "4)\t你的任务是按键盘上的四个条纹之一来汇报被指向的圆盘";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(155, 153);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(280, 131);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 4;
+            this.pictureBox1.TabStop = false;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(136, 128);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(329, 12);
+            this.label12.TabIndex = 3;
+            this.label12.Text = "3)\t指针有12个可能的指向，每个圆盘内条纹有四种可能朝向。";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(136, 95);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(341, 12);
+            this.label11.TabIndex = 2;
+            this.label11.Text = "2)\t呈现图形构图是中心一指针加周围12个条纹圆盘（如下图）。";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(136, 62);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(257, 12);
+            this.label10.TabIndex = 1;
+            this.label10.Text = "1)\t本测试要求你对电脑呈现图形进行快速判断。";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("黑体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label9.Location = new System.Drawing.Point(258, 20);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(72, 16);
+            this.label9.TabIndex = 0;
+            this.label9.Text = "操作指南";
             // 
             // Continue1
             // 
@@ -296,13 +418,13 @@
             this.panel5.Controls.Add(this.Continue3);
             this.panel5.Location = new System.Drawing.Point(0, 28);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(784, 543);
+            this.panel5.Size = new System.Drawing.Size(784, 531);
             this.panel5.TabIndex = 1;
             // 
             // Continue3
             // 
             this.Continue3.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.Continue3.Location = new System.Drawing.Point(343, 517);
+            this.Continue3.Location = new System.Drawing.Point(343, 505);
             this.Continue3.Name = "Continue3";
             this.Continue3.Size = new System.Drawing.Size(75, 23);
             this.Continue3.TabIndex = 0;
@@ -319,7 +441,7 @@
             this.panel6.Controls.Add(this.label8);
             this.panel6.Location = new System.Drawing.Point(0, 28);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(784, 534);
+            this.panel6.Size = new System.Drawing.Size(784, 531);
             this.panel6.TabIndex = 1;
             // 
             // label8
@@ -348,7 +470,7 @@
             // skip
             // 
             this.skip.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.skip.Location = new System.Drawing.Point(347, 504);
+            this.skip.Location = new System.Drawing.Point(424, 498);
             this.skip.Name = "skip";
             this.skip.Size = new System.Drawing.Size(75, 23);
             this.skip.TabIndex = 1;
@@ -359,7 +481,7 @@
             // Submit2
             // 
             this.Submit2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.Submit2.Location = new System.Drawing.Point(219, 504);
+            this.Submit2.Location = new System.Drawing.Point(277, 498);
             this.Submit2.Name = "Submit2";
             this.Submit2.Size = new System.Drawing.Size(75, 23);
             this.Submit2.TabIndex = 0;
@@ -421,13 +543,13 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(784, 561);
             this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.panel5);
+            this.Controls.Add(this.panel7);
+            this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel8);
-            this.Controls.Add(this.panel7);
-            this.Controls.Add(this.panel6);
-            this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
@@ -436,6 +558,10 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            this.panel9.ResumeLayout(false);
+            this.panel9.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
@@ -482,6 +608,17 @@
         private System.Windows.Forms.ToolStripMenuItem 设置ToolStripMenuItem;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Button ship2;
+        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label13;
     }
 }
 

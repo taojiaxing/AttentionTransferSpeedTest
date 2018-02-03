@@ -175,21 +175,34 @@ namespace AttentionTransferSpeedTest
 
         private void Submit_Click(object sender, EventArgs e)
         {
+            pictureBox1.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/ep.png");
+            s.Stop();
+            s.SoundLocation = "resources/music/OperationGuide_music.wav";
+            s.Play();
             PanelIsDisplay(3);
         }
 
         private void Continue1_Click(object sender, EventArgs e)
         {
+            s.Stop();
+            s.SoundLocation = "resources/music/Continue1_music.wav";
+            s.Play();
             PanelIsDisplay(4);
         }
 
         private void Continue2_Click(object sender, EventArgs e)
         {
+            s.Stop();
+            s.SoundLocation = "resources/music/Continue2_music.wav";
+            s.Play();
             PanelIsDisplay(5);
         }
 
         private void Continue3_Click(object sender, EventArgs e)
         {
+            s.Stop();
+            s.SoundLocation = "resources/music/finish_music.wav";
+            s.Play();
             PanelIsDisplay(6);
         }
 
@@ -199,6 +212,7 @@ namespace AttentionTransferSpeedTest
 
         private void skip_Click(object sender, EventArgs e)
         {
+
         }
 
         private void start_Click_1(object sender, EventArgs e)
@@ -243,7 +257,10 @@ namespace AttentionTransferSpeedTest
             t1.Abort();
             t2.Abort();
             s.Stop();
+            s.SoundLocation = "resources/music/info_music.wav";
+            s.Play();
             PanelIsDisplay(2);
         }
+
     }
 }
