@@ -10,7 +10,7 @@ namespace AttentionTransferSpeedTest
         private int X;
         private int Y;
         private AutoSizeFormClass asc = new AutoSizeFormClass();
-        System.Media.SoundPlayer s = new System.Media.SoundPlayer("resoures/music/start_music.wav");
+        System.Media.SoundPlayer s = new System.Media.SoundPlayer("resources/music/start_music.wav");
         private void PanelIsDisplay(int p)
         {
             panel1.Visible = false;
@@ -191,7 +191,7 @@ namespace AttentionTransferSpeedTest
         {
             PanelIsDisplay(2);
             s.Stop();
-            s.SoundLocation = "resoures/music/info_music.wav";
+            s.SoundLocation = "resources/music/info_music.wav";
             s.Play();
         }
     }
