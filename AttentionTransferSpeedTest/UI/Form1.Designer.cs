@@ -30,8 +30,6 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.start = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.Submit = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -113,49 +111,25 @@
             // 
             // panel1
             // 
-            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.panel1.AutoSize = true;
             this.panel1.Controls.Add(this.start);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(200, 28);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(784, 533);
+            this.panel1.Size = new System.Drawing.Size(1184, 761);
             this.panel1.TabIndex = 0;
             // 
             // start
             // 
             this.start.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.start.Font = new System.Drawing.Font("黑体", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.start.Location = new System.Drawing.Point(291, 351);
+            this.start.Location = new System.Drawing.Point(491, 579);
             this.start.Name = "start";
             this.start.Size = new System.Drawing.Size(175, 63);
             this.start.TabIndex = 5;
             this.start.Text = "【点击开始】";
             this.start.UseVisualStyleBackColor = true;
             this.start.Click += new System.EventHandler(this.start_Click_1);
-            // 
-            // label2
-            // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("黑体", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label2.Location = new System.Drawing.Point(221, 237);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(292, 29);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "“第三脑”潜能科技";
-            // 
-            // label1
-            // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("黑体", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.Location = new System.Drawing.Point(175, 123);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(411, 33);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "大脑空间注意转移速度检测";
             // 
             // panel2
             // 
@@ -722,7 +696,6 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
@@ -761,8 +734,6 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button start;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button Submit;
         private System.Windows.Forms.ComboBox comboBox1;

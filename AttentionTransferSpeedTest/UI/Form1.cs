@@ -81,7 +81,8 @@ namespace AttentionTransferSpeedTest
             InitializeComponent();
             PanelIsDisplay(1);
             s.Play();
-            //this.Load += new EventHandler(Form1_Load);
+            panel1.BackgroundImage = Image.FromFile(Application.StartupPath + @"/resources/photos/main.jpg");
+            panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
         }
 
         private void setControls(float newx, float newy, Control cons)
@@ -163,14 +164,6 @@ namespace AttentionTransferSpeedTest
 
             start.Left = (this.Width - start.Width) / 2;
 
-            label1.Left = (this.Width - label1.Width) / 2;
-            label2.Left = (this.Width - label2.Width) / 2;
-
-            label1.Top = Convert.ToInt32(this.Top + this.Height * 0.2);
-
-            label2.Top = Convert.ToInt32(label2.Top + 10);
-
-            start.Top = Convert.ToInt32(label2.Top + this.Height * 0.2);
         }
 
         private void Submit_Click(object sender, EventArgs e)
