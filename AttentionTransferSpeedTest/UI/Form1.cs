@@ -181,11 +181,77 @@ namespace AttentionTransferSpeedTest
             s.Play();
             PanelIsDisplay(3);
         }
+            private int randomPoint()
+        {
+            Random rd = new Random();
+            int x = rd.Next(1, 12);
+            return x;
+        }
+        private static int[] RandArray(int[] arr)
+        {
+            int[] newarr = new int[arr.Length];
+            int k = 0;
+            while (k < arr.Length)
+            {
+                int temp = new Random().Next(0, arr.Length);
+                if (arr[temp] != 0)
+                {
+                    newarr[k] = arr[temp];
+                    k++;
+                    arr[temp] = 0;
+                }
+            }
+            for (int i = 0; i < arr.Length; i++)
+            {
+                Console.WriteLine(newarr[i]);
+            }
+            return newarr;
+        }
+        private void test()
+        {
+            t2 = new Thread(() => {
+                for (int i = 0; i < 10000; i++)
+                {
+                    for (int j = 1; j < 7; j++)
+                    {
+                        Invoke(new Action(() =>
+                        {
+                            for (int k = 0; k < 12; k++)
+                            {
+                                int[] arr = { 1, 1, 1, 2, 2, 2, 3, 3, 3, 5, 5, 5 };
+                                int[] arr1 = RandArray(arr);
+                                pictureBox14.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/p" + randomPoint() + ".png");
+                                pictureBox2.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + arr1[0] + ".png");
+                                pictureBox3.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + arr1[1] + ".png");
+                                pictureBox4.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + arr1[2] + ".png");
+                                pictureBox5.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + arr1[3]+ ".png");
+                                pictureBox6.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + arr1[4] + ".png");
+                                pictureBox7.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + arr1[5] + ".png");
+                                pictureBox8.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + arr1[6] + ".png");
+                                pictureBox9.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + arr1[7] + ".png");
+                                pictureBox10.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + arr1[8] + ".png");
+                                pictureBox11.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + arr1[9] + ".png");
+                                pictureBox12.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + arr1[10] + ".png");
+                                pictureBox13.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + arr1[11] + ".png");
+                            }
+                        }));
 
+                        Thread.Sleep(3000);
+                        t2.Abort();
+                    }
+                }
+            });
+            t2.IsBackground = true;
+            t2.Start();
+            
+        }
         private void Continue1_Click(object sender, EventArgs e)
         {
             s.Stop();
             s.SoundLocation = "resources/music/Continue1_music.wav";
+            panel4.BackColor = Color.FromArgb(220, 220, 220);
+            panel10.BackColor = Color.FromArgb(220, 220, 220);
+            test();
             s.Play();
             PanelIsDisplay(4);
         }
