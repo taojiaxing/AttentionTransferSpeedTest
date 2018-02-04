@@ -1,4 +1,5 @@
 ﻿using AttentionTransferSpeedTest;
+using AttentionTransferSpeedTest.DAL.DBO;
 using System;
 using System.Drawing;
 using System.Threading;
@@ -14,7 +15,16 @@ namespace AttentionTransferSpeedTest
         private System.Media.SoundPlayer s = new System.Media.SoundPlayer("resources/music/start_music.wav");
         private Thread t1;
         private Thread t2;
-       
+        private User GetUerInfo()
+        {
+            User user = new User();
+            user.Name = textBox1.Text;
+            user.Age = Convert.ToInt32(textBox2.Text);
+            user.Tel = Convert.ToInt32(textBox3.Text);
+            user.Sex = comboBox1.Text;
+            user.Time = textBox4.Text + "年" + textBox5.Text + "月" + textBox6.Text + "日";
+            return user;
+        }
         private void PanelIsDisplay(int p)
         {
             panel1.Visible = false;
@@ -207,12 +217,20 @@ namespace AttentionTransferSpeedTest
                 {
                     for (int j = 1; j < 7; j++)
                     {
+                        int[] arr = { 1, 1, 1, 2, 2, 2, 3, 3, 3, 5, 5, 5 };
+                        int[] arr1 = arr;
+                        Thread t3 = new Thread(() =>
+                        {
+                            Invoke(new Action(() => { 
+                                arr1 = RandArray(arr);
+                            }));
+            
+                        });
+                        t3.Start();
                         Invoke(new Action(() =>
                         {
                             for (int k = 0; k < 12; k++)
                             {
-                                int[] arr = { 1, 1, 1, 2, 2, 2, 3, 3, 3, 5, 5, 5 };
-                                int[] arr1 = RandArray(arr);
                                 pictureBox14.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/p" + randomPoint() + ".png");
                                 pictureBox2.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + arr1[0] + ".png");
                                 pictureBox3.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + arr1[1] + ".png");
@@ -228,9 +246,9 @@ namespace AttentionTransferSpeedTest
                                 pictureBox13.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + arr1[11] + ".png");
                             }
                         }));
+                        t3.Abort();
+                        Thread.Sleep(500);
 
-                        Thread.Sleep(3000);
-                        t2.Abort();
                     }
                 }
             });
@@ -262,7 +280,7 @@ namespace AttentionTransferSpeedTest
             s.Stop();
             s.SoundLocation = "resources/music/finish_music.wav";
             s.Play();
-            PanelIsDisplay(6);
+            PanelIsDisplay(7);
         }
 
         private void Submit2_Click(object sender, EventArgs e)
@@ -303,7 +321,7 @@ namespace AttentionTransferSpeedTest
                             panel8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
                         }));
                         
-                        Thread.Sleep(3000);
+                        Thread.Sleep(5000);
                     }
                 }
             });
