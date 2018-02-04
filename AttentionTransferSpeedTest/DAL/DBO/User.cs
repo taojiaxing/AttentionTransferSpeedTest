@@ -1,6 +1,6 @@
 ﻿namespace AttentionTransferSpeedTest.DAL.DBO
 {
-    class User
+    internal class User
     {
         public int ID { get; set; }
         public string Name { get; set; }

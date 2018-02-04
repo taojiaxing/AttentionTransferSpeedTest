@@ -15,6 +15,7 @@ namespace AttentionTransferSpeedTest
         private System.Media.SoundPlayer s = new System.Media.SoundPlayer("resources/music/start_music.wav");
         private Thread t1;
         private Thread t2;
+
         private User GetUerInfo()
         {
             User user = new User();
@@ -25,6 +26,7 @@ namespace AttentionTransferSpeedTest
             user.Time = textBox4.Text + "年" + textBox5.Text + "月" + textBox6.Text + "日";
             return user;
         }
+
         private void PanelIsDisplay(int p)
         {
             panel1.Visible = false;
@@ -78,6 +80,7 @@ namespace AttentionTransferSpeedTest
                         panel7.Visible = true;
                     }
                     break;
+
                 case 8:
                     {
                         panel8.Visible = true;
@@ -173,7 +176,6 @@ namespace AttentionTransferSpeedTest
             this.Text = this.Width.ToString() + " " + this.Height.ToString();//窗体标题栏文本
 
             start.Left = (this.Width - start.Width) / 2;
-
         }
 
         private void Submit_Click(object sender, EventArgs e)
@@ -184,12 +186,14 @@ namespace AttentionTransferSpeedTest
             s.Play();
             PanelIsDisplay(3);
         }
+
             private int randomPoint()
         {
             Random rd = new Random();
             int x = rd.Next(1, 12);
             return x;
         }
+
         private static int[] RandArray(int[] arr)
         {
             int[] newarr = new int[arr.Length];
@@ -210,6 +214,7 @@ namespace AttentionTransferSpeedTest
             }
             return newarr;
         }
+
         private void test()
         {
             t2 = new Thread(() => {
@@ -221,10 +226,9 @@ namespace AttentionTransferSpeedTest
                         int[] arr1 = arr;
                         Thread t3 = new Thread(() =>
                         {
-                            Invoke(new Action(() => { 
+                            Invoke(new Action(() => {
                                 arr1 = RandArray(arr);
                             }));
-            
                         });
                         t3.Start();
                         Invoke(new Action(() =>
@@ -248,14 +252,13 @@ namespace AttentionTransferSpeedTest
                         }));
                         t3.Abort();
                         Thread.Sleep(500);
-
                     }
                 }
             });
             t2.IsBackground = true;
             t2.Start();
-            
         }
+
         private void Continue1_Click(object sender, EventArgs e)
         {
             s.Stop();
@@ -289,7 +292,6 @@ namespace AttentionTransferSpeedTest
 
         private void skip_Click(object sender, EventArgs e)
         {
-
         }
 
         private void start_Click_1(object sender, EventArgs e)
@@ -310,7 +312,6 @@ namespace AttentionTransferSpeedTest
             t1.IsBackground = true;
             t1.Start();
             t2 = new Thread(()=> {
-                
                 for (int i = 0; i < 10000; i++)
                 {
                     for(int j = 1; j < 7; j++)
@@ -320,7 +321,7 @@ namespace AttentionTransferSpeedTest
                             panel8.BackgroundImage = Image.FromFile(Application.StartupPath + @"/resources/photos/bg" + j + ".jpg");
                             panel8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
                         }));
-                        
+
                         Thread.Sleep(5000);
                     }
                 }
@@ -338,6 +339,5 @@ namespace AttentionTransferSpeedTest
             s.Play();
             PanelIsDisplay(2);
         }
-
     }
 }

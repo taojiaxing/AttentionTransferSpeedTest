@@ -1,15 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data.SQLite;
-using System.IO;
-using System.Linq;
-using System.Text;
 
 namespace AttentionTransferSpeedTest.DAL.Gateway
 {
-    class BaseGateway
+    internal class BaseGateway
     {
-
         /// <summary>
         /// 数据库连接定义
         /// </summary>
@@ -41,6 +36,7 @@ namespace AttentionTransferSpeedTest.DAL.Gateway
                 Log(e.ToString());
             }
         }
+
         /// <summary>
         /// 执行SQL命令
         /// </summary>
@@ -61,6 +57,7 @@ namespace AttentionTransferSpeedTest.DAL.Gateway
 
             return dataReader;
         }
+
         /// <summary>
         /// 关闭数据库连接
         /// </summary>
@@ -84,7 +81,6 @@ namespace AttentionTransferSpeedTest.DAL.Gateway
                 dbConnection.Close();
             }
             dbConnection = null;
-
         }
 
         /// <summary>
@@ -97,7 +93,6 @@ namespace AttentionTransferSpeedTest.DAL.Gateway
             string queryString = "SELECT * FROM " + tableName;
             return ExecuteQuery(queryString);
         }
-
 
         /// <summary>
         /// 向指定数据表中插入数据
@@ -197,7 +192,6 @@ namespace AttentionTransferSpeedTest.DAL.Gateway
             return ExecuteQuery(queryString);
         }
 
-
         /// <summary>
         /// 创建数据表
         /// </summary> +
@@ -244,7 +238,7 @@ namespace AttentionTransferSpeedTest.DAL.Gateway
         /// 本类log
         /// </summary>
         /// <param name="s"></param>
-        static void Log(string s)
+        private static void Log(string s)
         {
             Console.WriteLine("class SqLiteHelper:::" + s);
         }

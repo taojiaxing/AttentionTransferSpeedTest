@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
 
 namespace AttentionTransferSpeedTest.SYS
 {
-    class AtsTest
+    internal class AtsTest
     {
         private int randomPicture()
         {
@@ -18,6 +14,7 @@ namespace AttentionTransferSpeedTest.SYS
             }
             return x;
         }
+
         private int randomPoint()
         {
             Random rd = new Random();

@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-
-namespace AttentionTransferSpeedTest.DAL.Gateway
+﻿namespace AttentionTransferSpeedTest.DAL.Gateway
 {
-    class UserGateway
+    internal class UserGateway
     {
         private static BaseGateway sql;
-        
     }
 }

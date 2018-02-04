@@ -1,6 +1,6 @@
 ﻿namespace AttentionTransferSpeedTest.DAL.DBO
 {
-    class Questionnaire
+    internal class Questionnaire
     {
         public int ID { get; set; }
         public string psychiatricHistory { get; set; }
