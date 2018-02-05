@@ -1,5 +1,4 @@
-﻿using AttentionTransferSpeedTest;
-using AttentionTransferSpeedTest.DAL.DBO;
+﻿using AttentionTransferSpeedTest.DAL.DBO;
 using System;
 using System.Drawing;
 using System.Threading;
@@ -92,7 +91,7 @@ namespace AttentionTransferSpeedTest
         public Form1()
         {
             InitializeComponent();
-            PanelIsDisplay(1);
+            PanelIsDisplay(3);
             s.Play();
             panel1.BackgroundImage = Image.FromFile(Application.StartupPath + @"/resources/photos/main.jpg");
             panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -187,7 +186,7 @@ namespace AttentionTransferSpeedTest
             PanelIsDisplay(3);
         }
 
-            private int randomPoint()
+        private int randomPoint()
         {
             Random rd = new Random();
             int x = rd.Next(1, 12);
@@ -217,43 +216,28 @@ namespace AttentionTransferSpeedTest
 
         private void test()
         {
-            t2 = new Thread(() => {
-                for (int i = 0; i < 10000; i++)
+            int[] arr = { 1, 1, 1, 2, 2, 2, 3, 3, 3, 5, 5, 5 };
+            int[] arr1 = RandArray(arr);
+            t2 = new Thread(() =>
+            {
+                Invoke(new Action(() =>
                 {
-                    for (int j = 1; j < 7; j++)
-                    {
-                        int[] arr = { 1, 1, 1, 2, 2, 2, 3, 3, 3, 5, 5, 5 };
-                        int[] arr1 = arr;
-                        Thread t3 = new Thread(() =>
-                        {
-                            Invoke(new Action(() => {
-                                arr1 = RandArray(arr);
-                            }));
-                        });
-                        t3.Start();
-                        Invoke(new Action(() =>
-                        {
-                            for (int k = 0; k < 12; k++)
-                            {
-                                pictureBox14.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/p" + randomPoint() + ".png");
-                                pictureBox2.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + arr1[0] + ".png");
-                                pictureBox3.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + arr1[1] + ".png");
-                                pictureBox4.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + arr1[2] + ".png");
-                                pictureBox5.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + arr1[3]+ ".png");
-                                pictureBox6.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + arr1[4] + ".png");
-                                pictureBox7.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + arr1[5] + ".png");
-                                pictureBox8.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + arr1[6] + ".png");
-                                pictureBox9.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + arr1[7] + ".png");
-                                pictureBox10.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + arr1[8] + ".png");
-                                pictureBox11.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + arr1[9] + ".png");
-                                pictureBox12.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + arr1[10] + ".png");
-                                pictureBox13.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + arr1[11] + ".png");
-                            }
-                        }));
-                        t3.Abort();
-                        Thread.Sleep(500);
-                    }
-                }
+                    
+                        pictureBox14.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/p" + randomPoint() + ".png");
+                        pictureBox2.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + arr1[0] + ".png");
+                        pictureBox3.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + arr1[1] + ".png");
+                        pictureBox4.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + arr1[2] + ".png");
+                        pictureBox5.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + arr1[3] + ".png");
+                        pictureBox6.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + arr1[4] + ".png");
+                        pictureBox7.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + arr1[5] + ".png");
+                        pictureBox8.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + arr1[6] + ".png");
+                        pictureBox9.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + arr1[7] + ".png");
+                        pictureBox10.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + arr1[8] + ".png");
+                        pictureBox11.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + arr1[9] + ".png");
+                        pictureBox12.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + arr1[10] + ".png");
+                        pictureBox13.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + arr1[11] + ".png");
+       
+                }));
             });
             t2.IsBackground = true;
             t2.Start();
@@ -265,9 +249,17 @@ namespace AttentionTransferSpeedTest
             s.SoundLocation = "resources/music/Continue1_music.wav";
             panel4.BackColor = Color.FromArgb(220, 220, 220);
             panel10.BackColor = Color.FromArgb(220, 220, 220);
-            test();
-            s.Play();
             PanelIsDisplay(4);
+            Thread t4 = new Thread(() => {
+                for(int i = 0; i < 5; i++)
+                {
+                    test();
+                    Thread.Sleep(1000);
+                }
+            });
+            t4.Start();
+            s.Play();
+            
         }
 
         private void Continue2_Click(object sender, EventArgs e)
@@ -311,10 +303,11 @@ namespace AttentionTransferSpeedTest
             });
             t1.IsBackground = true;
             t1.Start();
-            t2 = new Thread(()=> {
+            t2 = new Thread(() =>
+            {
                 for (int i = 0; i < 10000; i++)
                 {
-                    for(int j = 1; j < 7; j++)
+                    for (int j = 1; j < 7; j++)
                     {
                         Invoke(new Action(() =>
                         {
