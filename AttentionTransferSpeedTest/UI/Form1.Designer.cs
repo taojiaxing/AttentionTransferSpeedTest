@@ -82,6 +82,27 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.label31 = new System.Windows.Forms.Label();
+            this.checkedListBox6 = new System.Windows.Forms.CheckedListBox();
+            this.checkedListBox5 = new System.Windows.Forms.CheckedListBox();
+            this.checkedListBox4 = new System.Windows.Forms.CheckedListBox();
+            this.checkedListBox3 = new System.Windows.Forms.CheckedListBox();
+            this.checkedListBox2 = new System.Windows.Forms.CheckedListBox();
+            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
+            this.label30 = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
             this.skip = new System.Windows.Forms.Button();
             this.Submit2 = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -89,27 +110,6 @@
             this.设置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel8 = new System.Windows.Forms.Panel();
             this.ship2 = new System.Windows.Forms.Button();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
-            this.label28 = new System.Windows.Forms.Label();
-            this.label29 = new System.Windows.Forms.Label();
-            this.label30 = new System.Windows.Forms.Label();
-            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
-            this.checkedListBox2 = new System.Windows.Forms.CheckedListBox();
-            this.checkedListBox3 = new System.Windows.Forms.CheckedListBox();
-            this.checkedListBox4 = new System.Windows.Forms.CheckedListBox();
-            this.checkedListBox5 = new System.Windows.Forms.CheckedListBox();
-            this.checkedListBox6 = new System.Windows.Forms.CheckedListBox();
-            this.label31 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -365,7 +365,7 @@
             this.panel3.Controls.Add(this.Continue1);
             this.panel3.Location = new System.Drawing.Point(0, 28);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1184, 731);
+            this.panel3.Size = new System.Drawing.Size(1184, 761);
             this.panel3.TabIndex = 20;
             // 
             // panel9
@@ -382,7 +382,7 @@
             this.panel9.Controls.Add(this.label11);
             this.panel9.Controls.Add(this.label10);
             this.panel9.Controls.Add(this.label9);
-            this.panel9.Location = new System.Drawing.Point(288, 16);
+            this.panel9.Location = new System.Drawing.Point(285, 56);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(604, 451);
             this.panel9.TabIndex = 1;
@@ -481,7 +481,7 @@
             // Continue1
             // 
             this.Continue1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.Continue1.Location = new System.Drawing.Point(558, 688);
+            this.Continue1.Location = new System.Drawing.Point(556, 688);
             this.Continue1.Name = "Continue1";
             this.Continue1.Size = new System.Drawing.Size(75, 23);
             this.Continue1.TabIndex = 0;
@@ -496,9 +496,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel4.Controls.Add(this.panel10);
             this.panel4.Controls.Add(this.Continue2);
-            this.panel4.Location = new System.Drawing.Point(0, 28);
+            this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1184, 733);
+            this.panel4.Size = new System.Drawing.Size(1184, 761);
             this.panel4.TabIndex = 1;
             // 
             // panel10
@@ -525,7 +525,7 @@
             // 
             // pictureBox14
             // 
-            this.pictureBox14.Location = new System.Drawing.Point(266, 247);
+            this.pictureBox14.Location = new System.Drawing.Point(260, 260);
             this.pictureBox14.Name = "pictureBox14";
             this.pictureBox14.Size = new System.Drawing.Size(80, 80);
             this.pictureBox14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -534,7 +534,7 @@
             // 
             // pictureBox13
             // 
-            this.pictureBox13.Location = new System.Drawing.Point(151, 40);
+            this.pictureBox13.Location = new System.Drawing.Point(135, 43);
             this.pictureBox13.Name = "pictureBox13";
             this.pictureBox13.Size = new System.Drawing.Size(80, 80);
             this.pictureBox13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -543,7 +543,7 @@
             // 
             // pictureBox12
             // 
-            this.pictureBox12.Location = new System.Drawing.Point(56, 133);
+            this.pictureBox12.Location = new System.Drawing.Point(43, 135);
             this.pictureBox12.Name = "pictureBox12";
             this.pictureBox12.Size = new System.Drawing.Size(80, 80);
             this.pictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -552,7 +552,7 @@
             // 
             // pictureBox11
             // 
-            this.pictureBox11.Location = new System.Drawing.Point(0, 247);
+            this.pictureBox11.Location = new System.Drawing.Point(10, 260);
             this.pictureBox11.Name = "pictureBox11";
             this.pictureBox11.Size = new System.Drawing.Size(80, 80);
             this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -561,7 +561,7 @@
             // 
             // pictureBox10
             // 
-            this.pictureBox10.Location = new System.Drawing.Point(56, 366);
+            this.pictureBox10.Location = new System.Drawing.Point(43, 385);
             this.pictureBox10.Name = "pictureBox10";
             this.pictureBox10.Size = new System.Drawing.Size(80, 80);
             this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -570,7 +570,7 @@
             // 
             // pictureBox9
             // 
-            this.pictureBox9.Location = new System.Drawing.Point(163, 449);
+            this.pictureBox9.Location = new System.Drawing.Point(135, 477);
             this.pictureBox9.Name = "pictureBox9";
             this.pictureBox9.Size = new System.Drawing.Size(80, 80);
             this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -579,7 +579,7 @@
             // 
             // pictureBox8
             // 
-            this.pictureBox8.Location = new System.Drawing.Point(266, 520);
+            this.pictureBox8.Location = new System.Drawing.Point(260, 510);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(80, 80);
             this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -588,7 +588,7 @@
             // 
             // pictureBox7
             // 
-            this.pictureBox7.Location = new System.Drawing.Point(369, 449);
+            this.pictureBox7.Location = new System.Drawing.Point(385, 477);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(80, 80);
             this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -597,7 +597,7 @@
             // 
             // pictureBox6
             // 
-            this.pictureBox6.Location = new System.Drawing.Point(468, 366);
+            this.pictureBox6.Location = new System.Drawing.Point(477, 385);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(80, 80);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -606,7 +606,7 @@
             // 
             // pictureBox5
             // 
-            this.pictureBox5.Location = new System.Drawing.Point(520, 247);
+            this.pictureBox5.Location = new System.Drawing.Point(510, 260);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(80, 80);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -615,7 +615,7 @@
             // 
             // pictureBox4
             // 
-            this.pictureBox4.Location = new System.Drawing.Point(468, 133);
+            this.pictureBox4.Location = new System.Drawing.Point(477, 135);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(80, 80);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -624,7 +624,7 @@
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Location = new System.Drawing.Point(369, 40);
+            this.pictureBox3.Location = new System.Drawing.Point(385, 43);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(80, 80);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -633,7 +633,7 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(266, 0);
+            this.pictureBox2.Location = new System.Drawing.Point(260, 10);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(80, 80);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -643,7 +643,7 @@
             // Continue2
             // 
             this.Continue2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.Continue2.Location = new System.Drawing.Point(548, 672);
+            this.Continue2.Location = new System.Drawing.Point(548, 700);
             this.Continue2.Name = "Continue2";
             this.Continue2.Size = new System.Drawing.Size(75, 23);
             this.Continue2.TabIndex = 0;
@@ -730,6 +730,239 @@
             this.panel7.Size = new System.Drawing.Size(1184, 762);
             this.panel7.TabIndex = 1;
             // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(511, 461);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(312, 125);
+            this.richTextBox1.TabIndex = 32;
+            this.richTextBox1.Text = "";
+            // 
+            // textBox8
+            // 
+            this.textBox8.Location = new System.Drawing.Point(691, 423);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.Size = new System.Drawing.Size(32, 21);
+            this.textBox8.TabIndex = 31;
+            // 
+            // textBox7
+            // 
+            this.textBox7.Location = new System.Drawing.Point(511, 422);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(35, 21);
+            this.textBox7.TabIndex = 30;
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Font = new System.Drawing.Font("黑体", 15F);
+            this.label31.Location = new System.Drawing.Point(552, 422);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(29, 20);
+            this.label31.TabIndex = 29;
+            this.label31.Text = "年";
+            // 
+            // checkedListBox6
+            // 
+            this.checkedListBox6.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.checkedListBox6.Font = new System.Drawing.Font("黑体", 15F);
+            this.checkedListBox6.FormattingEnabled = true;
+            this.checkedListBox6.Items.AddRange(new object[] {
+            "从不",
+            "偶尔",
+            "经常"});
+            this.checkedListBox6.Location = new System.Drawing.Point(512, 372);
+            this.checkedListBox6.MultiColumn = true;
+            this.checkedListBox6.Name = "checkedListBox6";
+            this.checkedListBox6.Size = new System.Drawing.Size(369, 29);
+            this.checkedListBox6.TabIndex = 28;
+            // 
+            // checkedListBox5
+            // 
+            this.checkedListBox5.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.checkedListBox5.Font = new System.Drawing.Font("黑体", 15F);
+            this.checkedListBox5.FormattingEnabled = true;
+            this.checkedListBox5.Items.AddRange(new object[] {
+            "从不打",
+            "偶尔打",
+            "经常打"});
+            this.checkedListBox5.Location = new System.Drawing.Point(512, 337);
+            this.checkedListBox5.MultiColumn = true;
+            this.checkedListBox5.Name = "checkedListBox5";
+            this.checkedListBox5.Size = new System.Drawing.Size(369, 29);
+            this.checkedListBox5.TabIndex = 27;
+            // 
+            // checkedListBox4
+            // 
+            this.checkedListBox4.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.checkedListBox4.Font = new System.Drawing.Font("黑体", 15F);
+            this.checkedListBox4.FormattingEnabled = true;
+            this.checkedListBox4.Items.AddRange(new object[] {
+            "很差",
+            "一般",
+            "总是很好"});
+            this.checkedListBox4.Location = new System.Drawing.Point(512, 302);
+            this.checkedListBox4.MultiColumn = true;
+            this.checkedListBox4.Name = "checkedListBox4";
+            this.checkedListBox4.Size = new System.Drawing.Size(369, 29);
+            this.checkedListBox4.TabIndex = 26;
+            // 
+            // checkedListBox3
+            // 
+            this.checkedListBox3.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.checkedListBox3.Font = new System.Drawing.Font("黑体", 15F);
+            this.checkedListBox3.FormattingEnabled = true;
+            this.checkedListBox3.Items.AddRange(new object[] {
+            "从不",
+            "偶尔",
+            "经常",
+            "总是"});
+            this.checkedListBox3.Location = new System.Drawing.Point(512, 267);
+            this.checkedListBox3.MultiColumn = true;
+            this.checkedListBox3.Name = "checkedListBox3";
+            this.checkedListBox3.Size = new System.Drawing.Size(488, 29);
+            this.checkedListBox3.TabIndex = 25;
+            // 
+            // checkedListBox2
+            // 
+            this.checkedListBox2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.checkedListBox2.Font = new System.Drawing.Font("黑体", 15F);
+            this.checkedListBox2.FormattingEnabled = true;
+            this.checkedListBox2.Items.AddRange(new object[] {
+            "从不",
+            "偶尔",
+            "常喝",
+            "常醉"});
+            this.checkedListBox2.Location = new System.Drawing.Point(512, 232);
+            this.checkedListBox2.MultiColumn = true;
+            this.checkedListBox2.Name = "checkedListBox2";
+            this.checkedListBox2.Size = new System.Drawing.Size(488, 29);
+            this.checkedListBox2.TabIndex = 24;
+            // 
+            // checkedListBox1
+            // 
+            this.checkedListBox1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.checkedListBox1.Font = new System.Drawing.Font("黑体", 15F);
+            this.checkedListBox1.FormattingEnabled = true;
+            this.checkedListBox1.Items.AddRange(new object[] {
+            "无",
+            "有"});
+            this.checkedListBox1.Location = new System.Drawing.Point(512, 197);
+            this.checkedListBox1.MultiColumn = true;
+            this.checkedListBox1.Name = "checkedListBox1";
+            this.checkedListBox1.Size = new System.Drawing.Size(250, 29);
+            this.checkedListBox1.TabIndex = 23;
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Font = new System.Drawing.Font("黑体", 15F);
+            this.label30.Location = new System.Drawing.Point(724, 422);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(29, 20);
+            this.label30.TabIndex = 12;
+            this.label30.Text = "次";
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Font = new System.Drawing.Font("黑体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label29.Location = new System.Drawing.Point(344, 464);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(69, 20);
+            this.label29.TabIndex = 11;
+            this.label29.Text = "其他：";
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("黑体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label28.Location = new System.Drawing.Point(587, 422);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(109, 20);
+            this.label28.TabIndex = 10;
+            this.label28.Text = "车祸事故：";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("黑体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label27.Location = new System.Drawing.Point(344, 422);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(69, 20);
+            this.label27.TabIndex = 9;
+            this.label27.Text = "驾龄：";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("黑体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label26.Location = new System.Drawing.Point(344, 381);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(109, 20);
+            this.label26.TabIndex = 8;
+            this.label26.Text = "锻炼身体：";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("黑体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label25.Location = new System.Drawing.Point(346, 346);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(109, 20);
+            this.label25.TabIndex = 7;
+            this.label25.Text = "电子游戏：";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("黑体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label24.Location = new System.Drawing.Point(344, 311);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(109, 20);
+            this.label24.TabIndex = 6;
+            this.label24.Text = "心情状况：";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("黑体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label23.Location = new System.Drawing.Point(344, 276);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(109, 20);
+            this.label23.TabIndex = 5;
+            this.label23.Text = "失眠情况：";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("黑体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label22.Location = new System.Drawing.Point(344, 241);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(109, 20);
+            this.label22.TabIndex = 4;
+            this.label22.Text = "喝酒情况：";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("黑体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label21.Location = new System.Drawing.Point(344, 206);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(149, 20);
+            this.label21.TabIndex = 3;
+            this.label21.Text = "神经性疾病史：";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("黑体", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label20.Location = new System.Drawing.Point(483, 118);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(240, 21);
+            this.label20.TabIndex = 2;
+            this.label20.Text = "测试结束，请填写问卷";
+            // 
             // skip
             // 
             this.skip.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
@@ -798,239 +1031,6 @@
             this.ship2.UseVisualStyleBackColor = true;
             this.ship2.Click += new System.EventHandler(this.ship2_Click);
             // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("黑体", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label20.Location = new System.Drawing.Point(483, 118);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(240, 21);
-            this.label20.TabIndex = 2;
-            this.label20.Text = "测试结束，请填写问卷";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("黑体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label21.Location = new System.Drawing.Point(344, 206);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(149, 20);
-            this.label21.TabIndex = 3;
-            this.label21.Text = "神经性疾病史：";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("黑体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label22.Location = new System.Drawing.Point(344, 241);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(109, 20);
-            this.label22.TabIndex = 4;
-            this.label22.Text = "喝酒情况：";
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("黑体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label23.Location = new System.Drawing.Point(344, 276);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(109, 20);
-            this.label23.TabIndex = 5;
-            this.label23.Text = "失眠情况：";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("黑体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label24.Location = new System.Drawing.Point(344, 311);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(109, 20);
-            this.label24.TabIndex = 6;
-            this.label24.Text = "心情状况：";
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Font = new System.Drawing.Font("黑体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label25.Location = new System.Drawing.Point(346, 346);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(109, 20);
-            this.label25.TabIndex = 7;
-            this.label25.Text = "电子游戏：";
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Font = new System.Drawing.Font("黑体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label26.Location = new System.Drawing.Point(344, 381);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(109, 20);
-            this.label26.TabIndex = 8;
-            this.label26.Text = "锻炼身体：";
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Font = new System.Drawing.Font("黑体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label27.Location = new System.Drawing.Point(344, 422);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(69, 20);
-            this.label27.TabIndex = 9;
-            this.label27.Text = "驾龄：";
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Font = new System.Drawing.Font("黑体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label28.Location = new System.Drawing.Point(587, 422);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(109, 20);
-            this.label28.TabIndex = 10;
-            this.label28.Text = "车祸事故：";
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Font = new System.Drawing.Font("黑体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label29.Location = new System.Drawing.Point(344, 464);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(69, 20);
-            this.label29.TabIndex = 11;
-            this.label29.Text = "其他：";
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.Font = new System.Drawing.Font("黑体", 15F);
-            this.label30.Location = new System.Drawing.Point(724, 422);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(29, 20);
-            this.label30.TabIndex = 12;
-            this.label30.Text = "次";
-            // 
-            // checkedListBox1
-            // 
-            this.checkedListBox1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.checkedListBox1.Font = new System.Drawing.Font("黑体", 15F);
-            this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Items.AddRange(new object[] {
-            "无",
-            "有"});
-            this.checkedListBox1.Location = new System.Drawing.Point(512, 197);
-            this.checkedListBox1.MultiColumn = true;
-            this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(250, 29);
-            this.checkedListBox1.TabIndex = 23;
-            // 
-            // checkedListBox2
-            // 
-            this.checkedListBox2.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.checkedListBox2.Font = new System.Drawing.Font("黑体", 15F);
-            this.checkedListBox2.FormattingEnabled = true;
-            this.checkedListBox2.Items.AddRange(new object[] {
-            "从不",
-            "偶尔",
-            "常喝",
-            "常醉"});
-            this.checkedListBox2.Location = new System.Drawing.Point(512, 232);
-            this.checkedListBox2.MultiColumn = true;
-            this.checkedListBox2.Name = "checkedListBox2";
-            this.checkedListBox2.Size = new System.Drawing.Size(488, 29);
-            this.checkedListBox2.TabIndex = 24;
-            // 
-            // checkedListBox3
-            // 
-            this.checkedListBox3.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.checkedListBox3.Font = new System.Drawing.Font("黑体", 15F);
-            this.checkedListBox3.FormattingEnabled = true;
-            this.checkedListBox3.Items.AddRange(new object[] {
-            "从不",
-            "偶尔",
-            "经常",
-            "总是"});
-            this.checkedListBox3.Location = new System.Drawing.Point(512, 267);
-            this.checkedListBox3.MultiColumn = true;
-            this.checkedListBox3.Name = "checkedListBox3";
-            this.checkedListBox3.Size = new System.Drawing.Size(488, 29);
-            this.checkedListBox3.TabIndex = 25;
-            // 
-            // checkedListBox4
-            // 
-            this.checkedListBox4.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.checkedListBox4.Font = new System.Drawing.Font("黑体", 15F);
-            this.checkedListBox4.FormattingEnabled = true;
-            this.checkedListBox4.Items.AddRange(new object[] {
-            "很差",
-            "一般",
-            "总是很好"});
-            this.checkedListBox4.Location = new System.Drawing.Point(512, 302);
-            this.checkedListBox4.MultiColumn = true;
-            this.checkedListBox4.Name = "checkedListBox4";
-            this.checkedListBox4.Size = new System.Drawing.Size(369, 29);
-            this.checkedListBox4.TabIndex = 26;
-            // 
-            // checkedListBox5
-            // 
-            this.checkedListBox5.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.checkedListBox5.Font = new System.Drawing.Font("黑体", 15F);
-            this.checkedListBox5.FormattingEnabled = true;
-            this.checkedListBox5.Items.AddRange(new object[] {
-            "从不打",
-            "偶尔打",
-            "经常打"});
-            this.checkedListBox5.Location = new System.Drawing.Point(512, 337);
-            this.checkedListBox5.MultiColumn = true;
-            this.checkedListBox5.Name = "checkedListBox5";
-            this.checkedListBox5.Size = new System.Drawing.Size(369, 29);
-            this.checkedListBox5.TabIndex = 27;
-            // 
-            // checkedListBox6
-            // 
-            this.checkedListBox6.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.checkedListBox6.Font = new System.Drawing.Font("黑体", 15F);
-            this.checkedListBox6.FormattingEnabled = true;
-            this.checkedListBox6.Items.AddRange(new object[] {
-            "从不",
-            "偶尔",
-            "经常"});
-            this.checkedListBox6.Location = new System.Drawing.Point(512, 372);
-            this.checkedListBox6.MultiColumn = true;
-            this.checkedListBox6.Name = "checkedListBox6";
-            this.checkedListBox6.Size = new System.Drawing.Size(369, 29);
-            this.checkedListBox6.TabIndex = 28;
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Font = new System.Drawing.Font("黑体", 15F);
-            this.label31.Location = new System.Drawing.Point(552, 422);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(29, 20);
-            this.label31.TabIndex = 29;
-            this.label31.Text = "年";
-            // 
-            // textBox7
-            // 
-            this.textBox7.Location = new System.Drawing.Point(511, 422);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(35, 21);
-            this.textBox7.TabIndex = 30;
-            // 
-            // textBox8
-            // 
-            this.textBox8.Location = new System.Drawing.Point(691, 423);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(32, 21);
-            this.textBox8.TabIndex = 31;
-            // 
-            // richTextBox1
-            // 
-            this.richTextBox1.Location = new System.Drawing.Point(511, 461);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(312, 125);
-            this.richTextBox1.TabIndex = 32;
-            this.richTextBox1.Text = "";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1039,13 +1039,13 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1184, 761);
             this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.panel4);
+            this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel8);
-            this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel5);
-            this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
