@@ -14,6 +14,9 @@ namespace AttentionTransferSpeedTest
         private System.Media.SoundPlayer s = new System.Media.SoundPlayer("resources/music/start_music.wav");
         private Thread t1;
         private Thread t2;
+        private int[] Combination = new int[12];
+        private int Correct = 0;
+        private int Input = 0;
 
         private User GetUerInfo()
         {
@@ -214,6 +217,36 @@ namespace AttentionTransferSpeedTest
             return newarr;
         }
 
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.NumPad1:
+                    Input = 1;
+                    break;
+
+                case Keys.NumPad2:
+                    Input = 2;
+                    break;
+
+                case Keys.NumPad3:
+                    Input = 3;
+                    break;
+
+                case Keys.NumPad5:
+                    Input = 5;
+                    break;
+            }
+            if (Correct == Input)
+            {
+                pictureBox14.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/y.png");
+            }
+            else if (Input != 0)
+            {
+                pictureBox14.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/n.png");
+            }
+        }
+
         private void test()
         {
             int[] arr = { 1, 1, 1, 2, 2, 2, 3, 3, 3, 5, 5, 5 };
@@ -222,22 +255,29 @@ namespace AttentionTransferSpeedTest
             {
                 Invoke(new Action(() =>
                 {
+                    int p = randomPoint();
+                    pictureBox14.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/p" + p + ".png");
+                    pictureBox2.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + arr1[0] + ".png");
+                    pictureBox3.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + arr1[1] + ".png");
+                    pictureBox4.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + arr1[2] + ".png");
+                    pictureBox5.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + arr1[3] + ".png");
+                    pictureBox6.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + arr1[4] + ".png");
+                    pictureBox7.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + arr1[5] + ".png");
+                    pictureBox8.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + arr1[6] + ".png");
+                    pictureBox9.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + arr1[7] + ".png");
+                    pictureBox10.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + arr1[8] + ".png");
+                    pictureBox11.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + arr1[9] + ".png");
+                    pictureBox12.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + arr1[10] + ".png");
+                    pictureBox13.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + arr1[11] + ".png");
+                    for (int i = 0; i < 12; i++)
+                    {
+                        Combination[i] = arr1[i];
+                    }
+                    Correct = arr1[p - 1];
                     
-                        pictureBox14.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/p" + randomPoint() + ".png");
-                        pictureBox2.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + arr1[0] + ".png");
-                        pictureBox3.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + arr1[1] + ".png");
-                        pictureBox4.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + arr1[2] + ".png");
-                        pictureBox5.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + arr1[3] + ".png");
-                        pictureBox6.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + arr1[4] + ".png");
-                        pictureBox7.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + arr1[5] + ".png");
-                        pictureBox8.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + arr1[6] + ".png");
-                        pictureBox9.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + arr1[7] + ".png");
-                        pictureBox10.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + arr1[8] + ".png");
-                        pictureBox11.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + arr1[9] + ".png");
-                        pictureBox12.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + arr1[10] + ".png");
-                        pictureBox13.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + arr1[11] + ".png");
-       
+                   
                 }));
+                Input = 0;
             });
             t2.IsBackground = true;
             t2.Start();
@@ -250,16 +290,18 @@ namespace AttentionTransferSpeedTest
             panel4.BackColor = Color.FromArgb(220, 220, 220);
             panel10.BackColor = Color.FromArgb(220, 220, 220);
             PanelIsDisplay(4);
-            Thread t4 = new Thread(() => {
-                for(int i = 0; i < 5; i++)
+            Thread t4 = new Thread(() =>
+            {
+                for (int i = 0; i < 1000; i++)
                 {
                     test();
-                    Thread.Sleep(1000);
+
+                    Thread.Sleep(3000);
+                    t2.Abort();
                 }
             });
             t4.Start();
             s.Play();
-            
         }
 
         private void Continue2_Click(object sender, EventArgs e)
@@ -331,6 +373,11 @@ namespace AttentionTransferSpeedTest
             s.SoundLocation = "resources/music/info_music.wav";
             s.Play();
             PanelIsDisplay(2);
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            System.Environment.Exit(0);
         }
     }
 }
