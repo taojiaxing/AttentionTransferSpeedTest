@@ -110,6 +110,7 @@
             this.设置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel8 = new System.Windows.Forms.Panel();
             this.ship2 = new System.Windows.Forms.Button();
+            this.label32 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -505,6 +506,7 @@
             // 
             this.panel10.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.panel10.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.panel10.Controls.Add(this.label32);
             this.panel10.Controls.Add(this.pictureBox14);
             this.panel10.Controls.Add(this.pictureBox13);
             this.panel10.Controls.Add(this.pictureBox12);
@@ -1031,6 +1033,14 @@
             this.ship2.UseVisualStyleBackColor = true;
             this.ship2.Click += new System.EventHandler(this.ship2_Click);
             // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(258, 231);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(0, 12);
+            this.label32.TabIndex = 13;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1051,6 +1061,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
+            this.Load += new System.EventHandler(this.Form1_Load_1);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
@@ -1062,6 +1073,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel10.ResumeLayout(false);
+            this.panel10.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
@@ -1172,6 +1184,7 @@
         private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Label label32;
     }
 }
 

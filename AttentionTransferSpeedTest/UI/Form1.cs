@@ -17,6 +17,20 @@ namespace AttentionTransferSpeedTest
         private int[] Combination = new int[12];
         private int Correct = 0;
         private int Input = 0;
+        private int ISI = 0;
+        private int startTime;
+        private int endTime;
+        private Boolean isInput = false;
+        private int[] sameComnination = new int[12];
+
+        //定义全局变量
+        public int currentCount = 0;
+
+        //定义Timer类
+        private System.Timers.Timer timer;
+
+        //定义委托
+        public delegate void SetControlValue(string value);
 
         private User GetUerInfo()
         {
@@ -154,30 +168,9 @@ namespace AttentionTransferSpeedTest
             }
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-
+        private void SetTextBoxText(string strValue)
         {
-            this.Resize += new EventHandler(Form1_Resize);//窗体调整大小时引发事件
-
-            X = this.Width;//获取窗体的宽度
-
-            Y = this.Height;//获取窗体的高度
-
-            setTag(this);//调用方法
-        }
-
-        private void Form1_Resize(object sender, EventArgs e)
-
-        {
-            float newx = (this.Width) / X; //窗体宽度缩放比例
-
-            float newy = this.Height / Y;//窗体高度缩放比例
-
-            setControls(newx, newy, this);//随窗体改变控件大小
-
-            this.Text = this.Width.ToString() + " " + this.Height.ToString();//窗体标题栏文本
-
-            start.Left = (this.Width - start.Width) / 2;
+            //this.time = currentCount;
         }
 
         private void Submit_Click(object sender, EventArgs e)
@@ -237,13 +230,21 @@ namespace AttentionTransferSpeedTest
                     Input = 5;
                     break;
             }
-            if (Correct == Input)
+            if (Correct == Input&& !isInput)
             {
                 pictureBox14.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/y.png");
+                endTime = System.Environment.TickCount;
+                currentCount = endTime - startTime;
+                label32.Text = "用时：" + currentCount;
+                isInput = true;
             }
-            else if (Input != 0)
+            else if (Input != 0&&!isInput)
             {
                 pictureBox14.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/n.png");
+                endTime = System.Environment.TickCount;
+                currentCount = endTime - startTime;
+                label32.Text = "用时：" + currentCount;
+                isInput = true;
             }
         }
 
@@ -255,6 +256,7 @@ namespace AttentionTransferSpeedTest
             {
                 Invoke(new Action(() =>
                 {
+                    label32.Text = "";
                     int p = randomPoint();
                     pictureBox14.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/p" + p + ".png");
                     pictureBox2.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + arr1[0] + ".png");
@@ -274,8 +276,6 @@ namespace AttentionTransferSpeedTest
                         Combination[i] = arr1[i];
                     }
                     Correct = arr1[p - 1];
-                    
-                   
                 }));
                 Input = 0;
             });
@@ -294,8 +294,10 @@ namespace AttentionTransferSpeedTest
             {
                 for (int i = 0; i < 1000; i++)
                 {
+                    isInput = false;
                     test();
-
+                    currentCount = 0;
+                    startTime = System.Environment.TickCount;
                     Thread.Sleep(3000);
                     t2.Abort();
                 }
@@ -378,6 +380,11 @@ namespace AttentionTransferSpeedTest
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             System.Environment.Exit(0);
+        }
+
+        private void Form1_Load_1(object sender, EventArgs e)
+        {
+
         }
     }
 }
