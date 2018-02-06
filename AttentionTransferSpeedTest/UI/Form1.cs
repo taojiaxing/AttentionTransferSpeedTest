@@ -22,15 +22,11 @@ namespace AttentionTransferSpeedTest
         private int endTime;
         private Boolean isInput = false;
         private int[] sameComnination = new int[12];
+        private int[] ISIS = { 1000, 618, 382, 236, 146, 90, 56 };
 
         //定义全局变量
         public int currentCount = 0;
 
-        //定义Timer类
-        private System.Timers.Timer timer;
-
-        //定义委托
-        public delegate void SetControlValue(string value);
 
         private User GetUerInfo()
         {
@@ -294,8 +290,9 @@ namespace AttentionTransferSpeedTest
             {
                 for (int i = 0; i < 1000; i++)
                 {
-                    isInput = false;
+                    
                     test();
+                    isInput = false;
                     currentCount = 0;
                     startTime = System.Environment.TickCount;
                     Thread.Sleep(3000);
