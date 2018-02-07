@@ -23,10 +23,13 @@ namespace AttentionTransferSpeedTest
         private Boolean isInput = false;
         private int[] sameComnination = new int[12];
         private int[] ISIS = { 1000, 618, 382, 236, 146, 90, 56 };
-
+        private Boolean isRight = false;
+        private int p;
+        private int sp;
+        private int countTime;
         //定义全局变量
         public int currentCount = 0;
-
+        Thread t4;
 
         private User GetUerInfo()
         {
@@ -226,21 +229,25 @@ namespace AttentionTransferSpeedTest
                     Input = 5;
                     break;
             }
-            if (Correct == Input&& !isInput)
+            if (Correct == Input && !isInput)
             {
                 pictureBox14.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/y.png");
                 endTime = System.Environment.TickCount;
                 currentCount = endTime - startTime;
                 label32.Text = "用时：" + currentCount;
                 isInput = true;
+                isRight = true;
+                Thread.Sleep(200);
+                
             }
-            else if (Input != 0&&!isInput)
+            else if (Input != 0 && !isInput)
             {
                 pictureBox14.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/n.png");
                 endTime = System.Environment.TickCount;
                 currentCount = endTime - startTime;
                 label32.Text = "用时：" + currentCount;
                 isInput = true;
+                Thread.Sleep(200);
             }
         }
 
@@ -253,7 +260,7 @@ namespace AttentionTransferSpeedTest
                 Invoke(new Action(() =>
                 {
                     label32.Text = "";
-                    int p = randomPoint();
+                    p = randomPoint();
                     pictureBox14.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/p" + p + ".png");
                     pictureBox2.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + arr1[0] + ".png");
                     pictureBox3.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + arr1[1] + ".png");
@@ -272,6 +279,38 @@ namespace AttentionTransferSpeedTest
                         Combination[i] = arr1[i];
                     }
                     Correct = arr1[p - 1];
+                    
+                    
+                }));
+                sameComnination = Combination;
+                sp = p;
+                Input = 0;
+            });
+            t2.IsBackground = true;
+            t2.Start();
+            
+        }
+
+        private void testSame()
+        {
+            t2 = new Thread(() =>
+            {
+                Invoke(new Action(() =>
+                {
+                    label32.Text = "";
+                    pictureBox14.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/p" + sp + ".png");
+                    pictureBox2.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + sameComnination[0] + ".png");
+                    pictureBox3.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + sameComnination[1] + ".png");
+                    pictureBox4.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + sameComnination[2] + ".png");
+                    pictureBox5.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + sameComnination[3] + ".png");
+                    pictureBox6.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + sameComnination[4] + ".png");
+                    pictureBox7.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + sameComnination[5] + ".png");
+                    pictureBox8.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + sameComnination[6] + ".png");
+                    pictureBox9.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + sameComnination[7] + ".png");
+                    pictureBox10.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + sameComnination[8] + ".png");
+                    pictureBox11.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + sameComnination[9] + ".png");
+                    pictureBox12.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + sameComnination[10] + ".png");
+                    pictureBox13.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + sameComnination[11] + ".png");
                 }));
                 Input = 0;
             });
@@ -284,23 +323,36 @@ namespace AttentionTransferSpeedTest
             s.Stop();
             s.SoundLocation = "resources/music/Continue1_music.wav";
             panel4.BackColor = Color.FromArgb(220, 220, 220);
+
+            panel11.BackColor = Color.FromArgb(220, 220, 220);
+            panel12.BackColor = Color.FromArgb(220, 220, 220);
             panel10.BackColor = Color.FromArgb(220, 220, 220);
             PanelIsDisplay(4);
-            Thread t4 = new Thread(() =>
+            t4 = new Thread(() =>
             {
-                for (int i = 0; i < 1000; i++)
+                for (int i = 0; i < 5; i++)
                 {
-                    
                     test();
                     isInput = false;
+                    isRight = false;
                     currentCount = 0;
                     startTime = System.Environment.TickCount;
-                    Thread.Sleep(3000);
+                    Thread.Sleep(1000);
+                    while (!isRight)
+                    {
+                        pictureBox14.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/n.png");
+                        Thread.Sleep(200);
+                        testSame();
+                        isInput = false;
+                        startTime = System.Environment.TickCount;
+                        Thread.Sleep(1000);
+                    }
                     t2.Abort();
                 }
+                s.Play();
             });
             t4.Start();
-            s.Play();
+            
         }
 
         private void Continue2_Click(object sender, EventArgs e)
@@ -308,6 +360,8 @@ namespace AttentionTransferSpeedTest
             s.Stop();
             s.SoundLocation = "resources/music/Continue2_music.wav";
             s.Play();
+            t4.Abort();
+            panel5.BackColor = Color.FromArgb(220, 220, 220);
             PanelIsDisplay(5);
         }
 
@@ -316,7 +370,8 @@ namespace AttentionTransferSpeedTest
             s.Stop();
             s.SoundLocation = "resources/music/finish_music.wav";
             s.Play();
-            PanelIsDisplay(7);
+            panel6.BackColor = Color.FromArgb(220, 220, 220);
+            PanelIsDisplay(6);
         }
 
         private void Submit2_Click(object sender, EventArgs e)
