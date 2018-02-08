@@ -28,7 +28,7 @@ namespace AttentionTransferSpeedTest
         private int sp;
         private int trues = 0;
         private int falses = 0;
-        private float[] Combinations = new float[140];
+        private string[] Combinations = new string[140];
         private int[] ps = new int[140];
         private int[] Corrects = new int[140];
         private int[] Inputs = new int[140];
@@ -241,6 +241,7 @@ namespace AttentionTransferSpeedTest
             {
                 pictureBox14.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/y.png");
                 pictureBox15.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/y.png");
+                pictureBox28.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/y.png");
                 endTime = System.Environment.TickCount;
                 currentCount = endTime - startTime;
                 label32.Text = "用时：" + currentCount;
@@ -254,6 +255,8 @@ namespace AttentionTransferSpeedTest
             {
                 pictureBox14.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/n.png");
                 pictureBox15.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/n.png");
+                pictureBox28.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/n.png");
+
                 endTime = System.Environment.TickCount;
                 currentCount = endTime - startTime;
                 label32.Text = "用时：" + currentCount;
@@ -385,12 +388,24 @@ namespace AttentionTransferSpeedTest
             });
             t9 = new Thread(() =>
             {
-                Invoke(new Action(() =>
-                {
+                Invoke(new Action(() => {
                     label8.Text = "";
                     p = randomPoint();
                     pictureBox28.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/p" + p + ".png");
-
+                    
+                }
+                ));
+                Thread.Sleep(28);
+                //Invoke(new Action(() =>
+                //{
+                //    pictureBox28.Image = null;
+                //}));
+                
+                Invoke(new Action(() =>
+                {
+                    
+                    //pictureBox28.Image = null;
+                    
                     pictureBox40.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + arr1[0] + ".png");
                     pictureBox39.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + arr1[1] + ".png");
                     pictureBox38.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + arr1[2] + ".png");
@@ -518,12 +533,15 @@ namespace AttentionTransferSpeedTest
                     currentCount = 0;
                     startTime = System.Environment.TickCount;
                     Thread.Sleep(1000);
-                    isInput = true;
+                    //isInput = true;
 
                     t2.Abort();
-                    //label32.Text = "";
 
-                    //pictureBox14.Image = null;
+                    
+                    while (!isInput)
+                    {
+
+                    }
                     pictureBox2.Image = null;
                     pictureBox3.Image = null;
                     pictureBox4.Image = null;
@@ -544,10 +562,12 @@ namespace AttentionTransferSpeedTest
                         testSame();
                         isInput = false;
                         startTime = System.Environment.TickCount;
-                        Thread.Sleep(1000);
-                        isInput = true;
 
-                        //pictureBox14.Image = null;
+                        
+                        while (!isInput)
+                        {
+
+                        }
                         pictureBox2.Image = null;
                         pictureBox3.Image = null;
                         pictureBox4.Image = null;
@@ -580,15 +600,18 @@ namespace AttentionTransferSpeedTest
             s.SoundLocation = "resources/music/Continue2_music.wav";
             t6 = new Thread(() =>
             {
-                for (int i = 0; i < 10; i++)
+                for (int i = 0; i < 5; i++)
                 {
                     test2();
                     isInput = false;
                     isRight = false;
                     currentCount = 0;
-                    startTime = System.Environment.TickCount;
-                    Thread.Sleep(1000);
-                    isInput = true;
+                    startTime = System.Environment.TickCount;            
+                    Thread.Sleep(20);
+                    while (!isInput)
+                    {
+
+                    }
                     pictureBox27.Image = null;
                     pictureBox26.Image = null;
                     pictureBox25.Image = null;
@@ -602,6 +625,7 @@ namespace AttentionTransferSpeedTest
                     pictureBox17.Image = null;
                     pictureBox16.Image = null;
                     Thread.Sleep(2000);
+
                     while (!isRight)
                     {
                         pictureBox14.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/n.png");
@@ -609,8 +633,10 @@ namespace AttentionTransferSpeedTest
                         testSame2();
                         isInput = false;
                         startTime = System.Environment.TickCount;
-                        Thread.Sleep(1000);
-                        isInput = true;
+                        while (!isInput)
+                        {
+
+                        }
                         pictureBox27.Image = null;
                         pictureBox26.Image = null;
                         pictureBox25.Image = null;
@@ -631,6 +657,7 @@ namespace AttentionTransferSpeedTest
                     t2.Abort();
                     t7.Abort();
                 }
+                s.SoundLocation = "resources/music/Continue2_music.wav";
                 s.Play();
             });
             t6.Start();
@@ -657,25 +684,24 @@ namespace AttentionTransferSpeedTest
                     ISI = ISIS[level];
 
                     //测试开始
+                    //Thread.Sleep(ISI);
+                    s.SoundLocation = "resources/music/di.wav";
+                    s.Play();
+                    Thread.Sleep(1000);
                     test3();
                     isInput = false;
                     isRight = false;
                     currentCount = 0;
                     startTime = System.Environment.TickCount;
-                    Thread.Sleep(ISI);
+                    
                     if (isRight)
                     {
                         rs++;
                     }
                     else
                         fs++;
-                    Combinations[ts] = Convert.ToInt64(sameComnination[0].ToString() + sameComnination[1].ToString() + sameComnination[2].ToString() + sameComnination[3].ToString()
-                        + sameComnination[4].ToString() + sameComnination[5].ToString() + sameComnination[6].ToString() + sameComnination[7].ToString() + sameComnination[8].ToString()
-                        + sameComnination[9].ToString() + sameComnination[10].ToString() + sameComnination[11].ToString());
-                    ps[ts] = sp;
-                    Corrects[ts] = Correct;
-                    Inputs[ts] = Input;
-                    realISIs[ts] = ISI;
+                    
+                   
                     Invoke(new Action(() =>
                     {   if (label8.Text == "")
                             RT[ts] = 0;
@@ -695,9 +721,32 @@ namespace AttentionTransferSpeedTest
                     if (ISI == 56 || (tls == 19 && rs < 10)){
                         isco = false;
                     }
+                   
+                    while (!isInput) { }
+                    pictureBox40.Image = null;
+                    pictureBox39.Image = null;
+                    pictureBox38.Image = null;
+                    pictureBox37.Image = null;
+                    pictureBox36.Image = null;
+                    pictureBox35.Image = null;
+                    pictureBox34.Image = null;
+                    pictureBox33.Image = null;
+                    pictureBox32.Image = null;
+                    pictureBox31.Image = null;
+                    pictureBox30.Image = null;
+                    pictureBox29.Image = null;
+                    Thread.Sleep(ISI);
+                    ps[ts] = sp;
+                    Corrects[ts] = Correct;
+                    Inputs[ts] = Input;
+                    realISIs[ts] = ISI;
+                    Combinations[ts] = (sameComnination[0].ToString() + sameComnination[1].ToString() + sameComnination[2].ToString() + sameComnination[3].ToString()
+                        + sameComnination[4].ToString() + sameComnination[5].ToString() + sameComnination[6].ToString() + sameComnination[7].ToString() + sameComnination[8].ToString()
+                        + sameComnination[9].ToString() + sameComnination[10].ToString() + sameComnination[11].ToString());
                     ts++;
                     tls++;
                 }
+                s.SoundLocation = "resources/music/finish_music.wav";
                 s.Play();
                 Invoke(new Action(() =>
                 {
