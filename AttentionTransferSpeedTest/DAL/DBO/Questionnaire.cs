@@ -2,7 +2,7 @@
 {
     internal class Questionnaire
     {
-        public int ID { get; set; }
+        public string Name { get; set; }
         public string psychiatricHistory { get; set; }
         public string Drink { get; set; }
         public string Insomnia { get; set; }
@@ -12,6 +12,5 @@
         public int Driving { get; set; }
         public int Accident { get; set; }
         public string Others { get; set; }
-        public string time { get; set; }
     }
 }

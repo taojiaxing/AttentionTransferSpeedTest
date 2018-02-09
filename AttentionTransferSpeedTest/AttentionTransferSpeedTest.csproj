@@ -12,7 +12,7 @@
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x86</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -48,8 +48,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAL\DBO\Questionnaire.cs" />
+    <Compile Include="DAL\DBO\Result.cs" />
     <Compile Include="DAL\DBO\User.cs" />
     <Compile Include="DAL\Gateway\BaseGateway.cs" />
+    <Compile Include="DAL\Gateway\QuestionnaireGateway.cs" />
+    <Compile Include="DAL\Gateway\ResultGateway.cs" />
     <Compile Include="DAL\Gateway\UserGateway.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

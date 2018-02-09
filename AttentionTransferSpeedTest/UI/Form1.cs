@@ -1,5 +1,7 @@
 ﻿using AttentionTransferSpeedTest.DAL.DBO;
+using AttentionTransferSpeedTest.DAL.Gateway;
 using System;
+using System.Data.SQLite;
 using System.Drawing;
 using System.Threading;
 using System.Windows.Forms;
@@ -35,7 +37,6 @@ namespace AttentionTransferSpeedTest
         private int[] RT = new int[140];
         private int[] realISIs = new int[140];        //定义全局变量
         public int currentCount = 0;
-
         private Thread t4;
         private Thread t5;
         private Thread t6;
@@ -43,13 +44,13 @@ namespace AttentionTransferSpeedTest
         private Thread t8;
         private Thread t9;
         private Thread t10;
-
+        private User user = new User();
         private User GetUerInfo()
         {
             User user = new User();
             user.Name = textBox1.Text;
             user.Age = Convert.ToInt32(textBox2.Text);
-            user.Tel = Convert.ToInt32(textBox3.Text);
+            user.Tel = textBox3.Text;
             user.Sex = comboBox1.Text;
             user.Time = textBox4.Text + "年" + textBox5.Text + "月" + textBox6.Text + "日";
             return user;
@@ -182,11 +183,36 @@ namespace AttentionTransferSpeedTest
 
         private void Submit_Click(object sender, EventArgs e)
         {
-            pictureBox1.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/ep.png");
-            s.Stop();
-            s.SoundLocation = "resources/music/OperationGuide_music.wav";
-            s.Play();
-            PanelIsDisplay(3);
+            if (textBox1.Text != "" && textBox2.Text != "" && textBox3.Text != "" && comboBox1.Text != "" && textBox4.Text != "" && textBox5.Text != "" && textBox6.Text != "")
+            {
+                user = GetUerInfo();
+                Boolean iss = true;
+                UserGateway userGateway = new UserGateway();
+                SQLiteDataReader reader = userGateway.SelectAllUser();
+                if (reader != null)
+                {
+                    while (reader.Read() && iss)
+                    {
+                        string name = reader.GetString(reader.GetOrdinal("Name"));
+                        if (user.Name == name)
+                        {
+                            iss = false;
+                            MessageBox.Show("姓名重复，请在姓名后添加序号");
+                            textBox1.Text = "";
+                        }
+
+                    }
+                }
+                if (textBox1.Text != "")
+                {
+                    userGateway.InsertUser(user);
+                    pictureBox1.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/ep.png");
+                    s.Stop();
+                    s.SoundLocation = "resources/music/OperationGuide_music.wav";
+                    s.Play();
+                    PanelIsDisplay(3);
+                }
+            }
         }
 
         private int randomPoint()
@@ -688,12 +714,15 @@ namespace AttentionTransferSpeedTest
                     s.SoundLocation = "resources/music/di.wav";
                     s.Play();
                     Thread.Sleep(1000);
-                    test3();
+                    Invoke(new Action(() =>
+                    {
+                        label8.Text = "";
+                    }));
                     isInput = false;
                     isRight = false;
                     currentCount = 0;
                     startTime = System.Environment.TickCount;
-                    
+                    test3();
                     if (isRight)
                     {
                         rs++;
@@ -702,12 +731,7 @@ namespace AttentionTransferSpeedTest
                         fs++;
                     
                    
-                    Invoke(new Action(() =>
-                    {   if (label8.Text == "")
-                            RT[ts] = 0;
-                        else
-                            RT[ts] = Convert.ToInt32(label8.Text.Replace("用时：","").Trim());
-                    }));
+                    
                     if (rs == 6 && fs == 0)
                     {
                         level++;
@@ -743,6 +767,13 @@ namespace AttentionTransferSpeedTest
                     Combinations[ts] = (sameComnination[0].ToString() + sameComnination[1].ToString() + sameComnination[2].ToString() + sameComnination[3].ToString()
                         + sameComnination[4].ToString() + sameComnination[5].ToString() + sameComnination[6].ToString() + sameComnination[7].ToString() + sameComnination[8].ToString()
                         + sameComnination[9].ToString() + sameComnination[10].ToString() + sameComnination[11].ToString());
+                    Invoke(new Action(() =>
+                    {
+                        if (label8.Text == "")
+                            RT[ts] = 0;
+                        else
+                            RT[ts] = Convert.ToInt32(label8.Text.Replace("用时：", "").Trim());
+                    }));
                     ts++;
                     tls++;
                 }
@@ -759,13 +790,64 @@ namespace AttentionTransferSpeedTest
             panel6.BackColor = Color.FromArgb(220, 220, 220);
             PanelIsDisplay(6);
         }
-
+        private Questionnaire GetQuestionnaire()
+        {
+            Questionnaire questionnaire = new Questionnaire();
+            questionnaire.psychiatricHistory = checkedListBox1.Text;
+            questionnaire.Drink = checkedListBox2.Text;
+            questionnaire.Insomnia = checkedListBox3.Text;
+            questionnaire.Mood = checkedListBox4.Text;
+            questionnaire.computerGame = checkedListBox5.Text;
+            questionnaire.Exercise = checkedListBox6.Text;
+            questionnaire.Driving = Convert.ToInt32(textBox7.Text);
+            questionnaire.Accident = Convert.ToInt32(textBox8.Text);
+            questionnaire.Others = richTextBox1.Text;
+            questionnaire.Name = user.Name;
+            return questionnaire;
+        }
         private void Submit2_Click(object sender, EventArgs e)
         {
+            Questionnaire questionnaire = GetQuestionnaire();
+            QuestionnaireGateway questionnaireGateway = new QuestionnaireGateway();
+            questionnaireGateway.InsertQuestionnaire(questionnaire);
+            int i = 0;
+            while (realISIs[i] != 0)
+            {
+                Result result = new Result();
+                result.Num = i + 1;
+                result.Name = user.Name;
+                result.ISI = realISIs[i];
+                result.Combination = Combinations[i];
+                result.P = ps[i];
+                result.Correct = Corrects[i];
+                result.Input = Inputs[i];
+                result.RT = RT[i];
+                ResultGateway resultGateway = new ResultGateway();
+                resultGateway.InsertResult(result);
+                i++;
+            }
+            Application.Exit();
         }
 
         private void skip_Click(object sender, EventArgs e)
         {
+            int i = 0;
+            while (realISIs[i] != 0)
+            {
+                Result result = new Result();
+                result.Num = i + 1;
+                result.Name = user.Name;
+                result.ISI = realISIs[i];
+                result.Combination = Combinations[i];
+                result.P = ps[i];
+                result.Correct = Corrects[i];
+                result.Input = Inputs[i];
+                result.RT = RT[i];
+                ResultGateway resultGateway = new ResultGateway();
+                resultGateway.InsertResult(result);
+                i++;
+            }
+            Application.Exit();
         }
 
         private void start_Click_1(object sender, EventArgs e)

@@ -241,7 +241,7 @@
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.label7);
             this.panel2.Font = new System.Drawing.Font("黑体", 14.25F);
-            this.panel2.Location = new System.Drawing.Point(0, 28);
+            this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1184, 734);
             this.panel2.TabIndex = 1;
@@ -1394,12 +1394,12 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1184, 761);
             this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.panel7);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel7);
             this.Controls.Add(this.panel8);
             this.Controls.Add(this.panel1);
             this.KeyPreview = true;
