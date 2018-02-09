@@ -45,6 +45,7 @@ namespace AttentionTransferSpeedTest
         private Thread t9;
         private Thread t10;
         private User user = new User();
+
         private User GetUerInfo()
         {
             User user = new User();
@@ -191,21 +192,16 @@ namespace AttentionTransferSpeedTest
                 List<User> Users = userGateway.SelectAllUser();
                 if (Users != null)
                 {
-                   
-
-                        foreach (User users in Users)
+                    foreach (User users in Users)
+                    {
+                        string name = user.Name;
+                        if (users.Name == name)
                         {
-
-
-                            string name = user.Name;
-                            if (users.Name == name)
-                            {
-                                iss = false;
-                                MessageBox.Show("姓名重复，请在姓名后添加序号");
-                                textBox1.Text = "";
-                            }
+                            iss = false;
+                            MessageBox.Show("姓名重复，请在姓名后添加序号");
+                            textBox1.Text = "";
                         }
-
+                    }
                 }
                 if (textBox1.Text != "")
                 {
@@ -393,6 +389,7 @@ namespace AttentionTransferSpeedTest
             t5.IsBackground = true;
             t5.Start();
         }
+
         private void test3()
         {
             int[] arr = { 1, 1, 1, 2, 2, 2, 3, 3, 3, 5, 5, 5 };
@@ -418,11 +415,11 @@ namespace AttentionTransferSpeedTest
             });
             t9 = new Thread(() =>
             {
-                Invoke(new Action(() => {
+                Invoke(new Action(() =>
+                {
                     label8.Text = "";
                     p = randomPoint();
                     pictureBox28.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/p" + p + ".png");
-                    
                 }
                 ));
                 Thread.Sleep(28);
@@ -430,12 +427,11 @@ namespace AttentionTransferSpeedTest
                 //{
                 //    pictureBox28.Image = null;
                 //}));
-                
+
                 Invoke(new Action(() =>
                 {
-                    
                     //pictureBox28.Image = null;
-                    
+
                     pictureBox40.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + arr1[0] + ".png");
                     pictureBox39.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + arr1[1] + ".png");
                     pictureBox38.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + arr1[2] + ".png");
@@ -567,10 +563,8 @@ namespace AttentionTransferSpeedTest
 
                     t2.Abort();
 
-                    
                     while (!isInput)
                     {
-
                     }
                     pictureBox2.Image = null;
                     pictureBox3.Image = null;
@@ -593,10 +587,8 @@ namespace AttentionTransferSpeedTest
                         isInput = false;
                         startTime = System.Environment.TickCount;
 
-                        
                         while (!isInput)
                         {
-
                         }
                         pictureBox2.Image = null;
                         pictureBox3.Image = null;
@@ -636,11 +628,10 @@ namespace AttentionTransferSpeedTest
                     isInput = false;
                     isRight = false;
                     currentCount = 0;
-                    startTime = System.Environment.TickCount;            
+                    startTime = System.Environment.TickCount;
                     Thread.Sleep(20);
                     while (!isInput)
                     {
-
                     }
                     pictureBox27.Image = null;
                     pictureBox26.Image = null;
@@ -665,7 +656,6 @@ namespace AttentionTransferSpeedTest
                         startTime = System.Environment.TickCount;
                         while (!isInput)
                         {
-
                         }
                         pictureBox27.Image = null;
                         pictureBox26.Image = null;
@@ -733,9 +723,7 @@ namespace AttentionTransferSpeedTest
                     }
                     else
                         fs++;
-                    
-                   
-                    
+
                     if (rs == 6 && fs == 0)
                     {
                         level++;
@@ -746,10 +734,11 @@ namespace AttentionTransferSpeedTest
                         level++;
                         tls = 0;
                     }
-                    if (ISI == 56 || (tls == 19 && rs < 10)){
+                    if (ISI == 56 || (tls == 19 && rs < 10))
+                    {
                         isco = false;
                     }
-                   
+
                     while (!isInput) { }
                     pictureBox40.Image = null;
                     pictureBox39.Image = null;
@@ -794,6 +783,7 @@ namespace AttentionTransferSpeedTest
             panel6.BackColor = Color.FromArgb(220, 220, 220);
             PanelIsDisplay(6);
         }
+
         private Questionnaire GetQuestionnaire()
         {
             Questionnaire questionnaire = new Questionnaire();
@@ -809,6 +799,7 @@ namespace AttentionTransferSpeedTest
             questionnaire.Name = user.Name;
             return questionnaire;
         }
+
         private void Submit2_Click(object sender, EventArgs e)
         {
             Questionnaire questionnaire = GetQuestionnaire();

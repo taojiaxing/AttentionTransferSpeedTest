@@ -5,20 +5,23 @@ using System.Collections.Generic;
 
 namespace AttentionTransferSpeedTest.DAL.Gateway
 {
-    class UserGateway:BaseGateway
+    internal class UserGateway : BaseGateway
     {
         public override void getResultset(MySqlCommand mySqlCommand)
         {
             throw new System.NotImplementedException();
         }
+
         private MySqlConnection mysql = getMySqlCon();
+
         public void InsertUser(User user)
         {
             mysql.Open();
-            CreateTable("User", new string[] { "Name", "Age", "Tel", "Sex" ,"Time"}, new string[] { "TEXT", "INTEGER", "TEXT", "TEXT","TEXT" },mysql);
-            getInsert("User", new string[] { user.Name, user.Age.ToString(), user.Tel.ToString(), user.Sex, user.Time },mysql);
+            CreateTable("User", new string[] { "Name", "Age", "Tel", "Sex", "Time" }, new string[] { "TEXT", "INTEGER", "TEXT", "TEXT", "TEXT" }, mysql);
+            getInsert("User", new string[] { user.Name, user.Age.ToString(), user.Tel.ToString(), user.Sex, user.Time }, mysql);
             mysql.Close();
         }
+
         public List<User> SelectAllUser()
         {
             mysql.Open();
@@ -53,11 +56,12 @@ namespace AttentionTransferSpeedTest.DAL.Gateway
             mysql.Close();
             return Users;
         }
+
         public User SelectUserByName(String Name)
         {
             mysql.Open();
             CreateTable("User", new string[] { "Name", "Age", "Tel", "Sex", "Time" }, new string[] { "TEXT", "INTEGER", "TEXT", "TEXT", "TEXT" }, mysql);
-            MySqlCommand mySqlCommand = getSqlCommand("select * from User where Name = "+"'"+Name+"';", mysql);
+            MySqlCommand mySqlCommand = getSqlCommand("select * from User where Name = " + "'" + Name + "';", mysql);
             MySqlDataReader reader = mySqlCommand.ExecuteReader();
             User user = new User();
             try

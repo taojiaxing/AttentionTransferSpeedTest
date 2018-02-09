@@ -1,13 +1,10 @@
 ﻿using AttentionTransferSpeedTest.DAL.DBO;
 using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace AttentionTransferSpeedTest.DAL.Gateway
 {
-    class QuestionnaireGateway:BaseGateway
+    internal class QuestionnaireGateway : BaseGateway
     {
         public override void getResultset(MySqlCommand mySqlCommand)
         {
@@ -15,15 +12,17 @@ namespace AttentionTransferSpeedTest.DAL.Gateway
         }
 
         private MySqlConnection mysql = getMySqlCon();
+
         public void InsertQuestionnaire(Questionnaire questionnaire)
         {
             mysql.Open();
-            CreateTable("Questionnaire", new string[] { "Name", "psychiatricHistory", "Drink", "Insomnia", "Mood", "computerGame", "Exercise", "Driving" , "Accident" , "Others" },
-                new string[] { "TEXT", "TEXT", "TEXT", "TEXT", "TEXT", "TEXT", "TEXT", "INTEGER", "INTEGER","TEXT" },mysql);
+            CreateTable("Questionnaire", new string[] { "Name", "psychiatricHistory", "Drink", "Insomnia", "Mood", "computerGame", "Exercise", "Driving", "Accident", "Others" },
+                new string[] { "TEXT", "TEXT", "TEXT", "TEXT", "TEXT", "TEXT", "TEXT", "INTEGER", "INTEGER", "TEXT" }, mysql);
             getInsert("Questionnaire", new string[] { questionnaire.Name,questionnaire.psychiatricHistory,questionnaire.Drink,questionnaire.Insomnia,questionnaire.Mood,
-            questionnaire.computerGame,questionnaire.Exercise,questionnaire.Driving.ToString(),questionnaire.Accident.ToString(),questionnaire.Others},mysql);
+            questionnaire.computerGame,questionnaire.Exercise,questionnaire.Driving.ToString(),questionnaire.Accident.ToString(),questionnaire.Others}, mysql);
             mysql.Close();
         }
+
         public Questionnaire SelectQuestionnaireByName(String Name)
         {
             mysql.Open();
