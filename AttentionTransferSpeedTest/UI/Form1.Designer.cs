@@ -246,7 +246,7 @@
             this.panel2.Font = new System.Drawing.Font("黑体", 14.25F);
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1184, 734);
+            this.panel2.Size = new System.Drawing.Size(1184, 762);
             this.panel2.TabIndex = 1;
             // 
             // textBox6
@@ -313,7 +313,7 @@
             // 
             this.Submit.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.Submit.Font = new System.Drawing.Font("黑体", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Submit.Location = new System.Drawing.Point(512, 525);
+            this.Submit.Location = new System.Drawing.Point(520, 615);
             this.Submit.Name = "Submit";
             this.Submit.Size = new System.Drawing.Size(131, 40);
             this.Submit.TabIndex = 19;
@@ -329,7 +329,7 @@
             this.comboBox1.Items.AddRange(new object[] {
             "男",
             "女"});
-            this.comboBox1.Location = new System.Drawing.Point(663, 364);
+            this.comboBox1.Location = new System.Drawing.Point(663, 392);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(100, 20);
             this.comboBox1.TabIndex = 18;
@@ -338,7 +338,7 @@
             // 
             this.textBox3.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.textBox3.Font = new System.Drawing.Font("宋体", 9F);
-            this.textBox3.Location = new System.Drawing.Point(387, 364);
+            this.textBox3.Location = new System.Drawing.Point(387, 392);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(194, 21);
             this.textBox3.TabIndex = 17;
@@ -347,7 +347,7 @@
             // 
             this.textBox2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.textBox2.Font = new System.Drawing.Font("宋体", 9F);
-            this.textBox2.Location = new System.Drawing.Point(663, 272);
+            this.textBox2.Location = new System.Drawing.Point(663, 300);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(100, 21);
             this.textBox2.TabIndex = 16;
@@ -356,7 +356,7 @@
             // 
             this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.textBox1.Font = new System.Drawing.Font("宋体", 9F);
-            this.textBox1.Location = new System.Drawing.Point(387, 275);
+            this.textBox1.Location = new System.Drawing.Point(387, 303);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(194, 21);
             this.textBox1.TabIndex = 15;
@@ -366,7 +366,7 @@
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("黑体", 14.25F);
-            this.label5.Location = new System.Drawing.Point(603, 361);
+            this.label5.Location = new System.Drawing.Point(603, 389);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(69, 19);
             this.label5.TabIndex = 14;
@@ -377,7 +377,7 @@
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("黑体", 14.25F);
-            this.label4.Location = new System.Drawing.Point(318, 279);
+            this.label4.Location = new System.Drawing.Point(318, 307);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(69, 19);
             this.label4.TabIndex = 13;
@@ -388,7 +388,7 @@
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("黑体", 14.25F);
-            this.label3.Location = new System.Drawing.Point(603, 269);
+            this.label3.Location = new System.Drawing.Point(603, 297);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(69, 19);
             this.label3.TabIndex = 12;
@@ -399,7 +399,7 @@
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("黑体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label6.Location = new System.Drawing.Point(318, 367);
+            this.label6.Location = new System.Drawing.Point(318, 395);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(69, 19);
             this.label6.TabIndex = 11;
@@ -410,7 +410,7 @@
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("黑体", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label7.Location = new System.Drawing.Point(503, 193);
+            this.label7.Location = new System.Drawing.Point(503, 221);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(135, 24);
             this.label7.TabIndex = 10;
@@ -424,7 +424,7 @@
             this.panel3.AutoSize = true;
             this.panel3.Controls.Add(this.panel9);
             this.panel3.Controls.Add(this.Continue1);
-            this.panel3.Location = new System.Drawing.Point(0, 28);
+            this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1184, 761);
             this.panel3.TabIndex = 20;
@@ -713,7 +713,7 @@
             // Continue2
             // 
             this.Continue2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.Continue2.Location = new System.Drawing.Point(548, 700);
+            this.Continue2.Location = new System.Drawing.Point(556, 688);
             this.Continue2.Name = "Continue2";
             this.Continue2.Size = new System.Drawing.Size(75, 23);
             this.Continue2.TabIndex = 0;
@@ -886,7 +886,7 @@
             // Continue3
             // 
             this.Continue3.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.Continue3.Location = new System.Drawing.Point(543, 736);
+            this.Continue3.Location = new System.Drawing.Point(556, 688);
             this.Continue3.Name = "Continue3";
             this.Continue3.Size = new System.Drawing.Size(75, 23);
             this.Continue3.TabIndex = 0;
@@ -1413,6 +1413,7 @@
             this.数据库设置ToolStripMenuItem.Name = "数据库设置ToolStripMenuItem";
             this.数据库设置ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.数据库设置ToolStripMenuItem.Text = "数据库设置";
+            this.数据库设置ToolStripMenuItem.Click += new System.EventHandler(this.数据库设置ToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -1422,12 +1423,12 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1184, 761);
             this.Controls.Add(this.menuStrip1);
-            this.Controls.Add(this.panel7);
+            this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel7);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
-            this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel8);
             this.Controls.Add(this.panel1);
             this.KeyPreview = true;

@@ -865,7 +865,7 @@ namespace AttentionTransferSpeedTest
             ship2.Visible = false;
             t1 = new Thread(() =>
             {
-                Thread.Sleep(6000);
+                Thread.Sleep(60000);
                 Invoke(new Action(() =>
                 {
                     ship2.Visible = true;
@@ -875,7 +875,7 @@ namespace AttentionTransferSpeedTest
             t1.Start();
             t2 = new Thread(() =>
             {
-                for (int i = 0; i < 10000; i++)
+                for (int i = 0; i < 40; i++)
                 {
                     for (int j = 1; j < 7; j++)
                     {
@@ -922,6 +922,11 @@ namespace AttentionTransferSpeedTest
             FolderBrowserDialog paths = new FolderBrowserDialog();
             paths.ShowDialog();
             this.path = paths.SelectedPath;
+        }
+
+        private void 数据库设置ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
