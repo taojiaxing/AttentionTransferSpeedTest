@@ -1,7 +1,7 @@
 ﻿using AttentionTransferSpeedTest.DAL.DBO;
 using AttentionTransferSpeedTest.DAL.Gateway;
 using System;
-using System.Data.SQLite;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Threading;
 using System.Windows.Forms;
@@ -188,20 +188,24 @@ namespace AttentionTransferSpeedTest
                 user = GetUerInfo();
                 Boolean iss = true;
                 UserGateway userGateway = new UserGateway();
-                SQLiteDataReader reader = userGateway.SelectAllUser();
-                if (reader != null)
+                List<User> Users = userGateway.SelectAllUser();
+                if (Users != null)
                 {
-                    while (reader.Read() && iss)
-                    {
-                        string name = reader.GetString(reader.GetOrdinal("Name"));
-                        if (user.Name == name)
+                   
+
+                        foreach (User users in Users)
                         {
-                            iss = false;
-                            MessageBox.Show("姓名重复，请在姓名后添加序号");
-                            textBox1.Text = "";
+
+
+                            string name = user.Name;
+                            if (users.Name == name)
+                            {
+                                iss = false;
+                                MessageBox.Show("姓名重复，请在姓名后添加序号");
+                                textBox1.Text = "";
+                            }
                         }
 
-                    }
                 }
                 if (textBox1.Text != "")
                 {
