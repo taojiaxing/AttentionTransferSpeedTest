@@ -1,4 +1,5 @@
-﻿using AttentionTransferSpeedTest.DAL.DBO;
+﻿using AttentionTransferSpeedTest.BLL;
+using AttentionTransferSpeedTest.DAL.DBO;
 using AttentionTransferSpeedTest.DAL.Gateway;
 using System;
 using System.Collections.Generic;
@@ -45,6 +46,7 @@ namespace AttentionTransferSpeedTest
         private Thread t9;
         private Thread t10;
         private User user = new User();
+        private string path;
 
         private User GetUerInfo()
         {
@@ -821,6 +823,11 @@ namespace AttentionTransferSpeedTest
                 resultGateway.InsertResult(result);
                 i++;
             }
+            exportTxt txt = new exportTxt();
+            ResultGateway resultsss = new ResultGateway();
+            List<Result> results = resultsss.SelectAllResultByName(user.Name);
+            txt.txt(user, results, path);
+            Application.Exit();
             Application.Exit();
         }
 
@@ -842,6 +849,10 @@ namespace AttentionTransferSpeedTest
                 resultGateway.InsertResult(result);
                 i++;
             }
+            exportTxt txt = new exportTxt();
+            ResultGateway resultsss = new ResultGateway();
+            List<Result> results = resultsss.SelectAllResultByName(user.Name);
+            txt.txt(user, results, path);
             Application.Exit();
         }
 
@@ -899,6 +910,18 @@ namespace AttentionTransferSpeedTest
 
         private void Form1_Load_1(object sender, EventArgs e)
         {
+        }
+        private void 历史记录ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form2 form2 = new Form2();
+            form2.Show();
+        }
+
+        private void 文件保存地址ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog paths = new FolderBrowserDialog();
+            paths.ShowDialog();
+            this.path = paths.SelectedPath;
         }
     }
 }
