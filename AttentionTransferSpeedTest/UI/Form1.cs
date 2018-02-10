@@ -928,5 +928,42 @@ namespace AttentionTransferSpeedTest
         {
 
         }
+
+        private void 开始ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PanelIsDisplay(8);
+            s.Stop();
+            s.SoundLocation = "resources/music/bgm.wav";
+            s.Play();
+            ship2.Visible = false;
+            t1 = new Thread(() =>
+            {
+                Thread.Sleep(60000);
+                Invoke(new Action(() =>
+                {
+                    ship2.Visible = true;
+                }));
+            });
+            t1.IsBackground = true;
+            t1.Start();
+            t2 = new Thread(() =>
+            {
+                for (int i = 0; i < 40; i++)
+                {
+                    for (int j = 1; j < 7; j++)
+                    {
+                        Invoke(new Action(() =>
+                        {
+                            panel8.BackgroundImage = Image.FromFile(Application.StartupPath + @"/resources/photos/bg" + j + ".jpg");
+                            panel8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+                        }));
+
+                        Thread.Sleep(5000);
+                    }
+                }
+            });
+            t2.IsBackground = true;
+            t2.Start();
+        }
     }
 }

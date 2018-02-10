@@ -137,12 +137,13 @@
             this.Submit2 = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.文件ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.设置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.ship2 = new System.Windows.Forms.Button();
             this.历史记录ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.设置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.文件保存地址ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.数据库设置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.ship2 = new System.Windows.Forms.Button();
+            this.开始ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -212,7 +213,7 @@
             // 
             this.start.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.start.Font = new System.Drawing.Font("黑体", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.start.Location = new System.Drawing.Point(491, 579);
+            this.start.Location = new System.Drawing.Point(470, 429);
             this.start.Name = "start";
             this.start.Size = new System.Drawing.Size(175, 63);
             this.start.TabIndex = 5;
@@ -312,10 +313,10 @@
             // Submit
             // 
             this.Submit.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.Submit.Font = new System.Drawing.Font("黑体", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Submit.Font = new System.Drawing.Font("黑体", 14.25F, System.Drawing.FontStyle.Bold);
             this.Submit.Location = new System.Drawing.Point(520, 615);
             this.Submit.Name = "Submit";
-            this.Submit.Size = new System.Drawing.Size(131, 40);
+            this.Submit.Size = new System.Drawing.Size(175, 63);
             this.Submit.TabIndex = 19;
             this.Submit.Text = "【提交】";
             this.Submit.UseVisualStyleBackColor = true;
@@ -542,9 +543,10 @@
             // Continue1
             // 
             this.Continue1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.Continue1.Location = new System.Drawing.Point(556, 688);
+            this.Continue1.Font = new System.Drawing.Font("黑体", 14.25F, System.Drawing.FontStyle.Bold);
+            this.Continue1.Location = new System.Drawing.Point(491, 673);
             this.Continue1.Name = "Continue1";
-            this.Continue1.Size = new System.Drawing.Size(75, 23);
+            this.Continue1.Size = new System.Drawing.Size(175, 63);
             this.Continue1.TabIndex = 0;
             this.Continue1.Text = "【继续】";
             this.Continue1.UseVisualStyleBackColor = true;
@@ -713,9 +715,10 @@
             // Continue2
             // 
             this.Continue2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.Continue2.Font = new System.Drawing.Font("黑体", 14.25F, System.Drawing.FontStyle.Bold);
             this.Continue2.Location = new System.Drawing.Point(556, 688);
             this.Continue2.Name = "Continue2";
-            this.Continue2.Size = new System.Drawing.Size(75, 23);
+            this.Continue2.Size = new System.Drawing.Size(175, 63);
             this.Continue2.TabIndex = 0;
             this.Continue2.Text = "【继续】";
             this.Continue2.UseVisualStyleBackColor = true;
@@ -886,9 +889,10 @@
             // Continue3
             // 
             this.Continue3.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.Continue3.Font = new System.Drawing.Font("黑体", 14.25F, System.Drawing.FontStyle.Bold);
             this.Continue3.Location = new System.Drawing.Point(556, 688);
             this.Continue3.Name = "Continue3";
-            this.Continue3.Size = new System.Drawing.Size(75, 23);
+            this.Continue3.Size = new System.Drawing.Size(175, 63);
             this.Continue3.TabIndex = 0;
             this.Continue3.Text = "【继续】";
             this.Continue3.UseVisualStyleBackColor = true;
@@ -1357,10 +1361,18 @@
             // 文件ToolStripMenuItem
             // 
             this.文件ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.历史记录ToolStripMenuItem});
+            this.历史记录ToolStripMenuItem,
+            this.开始ToolStripMenuItem});
             this.文件ToolStripMenuItem.Name = "文件ToolStripMenuItem";
             this.文件ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
             this.文件ToolStripMenuItem.Text = "文件";
+            // 
+            // 历史记录ToolStripMenuItem
+            // 
+            this.历史记录ToolStripMenuItem.Name = "历史记录ToolStripMenuItem";
+            this.历史记录ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.历史记录ToolStripMenuItem.Text = "历史记录";
+            this.历史记录ToolStripMenuItem.Click += new System.EventHandler(this.历史记录ToolStripMenuItem_Click);
             // 
             // 设置ToolStripMenuItem
             // 
@@ -1370,6 +1382,20 @@
             this.设置ToolStripMenuItem.Name = "设置ToolStripMenuItem";
             this.设置ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
             this.设置ToolStripMenuItem.Text = "设置";
+            // 
+            // 文件保存地址ToolStripMenuItem
+            // 
+            this.文件保存地址ToolStripMenuItem.Name = "文件保存地址ToolStripMenuItem";
+            this.文件保存地址ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.文件保存地址ToolStripMenuItem.Text = "文件保存地址";
+            this.文件保存地址ToolStripMenuItem.Click += new System.EventHandler(this.文件保存地址ToolStripMenuItem_Click);
+            // 
+            // 数据库设置ToolStripMenuItem
+            // 
+            this.数据库设置ToolStripMenuItem.Name = "数据库设置ToolStripMenuItem";
+            this.数据库设置ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.数据库设置ToolStripMenuItem.Text = "数据库设置";
+            this.数据库设置ToolStripMenuItem.Click += new System.EventHandler(this.数据库设置ToolStripMenuItem_Click);
             // 
             // panel8
             // 
@@ -1386,34 +1412,21 @@
             // ship2
             // 
             this.ship2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.ship2.Font = new System.Drawing.Font("黑体", 14.25F, System.Drawing.FontStyle.Bold);
             this.ship2.Location = new System.Drawing.Point(538, 673);
             this.ship2.Name = "ship2";
-            this.ship2.Size = new System.Drawing.Size(75, 23);
+            this.ship2.Size = new System.Drawing.Size(175, 63);
             this.ship2.TabIndex = 0;
             this.ship2.Text = "【跳过】";
             this.ship2.UseVisualStyleBackColor = true;
             this.ship2.Click += new System.EventHandler(this.ship2_Click);
             // 
-            // 历史记录ToolStripMenuItem
+            // 开始ToolStripMenuItem
             // 
-            this.历史记录ToolStripMenuItem.Name = "历史记录ToolStripMenuItem";
-            this.历史记录ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.历史记录ToolStripMenuItem.Text = "历史记录";
-            this.历史记录ToolStripMenuItem.Click += new System.EventHandler(this.历史记录ToolStripMenuItem_Click);
-            // 
-            // 文件保存地址ToolStripMenuItem
-            // 
-            this.文件保存地址ToolStripMenuItem.Name = "文件保存地址ToolStripMenuItem";
-            this.文件保存地址ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.文件保存地址ToolStripMenuItem.Text = "文件保存地址";
-            this.文件保存地址ToolStripMenuItem.Click += new System.EventHandler(this.文件保存地址ToolStripMenuItem_Click);
-            // 
-            // 数据库设置ToolStripMenuItem
-            // 
-            this.数据库设置ToolStripMenuItem.Name = "数据库设置ToolStripMenuItem";
-            this.数据库设置ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.数据库设置ToolStripMenuItem.Text = "数据库设置";
-            this.数据库设置ToolStripMenuItem.Click += new System.EventHandler(this.数据库设置ToolStripMenuItem_Click);
+            this.开始ToolStripMenuItem.Name = "开始ToolStripMenuItem";
+            this.开始ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.开始ToolStripMenuItem.Text = "开始";
+            this.开始ToolStripMenuItem.Click += new System.EventHandler(this.开始ToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -1423,6 +1436,7 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1184, 761);
             this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel7);
@@ -1430,7 +1444,6 @@
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel8);
-            this.Controls.Add(this.panel1);
             this.KeyPreview = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
@@ -1620,6 +1633,7 @@
         private System.Windows.Forms.ToolStripMenuItem 历史记录ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 文件保存地址ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 数据库设置ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 开始ToolStripMenuItem;
     }
 }
 
