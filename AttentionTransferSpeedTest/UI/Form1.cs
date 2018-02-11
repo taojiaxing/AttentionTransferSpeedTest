@@ -877,7 +877,7 @@ namespace AttentionTransferSpeedTest
             {
                 for (int i = 0; i < 40; i++)
                 {
-                    for (int j = 1; j < 7; j++)
+                    for (int j = 1; j < 3; j++)
                     {
                         Invoke(new Action(() =>
                         {

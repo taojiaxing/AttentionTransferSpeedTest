@@ -138,12 +138,12 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.文件ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.历史记录ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.开始ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.设置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.文件保存地址ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.数据库设置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel8 = new System.Windows.Forms.Panel();
             this.ship2 = new System.Windows.Forms.Button();
-            this.开始ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -213,7 +213,7 @@
             // 
             this.start.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.start.Font = new System.Drawing.Font("黑体", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.start.Location = new System.Drawing.Point(470, 429);
+            this.start.Location = new System.Drawing.Point(510, 392);
             this.start.Name = "start";
             this.start.Size = new System.Drawing.Size(175, 63);
             this.start.TabIndex = 5;
@@ -1374,6 +1374,13 @@
             this.历史记录ToolStripMenuItem.Text = "历史记录";
             this.历史记录ToolStripMenuItem.Click += new System.EventHandler(this.历史记录ToolStripMenuItem_Click);
             // 
+            // 开始ToolStripMenuItem
+            // 
+            this.开始ToolStripMenuItem.Name = "开始ToolStripMenuItem";
+            this.开始ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.开始ToolStripMenuItem.Text = "开始";
+            this.开始ToolStripMenuItem.Click += new System.EventHandler(this.开始ToolStripMenuItem_Click);
+            // 
             // 设置ToolStripMenuItem
             // 
             this.设置ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -1420,13 +1427,6 @@
             this.ship2.Text = "【跳过】";
             this.ship2.UseVisualStyleBackColor = true;
             this.ship2.Click += new System.EventHandler(this.ship2_Click);
-            // 
-            // 开始ToolStripMenuItem
-            // 
-            this.开始ToolStripMenuItem.Name = "开始ToolStripMenuItem";
-            this.开始ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.开始ToolStripMenuItem.Text = "开始";
-            this.开始ToolStripMenuItem.Click += new System.EventHandler(this.开始ToolStripMenuItem_Click);
             // 
             // Form1
             // 
