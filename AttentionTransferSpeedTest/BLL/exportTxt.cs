@@ -17,7 +17,7 @@ namespace AttentionTransferSpeedTest.BLL
             string line1 = "测试时间：" + user.Time;
             string line2 = "测试类型：空间注意   被试名：" + user.Name + "  电话: " + user.Tel;
             string line3 = "============================================================================================================================";
-            string line4 = "序号     测试条件     信号组合     指向位置     正确答案      被试答案       RT 时间";
+            string line4 = "序号     测试条件     信号组合     指向位置     正确答案      被试答案      是否正确      RT 时间";
             file.WriteLine(line1);
             file.WriteLine(line2);
             file.WriteLine(line3);
@@ -35,7 +35,7 @@ namespace AttentionTransferSpeedTest.BLL
                     nums = numm.ToString();
                 }
                 string lines = nums + "        " + result.ISI.ToString() + "       " + result.Combination + "       " + result.P.ToString() + "           " + 
-                    result.Correct.ToString() + "              " + result.Input.ToString() + "            " + result.RT.ToString();
+                    result.Correct.ToString() + "              " + result.Input.ToString() + "            "+result.isRight.ToString()+"            " + result.RT.ToString();
                 file.WriteLine(lines);
             }
             file.Close();

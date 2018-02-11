@@ -17,18 +17,18 @@ namespace AttentionTransferSpeedTest.DAL.Gateway
         public void InsertResult(Result result)
         {
             mysql.Open();
-            CreateTable("Result", new string[] { "Name", "Num", "ISI", "Combination", "P", "Correct", "Input", "RT" },
-                new string[] { "TEXT", "INTEGER", "INTEGER", "TEXT", "INTEGER", "INTEGER", "INTEGER", "INTEGER" }, mysql);
+            CreateTable("Result", new string[] { "Name", "Num", "ISI", "Combination", "P", "Correct", "Input","isRight", "RT" },
+                new string[] { "TEXT", "INTEGER", "INTEGER", "TEXT", "INTEGER", "INTEGER", "INTEGER", "INTEGER", "INTEGER" }, mysql);
             getInsert("Result", new string[] { result.Name, result.Num.ToString(), result.ISI.ToString(), result.Combination,result.P.ToString(),result.Correct.ToString(),
-            result.Input.ToString(),result.RT.ToString()}, mysql);
+            result.Input.ToString(),result.isRight.ToString(),result.RT.ToString()}, mysql);
             mysql.Close();
         }
 
         public List<Result> SelectAllResultByName(string Name)
         {
             mysql.Open();
-            CreateTable("Result", new string[] { "Name", "Num", "ISI", "Combination", "P", "Correct", "Input", "RT" },
-               new string[] { "TEXT", "INTEGER", "INTEGER", "TEXT", "INTEGER", "INTEGER", "INTEGER", "INTEGER" }, mysql);
+            CreateTable("Result", new string[] { "Name", "Num", "ISI", "Combination", "P", "Correct", "Input", "isRight", "RT" },
+               new string[] { "TEXT", "INTEGER", "INTEGER", "TEXT", "INTEGER", "INTEGER", "INTEGER", "INTEGER", "INTEGER" }, mysql);
             MySqlCommand mySqlCommand = getSqlCommand("select * from Result where Name = " + "'" + Name + "';", mysql);
             MySqlDataReader reader = mySqlCommand.ExecuteReader();
             List<Result> results = new List<Result>();
@@ -46,7 +46,8 @@ namespace AttentionTransferSpeedTest.DAL.Gateway
                         result.P = reader.GetInt32(4);
                         result.Correct = reader.GetInt32(5);
                         result.Input = reader.GetInt32(6);
-                        result.RT = reader.GetInt32(7);
+                        result.isRight = reader.GetInt32(7);
+                        result.RT = reader.GetInt32(8);
                         results.Add(result);
                     }
                 }

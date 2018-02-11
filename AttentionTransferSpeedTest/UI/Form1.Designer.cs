@@ -670,7 +670,7 @@
             this.Continue2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.Continue2.Font = new System.Drawing.Font("黑体", 14.25F, System.Drawing.FontStyle.Bold);
             this.Continue2.Image = ((System.Drawing.Image)(resources.GetObject("Continue2.Image")));
-            this.Continue2.Location = new System.Drawing.Point(556, 688);
+            this.Continue2.Location = new System.Drawing.Point(491, 673);
             this.Continue2.Name = "Continue2";
             this.Continue2.Size = new System.Drawing.Size(175, 63);
             this.Continue2.TabIndex = 0;
@@ -845,7 +845,7 @@
             this.Continue3.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.Continue3.Font = new System.Drawing.Font("黑体", 14.25F, System.Drawing.FontStyle.Bold);
             this.Continue3.Image = ((System.Drawing.Image)(resources.GetObject("Continue3.Image")));
-            this.Continue3.Location = new System.Drawing.Point(556, 688);
+            this.Continue3.Location = new System.Drawing.Point(491, 673);
             this.Continue3.Name = "Continue3";
             this.Continue3.Size = new System.Drawing.Size(175, 63);
             this.Continue3.TabIndex = 0;
@@ -1421,8 +1421,8 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1184, 761);
             this.Controls.Add(this.menuStrip1);
-            this.Controls.Add(this.panel7);
             this.Controls.Add(this.panel8);
+            this.Controls.Add(this.panel7);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);

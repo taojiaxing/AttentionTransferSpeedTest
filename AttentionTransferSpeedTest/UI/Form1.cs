@@ -48,6 +48,7 @@ namespace AttentionTransferSpeedTest
         private Thread t10;
         private User user = new User();
         private string path;
+        private int[] isisrights = new int[140];
 
         private User GetUerInfo()
         {
@@ -271,8 +272,11 @@ namespace AttentionTransferSpeedTest
                 pictureBox42.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/y.png");
                 pictureBox43.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/y.png");
                 pictureBox44.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/y.png");
+                
                 endTime = System.Environment.TickCount;
                 currentCount = endTime - startTime;
+                s.SoundLocation = "resources/music/y.wav";
+                s.Play();
                 label32.Text = currentCount + "毫秒";
                 label33.Text = currentCount + "毫秒";
                 label8.Text = currentCount + "毫秒";
@@ -288,6 +292,8 @@ namespace AttentionTransferSpeedTest
 
                 endTime = System.Environment.TickCount;
                 currentCount = endTime - startTime;
+                s.SoundLocation = "resources/music/n.wav";
+                s.Play();
                 label32.Text = currentCount + "毫秒";
                 label33.Text = currentCount + "毫秒";
                 label8.Text = currentCount + "毫秒";
@@ -428,7 +434,7 @@ namespace AttentionTransferSpeedTest
                     pictureBox28.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/p" + p + ".png");
                 }
                 ));
-                Thread.Sleep(40);
+                Thread.Sleep(28);
                 Invoke(new Action(() =>
                 {
                     pictureBox28.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/p0.png");
@@ -450,12 +456,14 @@ namespace AttentionTransferSpeedTest
                     pictureBox31.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + arr1[9] + ".png");
                     pictureBox30.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + arr1[10] + ".png");
                     pictureBox29.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + arr1[11] + ".png");
+                    
                     for (int i = 0; i < 12; i++)
                     {
                         Combination[i] = arr1[i];
                     }
                     Correct = arr1[p - 1];
                 }));
+                startTime = System.Environment.TickCount;
                 Thread.Sleep(100);
 
                 t8.IsBackground = true;
@@ -722,7 +730,7 @@ namespace AttentionTransferSpeedTest
                     isInput = false;
                     isRight = false;
                     currentCount = 0;
-                    startTime = System.Environment.TickCount;
+                    
                     test3();
                     if (isRight)
                     {
@@ -759,7 +767,7 @@ namespace AttentionTransferSpeedTest
                     pictureBox31.Image = null;
                     pictureBox30.Image = null;
                     pictureBox29.Image = null;
-                    Thread.Sleep(ISI);
+                    Thread.Sleep(1200);
                     ps[ts] = sp;
                     Corrects[ts] = Correct;
                     Inputs[ts] = Input;
@@ -774,6 +782,14 @@ namespace AttentionTransferSpeedTest
                         else
                             RT[ts] = Convert.ToInt32(label8.Text.Replace("毫秒", "").Trim());
                     }));
+                    if(Correct == Input)
+                    {
+                        isisrights[ts] = 1;
+                    }
+                    else
+                    {
+                        isisrights[ts] = 0;
+                    }
                     ts++;
                     tls++;
                 }
@@ -823,6 +839,7 @@ namespace AttentionTransferSpeedTest
                 result.P = ps[i];
                 result.Correct = Corrects[i];
                 result.Input = Inputs[i];
+                result.isRight = isisrights[i];
                 result.RT = RT[i];
                 ResultGateway resultGateway = new ResultGateway();
                 resultGateway.InsertResult(result);
@@ -849,6 +866,7 @@ namespace AttentionTransferSpeedTest
                 result.P = ps[i];
                 result.Correct = Corrects[i];
                 result.Input = Inputs[i];
+                result.isRight = isisrights[i];
                 result.RT = RT[i];
                 ResultGateway resultGateway = new ResultGateway();
                 resultGateway.InsertResult(result);

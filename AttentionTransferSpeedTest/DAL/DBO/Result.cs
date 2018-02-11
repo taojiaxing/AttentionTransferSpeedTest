@@ -9,6 +9,7 @@
         public int P { get; set; }
         public int Correct { get; set; }
         public int Input { get; set; }
+        public int isRight { get; set; }
         public int RT { get; set; }
     }
 }
