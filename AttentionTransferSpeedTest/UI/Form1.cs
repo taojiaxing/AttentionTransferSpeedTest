@@ -4,6 +4,7 @@ using AttentionTransferSpeedTest.DAL.Gateway;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -55,7 +56,7 @@ namespace AttentionTransferSpeedTest
             user.Age = Convert.ToInt32(textBox2.Text);
             user.Tel = textBox3.Text;
             user.Sex = comboBox1.Text;
-            user.Time = textBox4.Text + "年" + textBox5.Text + "月" + textBox6.Text + "日";
+            user.Time = DateTime.Now.ToString();
             return user;
         }
 
@@ -186,7 +187,7 @@ namespace AttentionTransferSpeedTest
 
         private void Submit_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text != "" && textBox2.Text != "" && textBox3.Text != "" && comboBox1.Text != "" && textBox4.Text != "" && textBox5.Text != "" && textBox6.Text != "")
+            if (textBox1.Text != "" && textBox2.Text != "" && textBox3.Text != "" && comboBox1.Text != "" )
             {
                 user = GetUerInfo();
                 Boolean iss = true;
@@ -267,29 +268,29 @@ namespace AttentionTransferSpeedTest
             }
             if (Correct == Input && !isInput)
             {
-                pictureBox14.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/y.png");
-                pictureBox15.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/y.png");
-                pictureBox28.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/y.png");
+                pictureBox42.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/y.png");
+                pictureBox43.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/y.png");
+                pictureBox44.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/y.png");
                 endTime = System.Environment.TickCount;
                 currentCount = endTime - startTime;
-                label32.Text = "用时：" + currentCount;
-                label33.Text = "用时：" + currentCount;
-                label8.Text = "用时：" + currentCount;
+                label32.Text = currentCount + "毫秒";
+                label33.Text = currentCount + "毫秒";
+                label8.Text = currentCount + "毫秒";
                 isInput = true;
                 isRight = true;
                 Thread.Sleep(200);
             }
             else if (Input != 0 && !isInput)
             {
-                pictureBox14.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/n.png");
-                pictureBox15.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/n.png");
-                pictureBox28.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/n.png");
+                pictureBox42.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/n.png");
+                pictureBox43.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/n.png");
+                pictureBox44.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/n.png");
 
                 endTime = System.Environment.TickCount;
                 currentCount = endTime - startTime;
-                label32.Text = "用时：" + currentCount;
-                label33.Text = "用时：" + currentCount;
-                label8.Text = "用时：" + currentCount;
+                label32.Text = currentCount + "毫秒";
+                label33.Text = currentCount + "毫秒";
+                label8.Text = currentCount + "毫秒";
                 isInput = true;
                 Thread.Sleep(200);
             }
@@ -304,6 +305,7 @@ namespace AttentionTransferSpeedTest
                 Invoke(new Action(() =>
                 {
                     label32.Text = "";
+                    pictureBox42.Image = null;
                     p = randomPoint();
                     pictureBox14.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/p" + p + ".png");
                     pictureBox2.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + arr1[0] + ".png");
@@ -359,6 +361,7 @@ namespace AttentionTransferSpeedTest
                 Invoke(new Action(() =>
                 {
                     label33.Text = "";
+                    pictureBox43.Image = null;
                     p = randomPoint();
                     pictureBox15.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/p" + p + ".png");
                     pictureBox27.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + arr1[0] + ".png");
@@ -420,16 +423,17 @@ namespace AttentionTransferSpeedTest
                 Invoke(new Action(() =>
                 {
                     label8.Text = "";
+               
                     p = randomPoint();
                     pictureBox28.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/p" + p + ".png");
                 }
                 ));
-                Thread.Sleep(28);
-                //Invoke(new Action(() =>
-                //{
-                //    pictureBox28.Image = null;
-                //}));
-
+                Thread.Sleep(40);
+                Invoke(new Action(() =>
+                {
+                    pictureBox28.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/p0.png");
+                }));
+                Thread.Sleep(ISI);
                 Invoke(new Action(() =>
                 {
                     //pictureBox28.Image = null;
@@ -583,7 +587,7 @@ namespace AttentionTransferSpeedTest
                     Thread.Sleep(2000);
                     while (!isRight)
                     {
-                        pictureBox14.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/n.png");
+                        pictureBox42.Image = null;
                         Thread.Sleep(200);
                         testSame();
                         isInput = false;
@@ -651,7 +655,7 @@ namespace AttentionTransferSpeedTest
 
                     while (!isRight)
                     {
-                        pictureBox14.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/n.png");
+                        pictureBox43.Image = null;
                         Thread.Sleep(200);
                         testSame2();
                         isInput = false;
@@ -713,6 +717,7 @@ namespace AttentionTransferSpeedTest
                     Invoke(new Action(() =>
                     {
                         label8.Text = "";
+                        pictureBox44.Image = null;
                     }));
                     isInput = false;
                     isRight = false;
@@ -767,7 +772,7 @@ namespace AttentionTransferSpeedTest
                         if (label8.Text == "")
                             RT[ts] = 0;
                         else
-                            RT[ts] = Convert.ToInt32(label8.Text.Replace("用时：", "").Trim());
+                            RT[ts] = Convert.ToInt32(label8.Text.Replace("毫秒", "").Trim());
                     }));
                     ts++;
                     tls++;
@@ -855,6 +860,70 @@ namespace AttentionTransferSpeedTest
             txt.txt(user, results, path);
             Application.Exit();
         }
+        /// <summary>
+        /// 淡入效果
+        /// </summary>
+        /// <param name="bmp">Bitmap 对象</param>
+        /// <param name="picBox">PictureBox 对象</param>
+        public static void DanRu(Bitmap bmp, PictureBox picBox)
+        {
+            //淡入显示图像
+            try
+            {
+                Graphics g = picBox.CreateGraphics();
+                g.Clear(Color.Gray);
+                int width = bmp.Width;
+                int height = bmp.Height;
+                ImageAttributes attributes = new ImageAttributes();
+                ColorMatrix matrix = new ColorMatrix();
+                //创建淡入颜色矩阵
+                matrix.Matrix00 = (float)0.0;
+                matrix.Matrix01 = (float)0.0;
+                matrix.Matrix02 = (float)0.0;
+                matrix.Matrix03 = (float)0.0;
+                matrix.Matrix04 = (float)0.0;
+                matrix.Matrix10 = (float)0.0;
+                matrix.Matrix11 = (float)0.0;
+                matrix.Matrix12 = (float)0.0;
+                matrix.Matrix13 = (float)0.0;
+                matrix.Matrix14 = (float)0.0;
+                matrix.Matrix20 = (float)0.0;
+                matrix.Matrix21 = (float)0.0;
+                matrix.Matrix22 = (float)0.0;
+                matrix.Matrix23 = (float)0.0;
+                matrix.Matrix24 = (float)0.0;
+                matrix.Matrix30 = (float)0.0;
+                matrix.Matrix31 = (float)0.0;
+                matrix.Matrix32 = (float)0.0;
+                matrix.Matrix33 = (float)0.0;
+                matrix.Matrix34 = (float)0.0;
+                matrix.Matrix40 = (float)0.0;
+                matrix.Matrix41 = (float)0.0;
+                matrix.Matrix42 = (float)0.0;
+                matrix.Matrix43 = (float)0.0;
+                matrix.Matrix44 = (float)0.0;
+                matrix.Matrix33 = (float)1.0;
+                matrix.Matrix44 = (float)1.0;
+                //从0到1进行修改色彩变换矩阵主对角线上的数值
+                //使三种基准色的饱和度渐增
+                Single count = (float)0.0;
+                while (count < 1.0)
+                {
+                    matrix.Matrix00 = count;
+                    matrix.Matrix11 = count;
+                    matrix.Matrix22 = count;
+                    matrix.Matrix33 = count;
+                    attributes.SetColorMatrix(matrix, ColorMatrixFlag.Default, ColorAdjustType.Bitmap);
+                    g.DrawImage(bmp, new Rectangle(0, 0, width, height), 0, 0, width, height, GraphicsUnit.Pixel, attributes);
+                    System.Threading.Thread.Sleep(200);
+                    count = (float)(count + 0.02);
+                }
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show(ex.Message, "信息提示");
+            }
+        }
 
         private void start_Click_1(object sender, EventArgs e)
         {
@@ -863,9 +932,11 @@ namespace AttentionTransferSpeedTest
             s.SoundLocation = "resources/music/bgm.wav";
             s.Play();
             ship2.Visible = false;
+            this.ship2.Parent = this.pictureBox41;
+            this.ship2.Location = new Point(500, 646);
             t1 = new Thread(() =>
             {
-                Thread.Sleep(60000);
+                Thread.Sleep(6000);
                 Invoke(new Action(() =>
                 {
                     ship2.Visible = true;
@@ -873,20 +944,20 @@ namespace AttentionTransferSpeedTest
             });
             t1.IsBackground = true;
             t1.Start();
-            t2 = new Thread(() =>
-            {
-                for (int i = 0; i < 40; i++)
-                {
-                    for (int j = 1; j < 3; j++)
-                    {
-                        Invoke(new Action(() =>
-                        {
-                            panel8.BackgroundImage = Image.FromFile(Application.StartupPath + @"/resources/photos/bg" + j + ".jpg");
-                            panel8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-                        }));
+            Image image1 = Image.FromFile(Application.StartupPath + @"/resources/photos/bg1.jpg");
 
-                        Thread.Sleep(5000);
-                    }
+            Bitmap bitmap1 = new Bitmap(image1);
+            Image image2 = Image.FromFile(Application.StartupPath + @"/resources/photos/bg2.jpg");
+            Bitmap bitmap2 = new Bitmap(image2);
+            
+           t2 = new Thread(() => {
+
+                for (int i = 0; i < 5; i++)
+                {
+                    DanRu(bitmap1, pictureBox41);
+                    Thread.Sleep(5000);
+                    DanRu(bitmap2, pictureBox41);
+                    Thread.Sleep(5000);
                 }
             });
             t2.IsBackground = true;

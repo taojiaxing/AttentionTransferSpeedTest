@@ -16,7 +16,7 @@ namespace AttentionTransferSpeedTest.DAL.Gateway
             // String mySqlCon = ConfigurationManager.ConnectionStrings["MySqlCon"].ConnectionString;
             MySqlConnection mysql = new MySqlConnection(mysqlStr);
             MySqlCommand cmd = new MySqlCommand("CREATE DATABASE IF NOT EXISTS test;", mysql);
-            mysqlStr = "server=localhost;user id=root;password=;database=test";
+            mysqlStr = "server=localhost;user id=root;password=;database=test;Charset=utf8";
             mysql = new MySqlConnection(mysqlStr);
             return mysql;
         }

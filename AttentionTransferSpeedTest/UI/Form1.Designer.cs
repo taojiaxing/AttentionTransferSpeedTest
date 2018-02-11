@@ -28,16 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel1 = new System.Windows.Forms.Panel();
             this.start = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.Submit = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
@@ -63,6 +57,7 @@
             this.Continue1 = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
+            this.pictureBox42 = new System.Windows.Forms.PictureBox();
             this.label32 = new System.Windows.Forms.Label();
             this.pictureBox14 = new System.Windows.Forms.PictureBox();
             this.pictureBox13 = new System.Windows.Forms.PictureBox();
@@ -143,7 +138,10 @@
             this.文件保存地址ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.数据库设置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.pictureBox41 = new System.Windows.Forms.PictureBox();
             this.ship2 = new System.Windows.Forms.Button();
+            this.pictureBox43 = new System.Windows.Forms.PictureBox();
+            this.pictureBox44 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -151,6 +149,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel4.SuspendLayout();
             this.panel10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox42)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
@@ -197,6 +196,9 @@
             this.panel7.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.panel8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox41)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox43)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox44)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -213,11 +215,11 @@
             // 
             this.start.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.start.Font = new System.Drawing.Font("黑体", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.start.Image = ((System.Drawing.Image)(resources.GetObject("start.Image")));
             this.start.Location = new System.Drawing.Point(510, 392);
             this.start.Name = "start";
             this.start.Size = new System.Drawing.Size(175, 63);
             this.start.TabIndex = 5;
-            this.start.Text = "【点击开始】";
             this.start.UseVisualStyleBackColor = true;
             this.start.Click += new System.EventHandler(this.start_Click_1);
             // 
@@ -227,13 +229,6 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.AutoSize = true;
-            this.panel2.Controls.Add(this.textBox6);
-            this.panel2.Controls.Add(this.textBox5);
-            this.panel2.Controls.Add(this.textBox4);
-            this.panel2.Controls.Add(this.label19);
-            this.panel2.Controls.Add(this.label18);
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.Submit);
             this.panel2.Controls.Add(this.comboBox1);
             this.panel2.Controls.Add(this.textBox3);
@@ -250,75 +245,15 @@
             this.panel2.Size = new System.Drawing.Size(1184, 762);
             this.panel2.TabIndex = 1;
             // 
-            // textBox6
-            // 
-            this.textBox6.Font = new System.Drawing.Font("宋体", 9F);
-            this.textBox6.Location = new System.Drawing.Point(622, 430);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(31, 21);
-            this.textBox6.TabIndex = 26;
-            // 
-            // textBox5
-            // 
-            this.textBox5.Font = new System.Drawing.Font("宋体", 9F);
-            this.textBox5.Location = new System.Drawing.Point(556, 430);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(30, 21);
-            this.textBox5.TabIndex = 25;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Font = new System.Drawing.Font("宋体", 9F);
-            this.textBox4.Location = new System.Drawing.Point(426, 430);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(84, 21);
-            this.textBox4.TabIndex = 24;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(659, 430);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(29, 19);
-            this.label19.TabIndex = 23;
-            this.label19.Text = "日";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(587, 430);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(29, 19);
-            this.label18.TabIndex = 22;
-            this.label18.Text = "月";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(516, 430);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(29, 19);
-            this.label2.TabIndex = 21;
-            this.label2.Text = "年";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(337, 430);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(89, 19);
-            this.label1.TabIndex = 20;
-            this.label1.Text = "测试时间";
-            // 
             // Submit
             // 
             this.Submit.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.Submit.Font = new System.Drawing.Font("黑体", 14.25F, System.Drawing.FontStyle.Bold);
+            this.Submit.Image = ((System.Drawing.Image)(resources.GetObject("Submit.Image")));
             this.Submit.Location = new System.Drawing.Point(520, 615);
             this.Submit.Name = "Submit";
             this.Submit.Size = new System.Drawing.Size(175, 63);
             this.Submit.TabIndex = 19;
-            this.Submit.Text = "【提交】";
             this.Submit.UseVisualStyleBackColor = true;
             this.Submit.Click += new System.EventHandler(this.Submit_Click);
             // 
@@ -444,61 +379,66 @@
             this.panel9.Controls.Add(this.label11);
             this.panel9.Controls.Add(this.label10);
             this.panel9.Controls.Add(this.label9);
-            this.panel9.Location = new System.Drawing.Point(285, 56);
+            this.panel9.Location = new System.Drawing.Point(223, 56);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(604, 451);
+            this.panel9.Size = new System.Drawing.Size(708, 599);
             this.panel9.TabIndex = 1;
             // 
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(136, 414);
+            this.label17.Font = new System.Drawing.Font("黑体", 14.25F);
+            this.label17.Location = new System.Drawing.Point(136, 491);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(167, 12);
+            this.label17.Size = new System.Drawing.Size(279, 19);
             this.label17.TabIndex = 9;
             this.label17.Text = "7)\t本测试大约需要5分钟时间。";
             // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(136, 386);
+            this.label16.Font = new System.Drawing.Font("黑体", 14.25F);
+            this.label16.Location = new System.Drawing.Point(136, 463);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(269, 12);
+            this.label16.Size = new System.Drawing.Size(449, 19);
             this.label16.TabIndex = 8;
             this.label16.Text = "6)\t测试过程中两眼请盯住屏幕中心点，不得移动。";
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(136, 358);
+            this.label15.Font = new System.Drawing.Font("黑体", 14.25F);
+            this.label15.Location = new System.Drawing.Point(136, 435);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(317, 12);
+            this.label15.Size = new System.Drawing.Size(529, 19);
             this.label15.TabIndex = 7;
             this.label15.Text = "5)\t下一次呈现的指针指向和圆盘内的条纹方向会随机改变。";
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(136, 330);
+            this.label14.Font = new System.Drawing.Font("黑体", 14.25F);
+            this.label14.Location = new System.Drawing.Point(136, 407);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(257, 12);
+            this.label14.Size = new System.Drawing.Size(419, 19);
             this.label14.TabIndex = 6;
-            this.label14.Text = "中条纹的方向。（如上图你应该按【╲】键）。";
+            this.label14.Text = "中条纹的方向。（如上图你应该按【1】键）。";
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(136, 297);
+            this.label13.Font = new System.Drawing.Font("黑体", 14.25F);
+            this.label13.Location = new System.Drawing.Point(136, 374);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(317, 12);
+            this.label13.Size = new System.Drawing.Size(529, 19);
             this.label13.TabIndex = 5;
             this.label13.Text = "4)\t你的任务是按键盘上的四个条纹之一来汇报被指向的圆盘";
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(155, 153);
+            this.pictureBox1.Location = new System.Drawing.Point(170, 160);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(280, 131);
+            this.pictureBox1.Size = new System.Drawing.Size(300, 192);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
@@ -506,37 +446,40 @@
             // label12
             // 
             this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("黑体", 14.25F);
             this.label12.Location = new System.Drawing.Point(136, 128);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(329, 12);
+            this.label12.Size = new System.Drawing.Size(549, 19);
             this.label12.TabIndex = 3;
             this.label12.Text = "3)\t指针有12个可能的指向，每个圆盘内条纹有四种可能朝向。";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("黑体", 14.25F);
             this.label11.Location = new System.Drawing.Point(136, 95);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(341, 12);
+            this.label11.Size = new System.Drawing.Size(569, 19);
             this.label11.TabIndex = 2;
             this.label11.Text = "2)\t呈现图形构图是中心一指针加周围12个条纹圆盘（如下图）。";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("黑体", 14.25F);
             this.label10.Location = new System.Drawing.Point(136, 62);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(257, 12);
+            this.label10.Size = new System.Drawing.Size(429, 19);
             this.label10.TabIndex = 1;
             this.label10.Text = "1)\t本测试要求你对电脑呈现图形进行快速判断。";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("黑体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label9.Font = new System.Drawing.Font("黑体", 14.25F);
             this.label9.Location = new System.Drawing.Point(258, 20);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(72, 16);
+            this.label9.Size = new System.Drawing.Size(89, 19);
             this.label9.TabIndex = 0;
             this.label9.Text = "操作指南";
             // 
@@ -544,11 +487,11 @@
             // 
             this.Continue1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.Continue1.Font = new System.Drawing.Font("黑体", 14.25F, System.Drawing.FontStyle.Bold);
+            this.Continue1.Image = ((System.Drawing.Image)(resources.GetObject("Continue1.Image")));
             this.Continue1.Location = new System.Drawing.Point(491, 673);
             this.Continue1.Name = "Continue1";
             this.Continue1.Size = new System.Drawing.Size(175, 63);
             this.Continue1.TabIndex = 0;
-            this.Continue1.Text = "【继续】";
             this.Continue1.UseVisualStyleBackColor = true;
             this.Continue1.Click += new System.EventHandler(this.Continue1_Click);
             // 
@@ -568,6 +511,7 @@
             // 
             this.panel10.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.panel10.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.panel10.Controls.Add(this.pictureBox42);
             this.panel10.Controls.Add(this.label32);
             this.panel10.Controls.Add(this.pictureBox14);
             this.panel10.Controls.Add(this.pictureBox13);
@@ -586,6 +530,15 @@
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(600, 600);
             this.panel10.TabIndex = 1;
+            // 
+            // pictureBox42
+            // 
+            this.pictureBox42.Location = new System.Drawing.Point(332, 224);
+            this.pictureBox42.Name = "pictureBox42";
+            this.pictureBox42.Size = new System.Drawing.Size(20, 20);
+            this.pictureBox42.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox42.TabIndex = 14;
+            this.pictureBox42.TabStop = false;
             // 
             // label32
             // 
@@ -716,11 +669,11 @@
             // 
             this.Continue2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.Continue2.Font = new System.Drawing.Font("黑体", 14.25F, System.Drawing.FontStyle.Bold);
+            this.Continue2.Image = ((System.Drawing.Image)(resources.GetObject("Continue2.Image")));
             this.Continue2.Location = new System.Drawing.Point(556, 688);
             this.Continue2.Name = "Continue2";
             this.Continue2.Size = new System.Drawing.Size(175, 63);
             this.Continue2.TabIndex = 0;
-            this.Continue2.Text = "【继续】";
             this.Continue2.UseVisualStyleBackColor = true;
             this.Continue2.Click += new System.EventHandler(this.Continue2_Click);
             // 
@@ -742,6 +695,7 @@
             // 
             this.panel11.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.panel11.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.panel11.Controls.Add(this.pictureBox43);
             this.panel11.Controls.Add(this.label33);
             this.panel11.Controls.Add(this.pictureBox15);
             this.panel11.Controls.Add(this.pictureBox16);
@@ -890,11 +844,11 @@
             // 
             this.Continue3.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.Continue3.Font = new System.Drawing.Font("黑体", 14.25F, System.Drawing.FontStyle.Bold);
+            this.Continue3.Image = ((System.Drawing.Image)(resources.GetObject("Continue3.Image")));
             this.Continue3.Location = new System.Drawing.Point(556, 688);
             this.Continue3.Name = "Continue3";
             this.Continue3.Size = new System.Drawing.Size(175, 63);
             this.Continue3.TabIndex = 0;
-            this.Continue3.Text = "【继续】";
             this.Continue3.UseVisualStyleBackColor = true;
             this.Continue3.Click += new System.EventHandler(this.Continue3_Click);
             // 
@@ -914,6 +868,7 @@
             // 
             this.panel12.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.panel12.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.panel12.Controls.Add(this.pictureBox44);
             this.panel12.Controls.Add(this.label8);
             this.panel12.Controls.Add(this.pictureBox28);
             this.panel12.Controls.Add(this.pictureBox29);
@@ -1328,22 +1283,22 @@
             // skip
             // 
             this.skip.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.skip.Location = new System.Drawing.Point(624, 716);
+            this.skip.Image = ((System.Drawing.Image)(resources.GetObject("skip.Image")));
+            this.skip.Location = new System.Drawing.Point(648, 673);
             this.skip.Name = "skip";
-            this.skip.Size = new System.Drawing.Size(75, 23);
+            this.skip.Size = new System.Drawing.Size(175, 63);
             this.skip.TabIndex = 1;
-            this.skip.Text = "【跳过】";
             this.skip.UseVisualStyleBackColor = true;
             this.skip.Click += new System.EventHandler(this.skip_Click);
             // 
             // Submit2
             // 
             this.Submit2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.Submit2.Location = new System.Drawing.Point(470, 716);
+            this.Submit2.Image = ((System.Drawing.Image)(resources.GetObject("Submit2.Image")));
+            this.Submit2.Location = new System.Drawing.Point(406, 674);
             this.Submit2.Name = "Submit2";
-            this.Submit2.Size = new System.Drawing.Size(75, 23);
+            this.Submit2.Size = new System.Drawing.Size(175, 63);
             this.Submit2.TabIndex = 0;
-            this.Submit2.Text = "【提交】";
             this.Submit2.UseVisualStyleBackColor = true;
             this.Submit2.Click += new System.EventHandler(this.Submit2_Click);
             // 
@@ -1410,23 +1365,53 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel8.AutoSize = true;
+            this.panel8.Controls.Add(this.pictureBox41);
             this.panel8.Controls.Add(this.ship2);
-            this.panel8.Location = new System.Drawing.Point(0, 0);
+            this.panel8.Location = new System.Drawing.Point(0, 28);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(1184, 761);
+            this.panel8.Size = new System.Drawing.Size(1184, 734);
             this.panel8.TabIndex = 6;
+            // 
+            // pictureBox41
+            // 
+            this.pictureBox41.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox41.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox41.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox41.Name = "pictureBox41";
+            this.pictureBox41.Size = new System.Drawing.Size(1184, 734);
+            this.pictureBox41.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox41.TabIndex = 1;
+            this.pictureBox41.TabStop = false;
             // 
             // ship2
             // 
             this.ship2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.ship2.Font = new System.Drawing.Font("黑体", 14.25F, System.Drawing.FontStyle.Bold);
-            this.ship2.Location = new System.Drawing.Point(538, 673);
+            this.ship2.Image = ((System.Drawing.Image)(resources.GetObject("ship2.Image")));
+            this.ship2.Location = new System.Drawing.Point(538, 646);
             this.ship2.Name = "ship2";
             this.ship2.Size = new System.Drawing.Size(175, 63);
             this.ship2.TabIndex = 0;
-            this.ship2.Text = "【跳过】";
             this.ship2.UseVisualStyleBackColor = true;
             this.ship2.Click += new System.EventHandler(this.ship2_Click);
+            // 
+            // pictureBox43
+            // 
+            this.pictureBox43.Location = new System.Drawing.Point(332, 224);
+            this.pictureBox43.Name = "pictureBox43";
+            this.pictureBox43.Size = new System.Drawing.Size(20, 20);
+            this.pictureBox43.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox43.TabIndex = 14;
+            this.pictureBox43.TabStop = false;
+            // 
+            // pictureBox44
+            // 
+            this.pictureBox44.Location = new System.Drawing.Point(332, 224);
+            this.pictureBox44.Name = "pictureBox44";
+            this.pictureBox44.Size = new System.Drawing.Size(20, 20);
+            this.pictureBox44.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox44.TabIndex = 14;
+            this.pictureBox44.TabStop = false;
             // 
             // Form1
             // 
@@ -1436,14 +1421,14 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1184, 761);
             this.Controls.Add(this.menuStrip1);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel7);
+            this.Controls.Add(this.panel8);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
-            this.Controls.Add(this.panel8);
+            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
             this.KeyPreview = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
@@ -1461,6 +1446,7 @@
             this.panel4.ResumeLayout(false);
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox42)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
@@ -1511,6 +1497,9 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.panel8.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox41)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox43)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox44)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1571,13 +1560,6 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox14;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.CheckedListBox checkedListBox6;
@@ -1634,6 +1616,10 @@
         private System.Windows.Forms.ToolStripMenuItem 文件保存地址ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 数据库设置ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 开始ToolStripMenuItem;
+        private System.Windows.Forms.PictureBox pictureBox41;
+        private System.Windows.Forms.PictureBox pictureBox42;
+        private System.Windows.Forms.PictureBox pictureBox43;
+        private System.Windows.Forms.PictureBox pictureBox44;
     }
 }
 
