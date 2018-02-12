@@ -4,7 +4,6 @@ using AttentionTransferSpeedTest.DAL.Gateway;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Drawing.Imaging;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -275,14 +274,16 @@ namespace AttentionTransferSpeedTest
                 case Keys.NumPad5:
                     Input = 5;
                     break;
+
                 case Keys.Space:
                     fromss = 2;
                     break;
+
                 case Keys.Enter:
                     fromss = 3;
                     break;
             }
-            if (Correct == Input && !isInput&&isSubmit==true)
+            if (Correct == Input && !isInput && isSubmit == true)
             {
                 pictureBox42.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/y.png");
                 pictureBox43.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/y.png");
@@ -299,7 +300,7 @@ namespace AttentionTransferSpeedTest
                 isSubmit = false;
                 Thread.Sleep(200);
             }
-            else if (Input != 0 && !isInput&&isSubmit==true)
+            else if (Input != 0 && !isInput && isSubmit == true)
             {
                 pictureBox42.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/n.png");
                 pictureBox43.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/n.png");
@@ -315,7 +316,7 @@ namespace AttentionTransferSpeedTest
                 isSubmit = false;
                 Thread.Sleep(200);
             }
-            if (fromss == 2&&isStart == false)
+            if (fromss == 2 && isStart == false)
             {
                 isStart = true;
                 PanelIsDisplay(8);
@@ -349,7 +350,7 @@ namespace AttentionTransferSpeedTest
                 t2.IsBackground = true;
                 t2.Start();
             }
-            if(fromss == 3&& isSkip == false && isSubmit == false)
+            if (fromss == 3 && isSkip == false && isSubmit == false)
             {
                 isSkip = true;
                 //t1.Abort();
@@ -370,7 +371,6 @@ namespace AttentionTransferSpeedTest
             {
                 Invoke(new Action(() =>
                 {
-
                     pictureBox42.Image = null;
                     p = randomPoint();
                     pictureBox14.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/p" + p + ".png");
@@ -430,7 +430,6 @@ namespace AttentionTransferSpeedTest
             {
                 Invoke(new Action(() =>
                 {
- 
                     pictureBox43.Image = null;
                     p = randomPoint();
                     pictureBox15.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/p" + p + ".png");
@@ -494,8 +493,6 @@ namespace AttentionTransferSpeedTest
             {
                 Invoke(new Action(() =>
                 {
-
-
                     p = randomPoint();
                     pictureBox28.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/p" + p + ".png");
                 }
@@ -529,7 +526,7 @@ namespace AttentionTransferSpeedTest
                     }
                     Correct = arr1[p - 1];
                 }));
-               
+
                 Thread.Sleep(300);
 
                 t8.IsBackground = true;
@@ -549,7 +546,6 @@ namespace AttentionTransferSpeedTest
             {
                 Invoke(new Action(() =>
                 {
-
                     pictureBox14.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/p" + sp + ".png");
                     pictureBox2.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + sameComnination[0] + ".png");
                     pictureBox3.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + sameComnination[1] + ".png");
@@ -598,7 +594,6 @@ namespace AttentionTransferSpeedTest
             {
                 Invoke(new Action(() =>
                 {
-
                     pictureBox15.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/p" + sp + ".png");
                     pictureBox27.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + sameComnination[0] + ".png");
                     pictureBox26.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + sameComnination[1] + ".png");
@@ -802,7 +797,6 @@ namespace AttentionTransferSpeedTest
                     Thread.Sleep(1000);
                     Invoke(new Action(() =>
                     {
-
                         pictureBox44.Image = null;
                     }));
                     isInput = false;
@@ -827,7 +821,7 @@ namespace AttentionTransferSpeedTest
                         level++;
                         tls = 0;
                     }
-                    if ((ISI == 56&&tls==19) || (tls == 19 && rs < 10))
+                    if ((ISI == 56 && tls == 19) || (tls == 19 && rs < 10))
                     {
                         isco = false;
                     }
@@ -855,7 +849,6 @@ namespace AttentionTransferSpeedTest
                         + sameComnination[9].ToString() + sameComnination[10].ToString() + sameComnination[11].ToString());
                     Invoke(new Action(() =>
                     {
-
                         RT[ts] = currentCount;
                     }));
                     if (Correct == Input)
@@ -960,7 +953,7 @@ namespace AttentionTransferSpeedTest
         /// </summary>
         /// <param name="bmp">Bitmap 对象</param>
         /// <param name="picBox">PictureBox 对象</param>
-       
+
         //private void start_Click_1(object sender, EventArgs e)
         //{
         //    PanelIsDisplay(8);
