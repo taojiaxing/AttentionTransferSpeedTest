@@ -20,7 +20,7 @@ namespace AttentionTransferSpeedTest
         private Thread t2;
         private int[] Combination = new int[12];
         private int Correct = 0;
-        private int Input = 0;
+        private int Input = -1;
         private int ISI = 0;
         private int startTime;
         private int endTime;
@@ -47,8 +47,13 @@ namespace AttentionTransferSpeedTest
         private Thread t9;
         private Thread t10;
         private User user = new User();
-        private string path;
+        private string path = "D:/";
         private int[] isisrights = new int[140];
+        private int fromss = 0;
+        private Boolean isSubmit = false;
+        private Boolean isStart = false;
+        private List<Image> bks = new List<Image>();
+        private Boolean isSkip = false;
 
         private User GetUerInfo()
         {
@@ -130,6 +135,10 @@ namespace AttentionTransferSpeedTest
             s.Play();
             panel1.BackgroundImage = Image.FromFile(Application.StartupPath + @"/resources/photos/main.jpg");
             panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            Image image1 = Image.FromFile(Application.StartupPath + @"/resources/photos/bg1.jpg");
+            Image image2 = Image.FromFile(Application.StartupPath + @"/resources/photos/bg2.jpg");
+            bks.Add(image1);
+            bks.Add(image2);
         }
 
         private void setControls(float newx, float newy, Control cons)
@@ -188,7 +197,7 @@ namespace AttentionTransferSpeedTest
 
         private void Submit_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text != "" && textBox2.Text != "" && textBox3.Text != "" && comboBox1.Text != "" )
+            if (textBox1.Text != "" && textBox2.Text != "" && textBox3.Text != "" && comboBox1.Text != "")
             {
                 user = GetUerInfo();
                 Boolean iss = true;
@@ -266,40 +275,91 @@ namespace AttentionTransferSpeedTest
                 case Keys.NumPad5:
                     Input = 5;
                     break;
+                case Keys.Space:
+                    fromss = 2;
+                    break;
+                case Keys.Enter:
+                    fromss = 3;
+                    break;
             }
-            if (Correct == Input && !isInput)
+            if (Correct == Input && !isInput&&isSubmit==true)
             {
                 pictureBox42.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/y.png");
                 pictureBox43.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/y.png");
                 pictureBox44.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/y.png");
-                
+                pictureBox15.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/p0.png");
+                pictureBox14.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/p0.png");
                 endTime = System.Environment.TickCount;
                 currentCount = endTime - startTime;
                 s.SoundLocation = "resources/music/y.wav";
                 s.Play();
-                label32.Text = currentCount + "毫秒";
-                label33.Text = currentCount + "毫秒";
-                label8.Text = currentCount + "毫秒";
+
                 isInput = true;
                 isRight = true;
+                isSubmit = false;
                 Thread.Sleep(200);
             }
-            else if (Input != 0 && !isInput)
+            else if (Input != 0 && !isInput&&isSubmit==true)
             {
                 pictureBox42.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/n.png");
                 pictureBox43.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/n.png");
                 pictureBox44.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/n.png");
-
+                pictureBox15.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/p0.png");
+                pictureBox14.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/p0.png");
                 endTime = System.Environment.TickCount;
                 currentCount = endTime - startTime;
                 s.SoundLocation = "resources/music/n.wav";
                 s.Play();
-                label32.Text = currentCount + "毫秒";
-                label33.Text = currentCount + "毫秒";
-                label8.Text = currentCount + "毫秒";
+
                 isInput = true;
+                isSubmit = false;
                 Thread.Sleep(200);
             }
+            if (fromss == 2&&isStart == false)
+            {
+                isStart = true;
+                PanelIsDisplay(8);
+                s.Stop();
+                s.SoundLocation = "resources/music/bgm.wav";
+                s.Play();
+                //ship2.Visible = false;
+                //this.ship2.Parent = this.pictureBox41;
+                //this.ship2.Location = new Point(500, 646);
+                //t1 = new Thread(() =>
+                //{
+                //    Thread.Sleep(6000);
+                //    Invoke(new Action(() =>
+                //    {
+                //        ship2.Visible = true;
+                //    }));
+                //});
+                //t1.IsBackground = true;
+                //t1.Start();
+
+                t2 = new Thread(() =>
+                {
+                    for (int i = 0; i < 5; i++)
+                    {
+                        pictureBox41.Image = bks[0];
+                        Thread.Sleep(5000);
+                        pictureBox41.Image = bks[1];
+                        Thread.Sleep(5000);
+                    }
+                });
+                t2.IsBackground = true;
+                t2.Start();
+            }
+            if(fromss == 3&& isSkip == false && isSubmit == false)
+            {
+                isSkip = true;
+                //t1.Abort();
+                t2.Abort();
+                s.Stop();
+                s.SoundLocation = "resources/music/info_music.wav";
+                s.Play();
+                PanelIsDisplay(2);
+            }
+            if (fromss == 3 && isSkip == true && isSubmit == false) { }
         }
 
         private void test()
@@ -310,7 +370,7 @@ namespace AttentionTransferSpeedTest
             {
                 Invoke(new Action(() =>
                 {
-                    label32.Text = "";
+
                     pictureBox42.Image = null;
                     p = randomPoint();
                     pictureBox14.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/p" + p + ".png");
@@ -326,6 +386,8 @@ namespace AttentionTransferSpeedTest
                     pictureBox11.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + arr1[9] + ".png");
                     pictureBox12.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + arr1[10] + ".png");
                     pictureBox13.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + arr1[11] + ".png");
+                    startTime = System.Environment.TickCount;
+                    isSubmit = true;
                     for (int i = 0; i < 12; i++)
                     {
                         Combination[i] = arr1[i];
@@ -360,13 +422,15 @@ namespace AttentionTransferSpeedTest
                     pictureBox18.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/4.png");
                     pictureBox17.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/4.png");
                     pictureBox16.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/4.png");
+                    startTime = System.Environment.TickCount;
+                    isSubmit = true;
                 }));
             });
             t5 = new Thread(() =>
             {
                 Invoke(new Action(() =>
                 {
-                    label33.Text = "";
+ 
                     pictureBox43.Image = null;
                     p = randomPoint();
                     pictureBox15.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/p" + p + ".png");
@@ -388,7 +452,7 @@ namespace AttentionTransferSpeedTest
                     }
                     Correct = arr1[p - 1];
                 }));
-                Thread.Sleep(500);
+                Thread.Sleep(300);
 
                 t7.IsBackground = true;
                 t7.Start();
@@ -422,19 +486,21 @@ namespace AttentionTransferSpeedTest
                     pictureBox31.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/4.png");
                     pictureBox30.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/4.png");
                     pictureBox29.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/4.png");
+                    startTime = System.Environment.TickCount;
+                    isSubmit = true;
                 }));
             });
             t9 = new Thread(() =>
             {
                 Invoke(new Action(() =>
                 {
-                    label8.Text = "";
-               
+
+
                     p = randomPoint();
                     pictureBox28.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/p" + p + ".png");
                 }
                 ));
-                Thread.Sleep(28);
+                Thread.Sleep(38);
                 Invoke(new Action(() =>
                 {
                     pictureBox28.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/p0.png");
@@ -456,15 +522,15 @@ namespace AttentionTransferSpeedTest
                     pictureBox31.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + arr1[9] + ".png");
                     pictureBox30.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + arr1[10] + ".png");
                     pictureBox29.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + arr1[11] + ".png");
-                    
+
                     for (int i = 0; i < 12; i++)
                     {
                         Combination[i] = arr1[i];
                     }
                     Correct = arr1[p - 1];
                 }));
-                startTime = System.Environment.TickCount;
-                Thread.Sleep(100);
+               
+                Thread.Sleep(300);
 
                 t8.IsBackground = true;
                 t8.Start();
@@ -483,7 +549,7 @@ namespace AttentionTransferSpeedTest
             {
                 Invoke(new Action(() =>
                 {
-                    label32.Text = "";
+
                     pictureBox14.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/p" + sp + ".png");
                     pictureBox2.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + sameComnination[0] + ".png");
                     pictureBox3.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + sameComnination[1] + ".png");
@@ -497,6 +563,8 @@ namespace AttentionTransferSpeedTest
                     pictureBox11.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + sameComnination[9] + ".png");
                     pictureBox12.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + sameComnination[10] + ".png");
                     pictureBox13.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + sameComnination[11] + ".png");
+                    startTime = System.Environment.TickCount;
+                    isSubmit = true;
                 }));
                 Input = 0;
             });
@@ -522,13 +590,15 @@ namespace AttentionTransferSpeedTest
                     pictureBox18.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/4.png");
                     pictureBox17.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/4.png");
                     pictureBox16.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/4.png");
+                    startTime = System.Environment.TickCount;
+                    isSubmit = true;
                 }));
             });
             t2 = new Thread(() =>
             {
                 Invoke(new Action(() =>
                 {
-                    label33.Text = "";
+
                     pictureBox15.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/p" + sp + ".png");
                     pictureBox27.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + sameComnination[0] + ".png");
                     pictureBox26.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + sameComnination[1] + ".png");
@@ -544,7 +614,7 @@ namespace AttentionTransferSpeedTest
                     pictureBox16.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + sameComnination[11] + ".png");
                 }));
                 Input = 0;
-                Thread.Sleep(500);
+                Thread.Sleep(300);
                 t7.IsBackground = true;
                 t7.Start();
             });
@@ -625,6 +695,10 @@ namespace AttentionTransferSpeedTest
                 }
                 s.SoundLocation = "resources/music/Continue1_music.wav";
                 s.Play();
+                Invoke(new Action(() =>
+                {
+                    Continue2.Visible = true;
+                }));
             });
             t4.Start();
         }
@@ -693,6 +767,10 @@ namespace AttentionTransferSpeedTest
                 }
                 s.SoundLocation = "resources/music/Continue2_music.wav";
                 s.Play();
+                Invoke(new Action(() =>
+                {
+                    Continue3.Visible = true;
+                }));
             });
             t6.Start();
             t4.Abort();
@@ -724,15 +802,15 @@ namespace AttentionTransferSpeedTest
                     Thread.Sleep(1000);
                     Invoke(new Action(() =>
                     {
-                        label8.Text = "";
+
                         pictureBox44.Image = null;
                     }));
                     isInput = false;
                     isRight = false;
                     currentCount = 0;
-                    
+
                     test3();
-                    if (isRight)
+                    if (Correct == Input)
                     {
                         rs++;
                     }
@@ -749,7 +827,7 @@ namespace AttentionTransferSpeedTest
                         level++;
                         tls = 0;
                     }
-                    if (ISI == 56 || (tls == 19 && rs < 10))
+                    if ((ISI == 56&&tls==19) || (tls == 19 && rs < 10))
                     {
                         isco = false;
                     }
@@ -777,12 +855,10 @@ namespace AttentionTransferSpeedTest
                         + sameComnination[9].ToString() + sameComnination[10].ToString() + sameComnination[11].ToString());
                     Invoke(new Action(() =>
                     {
-                        if (label8.Text == "")
-                            RT[ts] = 0;
-                        else
-                            RT[ts] = Convert.ToInt32(label8.Text.Replace("毫秒", "").Trim());
+
+                        RT[ts] = currentCount;
                     }));
-                    if(Correct == Input)
+                    if (Correct == Input)
                     {
                         isisrights[ts] = 1;
                     }
@@ -878,119 +954,61 @@ namespace AttentionTransferSpeedTest
             txt.txt(user, results, path);
             Application.Exit();
         }
+
         /// <summary>
         /// 淡入效果
         /// </summary>
         /// <param name="bmp">Bitmap 对象</param>
         /// <param name="picBox">PictureBox 对象</param>
-        public static void DanRu(Bitmap bmp, PictureBox picBox)
-        {
-            //淡入显示图像
-            try
-            {
-                Graphics g = picBox.CreateGraphics();
-                g.Clear(Color.Gray);
-                int width = bmp.Width;
-                int height = bmp.Height;
-                ImageAttributes attributes = new ImageAttributes();
-                ColorMatrix matrix = new ColorMatrix();
-                //创建淡入颜色矩阵
-                matrix.Matrix00 = (float)0.0;
-                matrix.Matrix01 = (float)0.0;
-                matrix.Matrix02 = (float)0.0;
-                matrix.Matrix03 = (float)0.0;
-                matrix.Matrix04 = (float)0.0;
-                matrix.Matrix10 = (float)0.0;
-                matrix.Matrix11 = (float)0.0;
-                matrix.Matrix12 = (float)0.0;
-                matrix.Matrix13 = (float)0.0;
-                matrix.Matrix14 = (float)0.0;
-                matrix.Matrix20 = (float)0.0;
-                matrix.Matrix21 = (float)0.0;
-                matrix.Matrix22 = (float)0.0;
-                matrix.Matrix23 = (float)0.0;
-                matrix.Matrix24 = (float)0.0;
-                matrix.Matrix30 = (float)0.0;
-                matrix.Matrix31 = (float)0.0;
-                matrix.Matrix32 = (float)0.0;
-                matrix.Matrix33 = (float)0.0;
-                matrix.Matrix34 = (float)0.0;
-                matrix.Matrix40 = (float)0.0;
-                matrix.Matrix41 = (float)0.0;
-                matrix.Matrix42 = (float)0.0;
-                matrix.Matrix43 = (float)0.0;
-                matrix.Matrix44 = (float)0.0;
-                matrix.Matrix33 = (float)1.0;
-                matrix.Matrix44 = (float)1.0;
-                //从0到1进行修改色彩变换矩阵主对角线上的数值
-                //使三种基准色的饱和度渐增
-                Single count = (float)0.0;
-                while (count < 1.0)
-                {
-                    matrix.Matrix00 = count;
-                    matrix.Matrix11 = count;
-                    matrix.Matrix22 = count;
-                    matrix.Matrix33 = count;
-                    attributes.SetColorMatrix(matrix, ColorMatrixFlag.Default, ColorAdjustType.Bitmap);
-                    g.DrawImage(bmp, new Rectangle(0, 0, width, height), 0, 0, width, height, GraphicsUnit.Pixel, attributes);
-                    System.Threading.Thread.Sleep(200);
-                    count = (float)(count + 0.02);
-                }
-            }
-            catch (Exception ex)
-            {
-                //MessageBox.Show(ex.Message, "信息提示");
-            }
-        }
+       
+        //private void start_Click_1(object sender, EventArgs e)
+        //{
+        //    PanelIsDisplay(8);
+        //    s.Stop();
+        //    s.SoundLocation = "resources/music/bgm.wav";
+        //    s.Play();
+        //    ship2.Visible = false;
+        //    this.ship2.Parent = this.pictureBox41;
+        //    this.ship2.Location = new Point(500, 646);
+        //    t1 = new Thread(() =>
+        //    {
+        //        Thread.Sleep(6000);
+        //        Invoke(new Action(() =>
+        //        {
+        //            ship2.Visible = true;
+        //        }));
+        //    });
+        //    t1.IsBackground = true;
+        //    t1.Start();
+        //    Image image1 = Image.FromFile(Application.StartupPath + @"/resources/photos/bg1.jpg");
 
-        private void start_Click_1(object sender, EventArgs e)
-        {
-            PanelIsDisplay(8);
-            s.Stop();
-            s.SoundLocation = "resources/music/bgm.wav";
-            s.Play();
-            ship2.Visible = false;
-            this.ship2.Parent = this.pictureBox41;
-            this.ship2.Location = new Point(500, 646);
-            t1 = new Thread(() =>
-            {
-                Thread.Sleep(6000);
-                Invoke(new Action(() =>
-                {
-                    ship2.Visible = true;
-                }));
-            });
-            t1.IsBackground = true;
-            t1.Start();
-            Image image1 = Image.FromFile(Application.StartupPath + @"/resources/photos/bg1.jpg");
+        //    Bitmap bitmap1 = new Bitmap(image1);
+        //    Image image2 = Image.FromFile(Application.StartupPath + @"/resources/photos/bg2.jpg");
+        //    Bitmap bitmap2 = new Bitmap(image2);
 
-            Bitmap bitmap1 = new Bitmap(image1);
-            Image image2 = Image.FromFile(Application.StartupPath + @"/resources/photos/bg2.jpg");
-            Bitmap bitmap2 = new Bitmap(image2);
-            
-           t2 = new Thread(() => {
+        //    t2 = new Thread(() =>
+        //    {
+        //        for (int i = 0; i < 5; i++)
+        //        {
+        //            DanRu(bitmap1, pictureBox41);
+        //            Thread.Sleep(5000);
+        //            DanRu(bitmap2, pictureBox41);
+        //            Thread.Sleep(5000);
+        //        }
+        //    });
+        //    t2.IsBackground = true;
+        //    t2.Start();
+        //}
 
-                for (int i = 0; i < 5; i++)
-                {
-                    DanRu(bitmap1, pictureBox41);
-                    Thread.Sleep(5000);
-                    DanRu(bitmap2, pictureBox41);
-                    Thread.Sleep(5000);
-                }
-            });
-            t2.IsBackground = true;
-            t2.Start();
-        }
-
-        private void ship2_Click(object sender, EventArgs e)
-        {
-            t1.Abort();
-            t2.Abort();
-            s.Stop();
-            s.SoundLocation = "resources/music/info_music.wav";
-            s.Play();
-            PanelIsDisplay(2);
-        }
+        //private void ship2_Click(object sender, EventArgs e)
+        //{
+        //    t1.Abort();
+        //    t2.Abort();
+        //    s.Stop();
+        //    s.SoundLocation = "resources/music/info_music.wav";
+        //    s.Play();
+        //    PanelIsDisplay(2);
+        //}
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -1000,6 +1018,7 @@ namespace AttentionTransferSpeedTest
         private void Form1_Load_1(object sender, EventArgs e)
         {
         }
+
         private void 历史记录ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form2 form2 = new Form2();
@@ -1015,44 +1034,43 @@ namespace AttentionTransferSpeedTest
 
         private void 数据库设置ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
         }
 
         private void 开始ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            PanelIsDisplay(8);
-            s.Stop();
-            s.SoundLocation = "resources/music/bgm.wav";
-            s.Play();
-            ship2.Visible = false;
-            t1 = new Thread(() =>
-            {
-                Thread.Sleep(60000);
-                Invoke(new Action(() =>
-                {
-                    ship2.Visible = true;
-                }));
-            });
-            t1.IsBackground = true;
-            t1.Start();
-            t2 = new Thread(() =>
-            {
-                for (int i = 0; i < 40; i++)
-                {
-                    for (int j = 1; j < 7; j++)
-                    {
-                        Invoke(new Action(() =>
-                        {
-                            panel8.BackgroundImage = Image.FromFile(Application.StartupPath + @"/resources/photos/bg" + j + ".jpg");
-                            panel8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-                        }));
+            //PanelIsDisplay(8);
+            //s.Stop();
+            //s.SoundLocation = "resources/music/bgm.wav";
+            //s.Play();
+            ////ship2.Visible = false;
+            ////t1 = new Thread(() =>
+            ////{
+            ////    Thread.Sleep(60000);
+            ////    Invoke(new Action(() =>
+            ////    {
+            ////        ship2.Visible = true;
+            ////    }));
+            ////});
+            ////t1.IsBackground = true;
+            ////t1.Start();
+            //t2 = new Thread(() =>
+            //{
+            //    for (int i = 0; i < 40; i++)
+            //    {
+            //        for (int j = 1; j < 7; j++)
+            //        {
+            //            Invoke(new Action(() =>
+            //            {
+            //                panel8.BackgroundImage = Image.FromFile(Application.StartupPath + @"/resources/photos/bg" + j + ".jpg");
+            //                panel8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            //            }));
 
-                        Thread.Sleep(5000);
-                    }
-                }
-            });
-            t2.IsBackground = true;
-            t2.Start();
+            //            Thread.Sleep(5000);
+            //        }
+            //    }
+            //});
+            //t2.IsBackground = true;
+            //t2.Start();
         }
     }
 }

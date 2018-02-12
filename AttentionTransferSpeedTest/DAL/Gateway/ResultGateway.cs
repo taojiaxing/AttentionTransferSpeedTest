@@ -17,7 +17,7 @@ namespace AttentionTransferSpeedTest.DAL.Gateway
         public void InsertResult(Result result)
         {
             mysql.Open();
-            CreateTable("Result", new string[] { "Name", "Num", "ISI", "Combination", "P", "Correct", "Input","isRight", "RT" },
+            CreateTable("Result", new string[] { "Name", "Num", "ISI", "Combination", "P", "Correct", "Input", "isRight", "RT" },
                 new string[] { "TEXT", "INTEGER", "INTEGER", "TEXT", "INTEGER", "INTEGER", "INTEGER", "INTEGER", "INTEGER" }, mysql);
             getInsert("Result", new string[] { result.Name, result.Num.ToString(), result.ISI.ToString(), result.Combination,result.P.ToString(),result.Correct.ToString(),
             result.Input.ToString(),result.isRight.ToString(),result.RT.ToString()}, mysql);

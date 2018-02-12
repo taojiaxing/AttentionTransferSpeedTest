@@ -4,11 +4,6 @@ using AttentionTransferSpeedTest.DAL.Gateway;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace AttentionTransferSpeedTest
@@ -24,12 +19,13 @@ namespace AttentionTransferSpeedTest
         {
             this.dataGridView1.DataSource = DataBindingByList1();
         }
+
         private ArrayList DataBindingByList1()
         {
             ArrayList Al = new ArrayList();
             UserGateway userGateway = new UserGateway();
             List<User> users = userGateway.SelectAllUser();
-            foreach(User user in users)
+            foreach (User user in users)
             {
                 Al.Add(user);
             }
@@ -38,9 +34,10 @@ namespace AttentionTransferSpeedTest
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            
         }
+
         private string path;
+
         private void button1_Click(object sender, EventArgs e)
         {
             UserGateway userGateway = new UserGateway();
@@ -48,7 +45,7 @@ namespace AttentionTransferSpeedTest
             exportTxt txt = new exportTxt();
             ResultGateway resultsss = new ResultGateway();
             List<Result> results = resultsss.SelectAllResultByName(user.Name);
-            txt.txt(user, results,"");
+            txt.txt(user, results, path);
         }
 
         private void button2_Click(object sender, EventArgs e)

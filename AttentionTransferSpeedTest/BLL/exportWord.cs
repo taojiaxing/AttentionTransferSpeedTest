@@ -1,9 +1,4 @@
-﻿using AttentionTransferSpeedTest.DAL.DBO;
-using Microsoft.Office.Interop.Word;
-using System;
-using System.IO;
-
-namespace AttentionTransferSpeedTest.BLL
+﻿namespace AttentionTransferSpeedTest.BLL
 {
     internal class exportWord
     {
