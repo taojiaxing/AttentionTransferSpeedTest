@@ -130,7 +130,6 @@
             this.panel8 = new System.Windows.Forms.Panel();
             this.pictureBox41 = new System.Windows.Forms.PictureBox();
             this.panel13 = new System.Windows.Forms.Panel();
-            this.label8 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel9.SuspendLayout();
@@ -184,7 +183,6 @@
             this.menuStrip1.SuspendLayout();
             this.panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox41)).BeginInit();
-            this.panel13.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -848,6 +846,7 @@
             this.设置ToolStripMenuItem});
             resources.ApplyResources(this.menuStrip1, "menuStrip1");
             this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             // 
             // 文件ToolStripMenuItem
             // 
@@ -889,14 +888,8 @@
             // 
             // panel13
             // 
-            this.panel13.Controls.Add(this.label8);
             resources.ApplyResources(this.panel13, "panel13");
             this.panel13.Name = "panel13";
-            // 
-            // label8
-            // 
-            resources.ApplyResources(this.label8, "label8");
-            this.label8.Name = "label8";
             // 
             // Form1
             // 
@@ -978,8 +971,6 @@
             this.menuStrip1.PerformLayout();
             this.panel8.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox41)).EndInit();
-            this.panel13.ResumeLayout(false);
-            this.panel13.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1088,7 +1079,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel13;
-        private System.Windows.Forms.Label label8;
     }
 }
 

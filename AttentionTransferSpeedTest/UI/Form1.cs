@@ -689,6 +689,7 @@ namespace AttentionTransferSpeedTest
                 }
                 s.SoundLocation = "resources/music/Continue1_music.wav";
                 s.Play();
+                Thread.Sleep(2000);
                 Invoke(new Action(() =>
                 {
                     Continue2.Visible = true;
@@ -764,8 +765,10 @@ namespace AttentionTransferSpeedTest
                     t2.Abort();
                     t7.Abort();
                 }
+
                 s.SoundLocation = "resources/music/Continue2_music.wav";
                 s.Play();
+                Thread.Sleep(2000);
                 Invoke(new Action(() =>
                 {
                     Continue3.Visible = true;
@@ -782,6 +785,7 @@ namespace AttentionTransferSpeedTest
             s.Stop();
             pictureBox28.Image = null;
             s.SoundLocation = "resources/music/finish_music.wav";
+ 
             t6.Abort();
             t10 = new Thread(() =>
             {
@@ -821,7 +825,7 @@ namespace AttentionTransferSpeedTest
                     if (tls == 19 && rightssss >= 10)
                     {
                         level++;
-                        tls = 0;
+                        
                         rightssss = 0;
                         falsesss = 0;
                     }
@@ -867,6 +871,7 @@ namespace AttentionTransferSpeedTest
                     }
                     if (tls == 19)
                     {
+                        tls = 0;
                         double isISI = rightssss*1.0 / 20 * 100;
                         string ISISISS = "ISI :" + ISI + "毫秒";
                         string isisiis = "正确率 = " + isISI + "%";
@@ -898,18 +903,27 @@ namespace AttentionTransferSpeedTest
                     ts++;
                     tls++;
                 }
+                UserGateway userGateway = new UserGateway();
+
+                exportTxt txt = new exportTxt();
+                ResultGateway resultsss = new ResultGateway();
+                List<Result> results = resultsss.SelectAllResultByName(user.Name);
+                txt.txt(user, results, path);
                 s.SoundLocation = "resources/music/finish_music.wav";
                 s.Play();
+                Thread.Sleep(2000);
                 Invoke(new Action(() =>
                 {
                     PanelIsDisplay(7);
-                }
-                ));
+                }));
+
             });
 
             t10.Start();
             panel6.BackColor = Color.FromArgb(220, 220, 220);
             PanelIsDisplay(6);
+           
+            
         }
 
         private Questionnaire GetQuestionnaire()
