@@ -76,6 +76,7 @@ namespace AttentionTransferSpeedTest
             panel6.Visible = false;
             panel7.Visible = false;
             panel8.Visible = false;
+            panel13.Visible = false;
             switch (p)
             {
                 case 1:
@@ -124,6 +125,9 @@ namespace AttentionTransferSpeedTest
                     {
                         panel8.Visible = true;
                     }
+                    break;
+                case 13:
+                    panel13.Visible = true;
                     break;
             }
         }
@@ -347,7 +351,9 @@ namespace AttentionTransferSpeedTest
                 t2.Start();
             }
            
-            if (fromss == 3 && isSkip == true && isSubmit == false) { }
+            if (fromss == 3 && panel13.Visible==true) {
+                PanelIsDisplay(1);
+            }
         }
 
         private void test()
@@ -619,6 +625,13 @@ namespace AttentionTransferSpeedTest
             {
                 for (int i = 0; i < 5; i++)
                 {
+                    
+                    Thread.Sleep(1000);
+                    pictureBox14.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/p0.png");
+                    s.SoundLocation = "resources/music/di.wav";
+                    s.Play();
+
+                    Thread.Sleep(1000);
                     test();
                     isInput = false;
                     isRight = false;
@@ -671,8 +684,7 @@ namespace AttentionTransferSpeedTest
                         Thread.Sleep(2000);
                     }
 
-                    s.SoundLocation = "resources/music/di.wav";
-                    if (i < 4) { s.Play(); }
+                    
                     Thread.Sleep(1000);
                 }
                 s.SoundLocation = "resources/music/Continue1_music.wav";
@@ -694,6 +706,12 @@ namespace AttentionTransferSpeedTest
             {
                 for (int i = 0; i < 5; i++)
                 {
+                    
+                    Thread.Sleep(100);
+                    pictureBox15.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/p0.png");
+                    s.SoundLocation = "resources/music/di.wav";
+                    s.Play();
+                    Thread.Sleep(1000);
                     test2();
                     isInput = false;
                     isRight = false;
@@ -741,8 +759,7 @@ namespace AttentionTransferSpeedTest
                         pictureBox16.Image = null;
                         Thread.Sleep(2000);
                     }
-                    s.SoundLocation = "resources/music/di.wav";
-                    if (i < 4) { s.Play(); }
+                    
                     Thread.Sleep(1000);
                     t2.Abort();
                     t7.Abort();
@@ -763,7 +780,7 @@ namespace AttentionTransferSpeedTest
         private void Continue3_Click(object sender, EventArgs e)
         {
             s.Stop();
-          
+            pictureBox28.Image = null;
             s.SoundLocation = "resources/music/finish_music.wav";
             t6.Abort();
             t10 = new Thread(() =>
@@ -780,6 +797,10 @@ namespace AttentionTransferSpeedTest
 
                     //测试开始
                     //Thread.Sleep(ISI);
+                    
+                    Thread.Sleep(1000);
+
+                    pictureBox28.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/p0.png");
                     s.SoundLocation = "resources/music/di.wav";
                     s.Play();
                     Thread.Sleep(1000);
@@ -861,6 +882,19 @@ namespace AttentionTransferSpeedTest
                             label2.Text = "";
                         }));
                     }
+                    
+                    Result result = new Result();
+                    result.Num = ts;
+                    result.Name = user.Name;
+                    result.ISI = ISI;
+                    result.Combination = Combinations[ts];
+                    result.P = ps[ts];
+                    result.Correct = Corrects[ts];
+                    result.Input = Inputs[ts];
+                    result.isRight = isisrights[ts];
+                    result.RT = RT[ts];
+                    ResultGateway resultGateway = new ResultGateway();
+                    resultGateway.InsertResult(result);
                     ts++;
                     tls++;
                 }
@@ -896,58 +930,16 @@ namespace AttentionTransferSpeedTest
 
         private void Submit2_Click(object sender, EventArgs e)
         {
-            Questionnaire questionnaire = GetQuestionnaire();
-            QuestionnaireGateway questionnaireGateway = new QuestionnaireGateway();
-            questionnaireGateway.InsertQuestionnaire(questionnaire);
-            int i = 0;
-            while (realISIs[i] != 0)
-            {
-                Result result = new Result();
-                result.Num = i + 1;
-                result.Name = user.Name;
-                result.ISI = realISIs[i];
-                result.Combination = Combinations[i];
-                result.P = ps[i];
-                result.Correct = Corrects[i];
-                result.Input = Inputs[i];
-                result.isRight = isisrights[i];
-                result.RT = RT[i];
-                ResultGateway resultGateway = new ResultGateway();
-                resultGateway.InsertResult(result);
-                i++;
-            }
-            exportTxt txt = new exportTxt();
-            ResultGateway resultsss = new ResultGateway();
-            List<Result> results = resultsss.SelectAllResultByName(user.Name);
-            txt.txt(user, results, path);
-            Application.Exit();
-            Application.Exit();
+            panel13.BackgroundImage = Image.FromFile(Application.StartupPath + @"/resources/photos/bg6.jpg");
+            panel13.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            PanelIsDisplay(13);
         }
 
         private void skip_Click(object sender, EventArgs e)
         {
-            int i = 0;
-            while (realISIs[i] != 0)
-            {
-                Result result = new Result();
-                result.Num = i + 1;
-                result.Name = user.Name;
-                result.ISI = realISIs[i];
-                result.Combination = Combinations[i];
-                result.P = ps[i];
-                result.Correct = Corrects[i];
-                result.Input = Inputs[i];
-                result.isRight = isisrights[i];
-                result.RT = RT[i];
-                ResultGateway resultGateway = new ResultGateway();
-                resultGateway.InsertResult(result);
-                i++;
-            }
-            exportTxt txt = new exportTxt();
-            ResultGateway resultsss = new ResultGateway();
-            List<Result> results = resultsss.SelectAllResultByName(user.Name);
-            txt.txt(user, results, path);
-            Application.Exit();
+            panel13.BackgroundImage = Image.FromFile(Application.StartupPath + @"/resources/photos/bg6.jpg");
+            panel13.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            PanelIsDisplay(13);
         }
 
         /// <summary>
