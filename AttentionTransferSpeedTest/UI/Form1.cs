@@ -884,7 +884,7 @@ namespace AttentionTransferSpeedTest
                     }
                     
                     Result result = new Result();
-                    result.Num = ts;
+                    result.Num = ts + 1;
                     result.Name = user.Name;
                     result.ISI = ISI;
                     result.Combination = Combinations[ts];
