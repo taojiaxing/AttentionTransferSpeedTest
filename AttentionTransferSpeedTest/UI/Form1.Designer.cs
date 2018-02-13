@@ -51,7 +51,6 @@
             this.Continue1 = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
-            this.pictureBox42 = new System.Windows.Forms.PictureBox();
             this.pictureBox14 = new System.Windows.Forms.PictureBox();
             this.pictureBox13 = new System.Windows.Forms.PictureBox();
             this.pictureBox12 = new System.Windows.Forms.PictureBox();
@@ -68,7 +67,6 @@
             this.Continue2 = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel11 = new System.Windows.Forms.Panel();
-            this.pictureBox43 = new System.Windows.Forms.PictureBox();
             this.pictureBox15 = new System.Windows.Forms.PictureBox();
             this.pictureBox16 = new System.Windows.Forms.PictureBox();
             this.pictureBox17 = new System.Windows.Forms.PictureBox();
@@ -85,7 +83,8 @@
             this.Continue3 = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel12 = new System.Windows.Forms.Panel();
-            this.pictureBox44 = new System.Windows.Forms.PictureBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.pictureBox28 = new System.Windows.Forms.PictureBox();
             this.pictureBox29 = new System.Windows.Forms.PictureBox();
             this.pictureBox30 = new System.Windows.Forms.PictureBox();
@@ -136,7 +135,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel4.SuspendLayout();
             this.panel10.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox42)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
@@ -152,7 +150,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel5.SuspendLayout();
             this.panel11.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox43)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
@@ -168,7 +165,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox27)).BeginInit();
             this.panel6.SuspendLayout();
             this.panel12.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox44)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox28)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox29)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox30)).BeginInit();
@@ -325,7 +321,6 @@
             // 
             resources.ApplyResources(this.panel10, "panel10");
             this.panel10.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.panel10.Controls.Add(this.pictureBox42);
             this.panel10.Controls.Add(this.pictureBox14);
             this.panel10.Controls.Add(this.pictureBox13);
             this.panel10.Controls.Add(this.pictureBox12);
@@ -340,12 +335,6 @@
             this.panel10.Controls.Add(this.pictureBox3);
             this.panel10.Controls.Add(this.pictureBox2);
             this.panel10.Name = "panel10";
-            // 
-            // pictureBox42
-            // 
-            resources.ApplyResources(this.pictureBox42, "pictureBox42");
-            this.pictureBox42.Name = "pictureBox42";
-            this.pictureBox42.TabStop = false;
             // 
             // pictureBox14
             // 
@@ -444,7 +433,6 @@
             // 
             resources.ApplyResources(this.panel11, "panel11");
             this.panel11.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.panel11.Controls.Add(this.pictureBox43);
             this.panel11.Controls.Add(this.pictureBox15);
             this.panel11.Controls.Add(this.pictureBox16);
             this.panel11.Controls.Add(this.pictureBox17);
@@ -459,12 +447,6 @@
             this.panel11.Controls.Add(this.pictureBox26);
             this.panel11.Controls.Add(this.pictureBox27);
             this.panel11.Name = "panel11";
-            // 
-            // pictureBox43
-            // 
-            resources.ApplyResources(this.pictureBox43, "pictureBox43");
-            this.pictureBox43.Name = "pictureBox43";
-            this.pictureBox43.TabStop = false;
             // 
             // pictureBox15
             // 
@@ -561,7 +543,8 @@
             // 
             resources.ApplyResources(this.panel12, "panel12");
             this.panel12.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.panel12.Controls.Add(this.pictureBox44);
+            this.panel12.Controls.Add(this.label2);
+            this.panel12.Controls.Add(this.label1);
             this.panel12.Controls.Add(this.pictureBox28);
             this.panel12.Controls.Add(this.pictureBox29);
             this.panel12.Controls.Add(this.pictureBox30);
@@ -577,11 +560,15 @@
             this.panel12.Controls.Add(this.pictureBox40);
             this.panel12.Name = "panel12";
             // 
-            // pictureBox44
+            // label2
             // 
-            resources.ApplyResources(this.pictureBox44, "pictureBox44");
-            this.pictureBox44.Name = "pictureBox44";
-            this.pictureBox44.TabStop = false;
+            resources.ApplyResources(this.label2, "label2");
+            this.label2.Name = "label2";
+            // 
+            // label1
+            // 
+            resources.ApplyResources(this.label1, "label1");
+            this.label1.Name = "label1";
             // 
             // pictureBox28
             // 
@@ -902,12 +889,12 @@
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.panel6);
+            this.Controls.Add(this.panel4);
+            this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel8);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel7);
-            this.Controls.Add(this.panel5);
-            this.Controls.Add(this.panel4);
-            this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.KeyPreview = true;
@@ -926,7 +913,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel10.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox42)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
@@ -942,7 +928,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel11.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox43)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).EndInit();
@@ -958,7 +943,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox27)).EndInit();
             this.panel6.ResumeLayout(false);
             this.panel12.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox44)).EndInit();
+            this.panel12.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox28)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox29)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox30)).EndInit();
@@ -1083,9 +1068,8 @@
         private System.Windows.Forms.ToolStripMenuItem 历史记录ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 文件保存地址ToolStripMenuItem;
         private System.Windows.Forms.PictureBox pictureBox41;
-        private System.Windows.Forms.PictureBox pictureBox42;
-        private System.Windows.Forms.PictureBox pictureBox43;
-        private System.Windows.Forms.PictureBox pictureBox44;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
     }
 }
 

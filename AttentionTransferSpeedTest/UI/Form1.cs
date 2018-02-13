@@ -53,7 +53,8 @@ namespace AttentionTransferSpeedTest
         private Boolean isStart = false;
         private List<Image> bks = new List<Image>();
         private Boolean isSkip = false;
-
+        private int rightssss = 0;
+        private int falsesss = 0;
         private User GetUerInfo()
         {
             User user = new User();
@@ -281,11 +282,12 @@ namespace AttentionTransferSpeedTest
             }
             if (Correct == Input && !isInput && isSubmit == true)
             {
-                pictureBox42.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/y.png");
-                pictureBox43.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/y.png");
-                pictureBox44.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/y.png");
-                pictureBox15.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/p0.png");
-                pictureBox14.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/p0.png");
+                pictureBox15.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/y.png");
+                pictureBox14.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/y.png");
+                pictureBox28.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/y.png");
+               
+
+
                 endTime = System.Environment.TickCount;
                 currentCount = endTime - startTime;
                 s.SoundLocation = "resources/music/y.wav";
@@ -298,11 +300,13 @@ namespace AttentionTransferSpeedTest
             }
             else if (Input != 0 && !isInput && isSubmit == true)
             {
-                pictureBox42.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/n.png");
-                pictureBox43.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/n.png");
-                pictureBox44.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/n.png");
-                pictureBox15.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/p0.png");
-                pictureBox14.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/p0.png");
+                
+                pictureBox15.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/n.png");
+                pictureBox14.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/n.png");
+                pictureBox28.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/n.png");
+                
+
+
                 endTime = System.Environment.TickCount;
                 currentCount = endTime - startTime;
                 s.SoundLocation = "resources/music/n.wav";
@@ -354,7 +358,7 @@ namespace AttentionTransferSpeedTest
             {
                 Invoke(new Action(() =>
                 {
-                    pictureBox42.Image = null;
+
                     p = randomPoint();
                     pictureBox14.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/p" + p + ".png");
                     pictureBox2.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + arr1[0] + ".png");
@@ -413,7 +417,7 @@ namespace AttentionTransferSpeedTest
             {
                 Invoke(new Action(() =>
                 {
-                    pictureBox43.Image = null;
+
                     p = randomPoint();
                     pictureBox15.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/p" + p + ".png");
                     pictureBox27.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + arr1[0] + ".png");
@@ -622,7 +626,7 @@ namespace AttentionTransferSpeedTest
                     startTime = System.Environment.TickCount;
                     Thread.Sleep(1000);
                     //isInput = true;
-
+                    //pictureBox14.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/p0.png");
                     t2.Abort();
 
                     while (!isInput)
@@ -643,7 +647,7 @@ namespace AttentionTransferSpeedTest
                     Thread.Sleep(2000);
                     while (!isRight)
                     {
-                        pictureBox42.Image = null;
+                       
                         Thread.Sleep(200);
                         testSame();
                         isInput = false;
@@ -684,7 +688,7 @@ namespace AttentionTransferSpeedTest
         private void Continue2_Click(object sender, EventArgs e)
         {
             s.Stop();
-
+           
             s.SoundLocation = "resources/music/Continue2_music.wav";
             t6 = new Thread(() =>
             {
@@ -715,7 +719,7 @@ namespace AttentionTransferSpeedTest
 
                     while (!isRight)
                     {
-                        pictureBox43.Image = null;
+                       
                         Thread.Sleep(200);
                         testSame2();
                         isInput = false;
@@ -759,6 +763,7 @@ namespace AttentionTransferSpeedTest
         private void Continue3_Click(object sender, EventArgs e)
         {
             s.Stop();
+          
             s.SoundLocation = "resources/music/finish_music.wav";
             t6.Abort();
             t10 = new Thread(() =>
@@ -778,33 +783,28 @@ namespace AttentionTransferSpeedTest
                     s.SoundLocation = "resources/music/di.wav";
                     s.Play();
                     Thread.Sleep(1000);
-                    Invoke(new Action(() =>
-                    {
-                        pictureBox44.Image = null;
-                    }));
+                   
                     isInput = false;
                     isRight = false;
                     currentCount = 0;
 
                     test3();
-                    if (Correct == Input)
-                    {
-                        rs++;
-                    }
-                    else
-                        fs++;
+                    
 
-                    if (rs == 6 && fs == 0)
+                    if (rs == 6 && falsesss == 0)
                     {
                         level++;
                         tls = 0;
+                        rightssss = 0;
                     }
-                    if (tls == 19 && rs >= 10)
+                    if (tls == 19 && rightssss >= 10)
                     {
                         level++;
                         tls = 0;
+                        rightssss = 0;
+                        falsesss = 0;
                     }
-                    if ((ISI == 56 && tls == 19) || (tls == 19 && rs < 10))
+                    if ((ISI == 56 && tls == 19) || (tls == 19 && rightssss < 10))
                     {
                         isco = false;
                     }
@@ -837,10 +837,29 @@ namespace AttentionTransferSpeedTest
                     if (Correct == Input)
                     {
                         isisrights[ts] = 1;
+                        rightssss++;
                     }
                     else
                     {
                         isisrights[ts] = 0;
+                        falsesss++;
+                    }
+                    if (tls == 19)
+                    {
+                        double isISI = rightssss*1.0 / 20 * 100;
+                        string ISISISS = "ISI :" + ISI + "毫秒";
+                        string isisiis = "正确率 = " + isISI + "%";
+                        Invoke(new Action(() =>
+                        {
+                            label2.Text = ISISISS;
+                            label1.Text = isisiis;
+                        }));
+                        Thread.Sleep(6000);
+                        Invoke(new Action(() =>
+                        {
+                            label1.Text = "";
+                            label2.Text = "";
+                        }));
                     }
                     ts++;
                     tls++;
