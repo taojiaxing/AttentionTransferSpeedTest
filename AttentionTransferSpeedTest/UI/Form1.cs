@@ -275,10 +275,6 @@ namespace AttentionTransferSpeedTest
                     Input = 5;
                     break;
 
-                case Keys.Space:
-                    fromss = 2;
-                    break;
-
                 case Keys.Enter:
                     fromss = 3;
                     break;
@@ -316,27 +312,23 @@ namespace AttentionTransferSpeedTest
                 isSubmit = false;
                 Thread.Sleep(200);
             }
-            if (fromss == 2 && isStart == false)
+            if (fromss == 3 && isSkip == false && isStart == true)
+            {
+                isSkip = true;
+                //t1.Abort();
+                t2.Abort();
+                s.Stop();
+                s.SoundLocation = "resources/music/info_music.wav";
+                s.Play();
+                PanelIsDisplay(2);
+            }
+            if (fromss == 3 && isStart == false&&isSkip==false)
             {
                 isStart = true;
                 PanelIsDisplay(8);
                 s.Stop();
                 s.SoundLocation = "resources/music/bgm.wav";
                 s.Play();
-                //ship2.Visible = false;
-                //this.ship2.Parent = this.pictureBox41;
-                //this.ship2.Location = new Point(500, 646);
-                //t1 = new Thread(() =>
-                //{
-                //    Thread.Sleep(6000);
-                //    Invoke(new Action(() =>
-                //    {
-                //        ship2.Visible = true;
-                //    }));
-                //});
-                //t1.IsBackground = true;
-                //t1.Start();
-
                 t2 = new Thread(() =>
                 {
                     for (int i = 0; i < 5; i++)
@@ -350,16 +342,7 @@ namespace AttentionTransferSpeedTest
                 t2.IsBackground = true;
                 t2.Start();
             }
-            if (fromss == 3 && isSkip == false && isSubmit == false)
-            {
-                isSkip = true;
-                //t1.Abort();
-                t2.Abort();
-                s.Stop();
-                s.SoundLocation = "resources/music/info_music.wav";
-                s.Play();
-                PanelIsDisplay(2);
-            }
+           
             if (fromss == 3 && isSkip == true && isSubmit == false) { }
         }
 
