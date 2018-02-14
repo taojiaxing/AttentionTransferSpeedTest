@@ -269,7 +269,7 @@ namespace AttentionTransferSpeedTest
                     Input = 1;
                     break;
 
-                case Keys.NumPad2:
+                case Keys.NumPad5:
                     Input = 2;
                     break;
 
@@ -277,7 +277,7 @@ namespace AttentionTransferSpeedTest
                     Input = 3;
                     break;
 
-                case Keys.NumPad5:
+                case Keys.NumPad2:
                     Input = 5;
                     break;
 
