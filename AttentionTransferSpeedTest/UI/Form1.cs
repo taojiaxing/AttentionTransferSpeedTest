@@ -623,7 +623,8 @@ namespace AttentionTransferSpeedTest
             PanelIsDisplay(4);
             t4 = new Thread(() =>
             {
-                for (int i = 0; i < 5; i++)
+                int rrrrs = 0;
+                while(rrrrs<5)
                 {
                     
                     Thread.Sleep(1000);
@@ -665,10 +666,11 @@ namespace AttentionTransferSpeedTest
                         testSame();
                         isInput = false;
                         startTime = System.Environment.TickCount;
-
+                        
                         while (!isInput)
                         {
                         }
+                        rrrrs = 0;
                         pictureBox2.Image = null;
                         pictureBox3.Image = null;
                         pictureBox4.Image = null;
@@ -684,7 +686,10 @@ namespace AttentionTransferSpeedTest
                         Thread.Sleep(2000);
                     }
 
-                    
+                    if (isRight)
+                    {
+                        rrrrs++;
+                    }
                     Thread.Sleep(1000);
                 }
                 s.SoundLocation = "resources/music/Continue1_music.wav";
@@ -705,7 +710,8 @@ namespace AttentionTransferSpeedTest
             s.SoundLocation = "resources/music/Continue2_music.wav";
             t6 = new Thread(() =>
             {
-                for (int i = 0; i < 5; i++)
+                int rrrss = 0;
+                while(rrrss<5)
                 {
                     
                     Thread.Sleep(100);
@@ -746,6 +752,7 @@ namespace AttentionTransferSpeedTest
                         while (!isInput)
                         {
                         }
+                        rrrss = 0;
                         pictureBox27.Image = null;
                         pictureBox26.Image = null;
                         pictureBox25.Image = null;
@@ -760,7 +767,10 @@ namespace AttentionTransferSpeedTest
                         pictureBox16.Image = null;
                         Thread.Sleep(2000);
                     }
-                    
+                    if (isRight)
+                    {
+                        rrrss++;
+                    }
                     Thread.Sleep(1000);
                     t2.Abort();
                     t7.Abort();
@@ -816,24 +826,28 @@ namespace AttentionTransferSpeedTest
                     test3();
                     
 
-                    if (rs == 6 && falsesss == 0)
+                    if (rightssss == 6 && falsesss == 0)
                     {
                         level++;
                         tls = 0;
                         rightssss = 0;
+                        double isISI = rightssss * 1.0 / 6 * 100;
+                        string ISISISS = "ISI :" + ISI + "毫秒";
+                        string isisiis = "正确率 = " + isISI + "%";
+                        Invoke(new Action(() =>
+                        {
+                            label2.Text = ISISISS;
+                            label1.Text = isisiis;
+                        }));
+                        Thread.Sleep(6000);
+                        Invoke(new Action(() =>
+                        {
+                            label1.Text = "";
+                            label2.Text = "";
+                        }));
                     }
-                    if (tls == 19 && rightssss >= 10)
-                    {
-                        level++;
-                        
-                        rightssss = 0;
-                        falsesss = 0;
-                    }
-                    if ((ISI == 56 && tls == 19) || (tls == 19 && rightssss < 10))
-                    {
-                        isco = false;
-                    }
-
+                    
+                    
                     while (!isInput) { }
                     pictureBox40.Image = null;
                     pictureBox39.Image = null;
@@ -869,10 +883,14 @@ namespace AttentionTransferSpeedTest
                         isisrights[ts] = 0;
                         falsesss++;
                     }
+                    if ((ISI == 56 && tls == 19) || (tls == 19 && rightssss < 10))
+                    {
+                        isco = false;
+                    }
                     if (tls == 19)
                     {
                         tls = 0;
-                        double isISI = rightssss*1.0 / 20 * 100;
+                        double isISI = rightssss * 1.0 / 20 * 100;
                         string ISISISS = "ISI :" + ISI + "毫秒";
                         string isisiis = "正确率 = " + isISI + "%";
                         Invoke(new Action(() =>
@@ -887,6 +905,14 @@ namespace AttentionTransferSpeedTest
                             label2.Text = "";
                         }));
                     }
+                    if (tls == 19 && rightssss >= 10)
+                    {
+                        level++;
+                        tls = 0;
+                        rightssss = 0;
+                        falsesss = 0;
+                    }
+                    
                     
                     Result result = new Result();
                     result.Num = ts + 1;

@@ -30,7 +30,30 @@ namespace AttentionTransferSpeedTest.BLL
                 {
                     nums = numm.ToString();
                 }
-                string lines = nums + "        " + result.ISI.ToString() + "       " + result.Combination + "       " + result.P.ToString() + "           " +
+                int pps = result.P;
+                string ppps;
+                if (pps < 10)
+                {
+                    ppps = pps + " ";
+                }
+                else
+                {
+                    ppps = pps.ToString();
+                }
+                string oiii;
+                if (result.ISI < 1000 && result.ISI > 100)
+                {
+                    oiii = result.ISI + " ";
+                }
+                if (result.ISI < 100)
+                {
+                    oiii = result.ISI + "  ";
+                }
+                else
+                {
+                    oiii = result.ISI.ToString();
+                }
+                string lines = nums + "        " + oiii + "       " + result.Combination + "       " + ppps + "           " +
                     result.Correct.ToString() + "              " + result.Input.ToString() + "            " + result.isRight.ToString() + "            " + result.RT.ToString();
                 file.WriteLine(lines);
             }
