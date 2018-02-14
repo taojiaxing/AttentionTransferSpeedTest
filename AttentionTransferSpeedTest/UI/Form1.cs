@@ -629,7 +629,7 @@ namespace AttentionTransferSpeedTest
             t4 = new Thread(() =>
             {
                 int rrrrs = 0;
-                while(rrrrs<5)
+                while(rrrrs<9)
                 {
                     
                     Thread.Sleep(1000);
