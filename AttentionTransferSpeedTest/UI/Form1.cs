@@ -831,7 +831,7 @@ namespace AttentionTransferSpeedTest
                         level++;
                         tls = 0;
                         rightssss = 0;
-                        double isISI = rightssss * 1.0 / 6 * 100;
+                        double isISI =  100;
                         string ISISISS = "ISI :" + ISI + "毫秒";
                         string isisiis = "正确率 = " + isISI + "%";
                         Invoke(new Action(() =>
@@ -889,7 +889,6 @@ namespace AttentionTransferSpeedTest
                     }
                     if (tls == 19)
                     {
-                        tls = 0;
                         double isISI = rightssss * 1.0 / 20 * 100;
                         string ISISISS = "ISI :" + ISI + "毫秒";
                         string isisiis = "正确率 = " + isISI + "%";
