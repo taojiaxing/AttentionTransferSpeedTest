@@ -890,15 +890,16 @@
             // 
             resources.ApplyResources(this.panel13, "panel13");
             this.panel13.Name = "panel13";
+            this.panel13.Paint += new System.Windows.Forms.PaintEventHandler(this.panel13_Paint);
             // 
             // Form1
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.panel13);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel8);
-            this.Controls.Add(this.panel13);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.panel5);

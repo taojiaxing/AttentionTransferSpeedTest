@@ -348,7 +348,7 @@
     <value>女</value>
   </data>
   <data name="comboBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>752, 311</value>
+    <value>754, 419</value>
   </data>
   <data name="comboBox1.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 41</value>
@@ -375,7 +375,7 @@
     <value>宋体, 25pt</value>
   </data>
   <data name="textBox3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>385, 306</value>
+    <value>387, 414</value>
   </data>
   <data name="textBox3.Size" type="System.Drawing.Size, System.Drawing">
     <value>194, 46</value>
@@ -402,7 +402,7 @@
     <value>宋体, 25pt</value>
   </data>
   <data name="textBox2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>752, 211</value>
+    <value>754, 319</value>
   </data>
   <data name="textBox2.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 46</value>
@@ -429,7 +429,7 @@
     <value>宋体, 25pt</value>
   </data>
   <data name="textBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>385, 210</value>
+    <value>387, 318</value>
   </data>
   <data name="textBox1.Size" type="System.Drawing.Size, System.Drawing">
     <value>194, 46</value>
@@ -459,7 +459,7 @@
     <value>黑体, 28.5pt</value>
   </data>
   <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>632, 303</value>
+    <value>634, 411</value>
   </data>
   <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
     <value>131, 38</value>
@@ -492,7 +492,7 @@
     <value>黑体, 28.5pt</value>
   </data>
   <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>279, 211</value>
+    <value>281, 319</value>
   </data>
   <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
     <value>131, 38</value>
@@ -525,7 +525,7 @@
     <value>黑体, 28.5pt</value>
   </data>
   <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>632, 211</value>
+    <value>634, 319</value>
   </data>
   <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
     <value>131, 38</value>
@@ -558,7 +558,7 @@
     <value>黑体, 28.5pt</value>
   </data>
   <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>279, 311</value>
+    <value>281, 419</value>
   </data>
   <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
     <value>131, 38</value>
@@ -618,7 +618,7 @@
     <value>黑体, 14.25pt</value>
   </data>
   <data name="panel2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
+    <value>0, 28</value>
   </data>
   <data name="panel2.Size" type="System.Drawing.Size, System.Drawing">
     <value>1184, 732</value>
@@ -636,7 +636,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;panel2.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="panel3.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
@@ -4553,7 +4553,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;panel8.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="pictureBox41.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
@@ -4589,7 +4589,7 @@
     <value>0, 28</value>
   </data>
   <data name="panel13.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1184, 733</value>
+    <value>1184, 730</value>
   </data>
   <data name="panel13.TabIndex" type="System.Int32, mscorlib">
     <value>20</value>
@@ -4604,7 +4604,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;panel13.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>1</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

@@ -810,9 +810,15 @@ namespace AttentionTransferSpeedTest
                 int tls = 0;
                 int rs = 0;
                 int fs = 0;
-                
+                Boolean isiisiisisi = false;
+               
                 while (isco)
                 {
+                    if (isiisiisisi)
+                    {
+                        tls = 0;
+                        isiisiisisi = false;
+                    }
                     ISI = ISIS[level];
 
                     //测试开始
@@ -920,7 +926,7 @@ namespace AttentionTransferSpeedTest
                     if (tls == 9 /*&& rightssss >= 10*/)
                     {
                         level++;
-                        tls = 0;
+                        isiisiisisi = true;
                         rightssss = 0;
                         falsesss = 0;
                     }
@@ -1111,6 +1117,16 @@ namespace AttentionTransferSpeedTest
             //});
             //t2.IsBackground = true;
             //t2.Start();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            PanelIsDisplay(1);
+        }
+
+        private void panel13_Paint(object sender, PaintEventArgs e)
+        {
+            PanelIsDisplay(1);
         }
     }
 }
