@@ -525,7 +525,7 @@ namespace AttentionTransferSpeedTest
                     Correct = arr1[p - 1];
                 }));
 
-                Thread.Sleep(300);
+                Thread.Sleep(100);
 
                 t8.IsBackground = true;
                 t8.Start();
@@ -845,13 +845,14 @@ namespace AttentionTransferSpeedTest
                             label2.Text = ISISISS;
                             label1.Text = isisiis;
                         }));
+                        //iswait = true;
+                        //while (iswait) { }
                         Thread.Sleep(6000);
                         Invoke(new Action(() =>
                         {
                             label1.Text = "";
                             label2.Text = "";
                         }));
-                        iswait = true;
                     }
                     
                     
@@ -904,15 +905,17 @@ namespace AttentionTransferSpeedTest
                             label2.Text = ISISISS;
                             label1.Text = isisiis;
                         }));
+                        //iswait = true;
+                        //while (iswait) { }
                         Thread.Sleep(6000);
                         Invoke(new Action(() =>
                         {
                             label1.Text = "";
                             label2.Text = "";
                         }));
-                        iswait = true;
+                        
                     }
-                    while (iswait) { }
+                    
                     if (tls == 19 && rightssss >= 10)
                     {
                         level++;
