@@ -525,7 +525,7 @@ namespace AttentionTransferSpeedTest
                     Correct = arr1[p - 1];
                 }));
 
-                Thread.Sleep(250);
+                Thread.Sleep(300);
 
                 t8.IsBackground = true;
                 t8.Start();
