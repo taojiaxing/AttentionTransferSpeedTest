@@ -54,6 +54,7 @@ namespace AttentionTransferSpeedTest
         private List<Image> bks = new List<Image>();
         private Boolean isSkip = false;
         private int rightssss = 0;
+        private Boolean iswait = false;
         private int falsesss = 0;
         private User GetUerInfo()
         {
@@ -319,6 +320,10 @@ namespace AttentionTransferSpeedTest
                 isInput = true;
                 isSubmit = false;
                 Thread.Sleep(200);
+            }
+            if(fromss == 3&& isSkip == true&&isStart == true)
+            {
+                iswait = false;
             }
             if (fromss == 3 && isSkip == false && isStart == true)
             {
@@ -789,7 +794,7 @@ namespace AttentionTransferSpeedTest
             panel5.BackColor = Color.FromArgb(220, 220, 220);
             PanelIsDisplay(5);
         }
-
+        
         private void Continue3_Click(object sender, EventArgs e)
         {
             s.Stop();
@@ -805,6 +810,7 @@ namespace AttentionTransferSpeedTest
                 int tls = 0;
                 int rs = 0;
                 int fs = 0;
+                
                 while (isco)
                 {
                     ISI = ISIS[level];
@@ -845,6 +851,7 @@ namespace AttentionTransferSpeedTest
                             label1.Text = "";
                             label2.Text = "";
                         }));
+                        iswait = true;
                     }
                     
                     
@@ -903,7 +910,9 @@ namespace AttentionTransferSpeedTest
                             label1.Text = "";
                             label2.Text = "";
                         }));
+                        iswait = true;
                     }
+                    while (iswait) { }
                     if (tls == 19 && rightssss >= 10)
                     {
                         level++;
@@ -911,20 +920,21 @@ namespace AttentionTransferSpeedTest
                         rightssss = 0;
                         falsesss = 0;
                     }
-                    
-                    
-                    Result result = new Result();
-                    result.Num = ts + 1;
-                    result.Name = user.Name;
-                    result.ISI = ISI;
-                    result.Combination = Combinations[ts];
-                    result.P = ps[ts];
-                    result.Correct = Corrects[ts];
-                    result.Input = Inputs[ts];
-                    result.isRight = isisrights[ts];
-                    result.RT = RT[ts];
-                    ResultGateway resultGateway = new ResultGateway();
-                    resultGateway.InsertResult(result);
+
+                  
+                        Result result = new Result();
+                        result.Num = ts + 1;
+                        result.Name = user.Name;
+                        result.ISI = ISI;
+                        result.Combination = Combinations[ts];
+                        result.P = ps[ts];
+                        result.Correct = Corrects[ts];
+                        result.Input = Inputs[ts];
+                        result.isRight = isisrights[ts];
+                        result.RT = RT[ts];
+                        ResultGateway resultGateway = new ResultGateway();
+                        resultGateway.InsertResult(result);
+                 
                     ts++;
                     tls++;
                 }
