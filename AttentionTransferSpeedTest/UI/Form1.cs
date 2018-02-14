@@ -525,7 +525,7 @@ namespace AttentionTransferSpeedTest
                     Correct = arr1[p - 1];
                 }));
 
-                Thread.Sleep(100);
+                Thread.Sleep(200);
 
                 t8.IsBackground = true;
                 t8.Start();
@@ -832,28 +832,28 @@ namespace AttentionTransferSpeedTest
                     test3();
                     
 
-                    if (rightssss == 6 && falsesss == 0)
-                    {
-                        level++;
-                        tls = 0;
-                        rightssss = 0;
-                        double isISI =  100;
-                        string ISISISS = "ISI :" + ISI + "毫秒";
-                        string isisiis = "正确率 = " + isISI + "%";
-                        Invoke(new Action(() =>
-                        {
-                            label2.Text = ISISISS;
-                            label1.Text = isisiis;
-                        }));
-                        //iswait = true;
-                        //while (iswait) { }
-                        Thread.Sleep(6000);
-                        Invoke(new Action(() =>
-                        {
-                            label1.Text = "";
-                            label2.Text = "";
-                        }));
-                    }
+                    //if (rightssss == 6 && falsesss == 0)
+                    //{
+                    //    level++;
+                    //    tls = 0;
+                    //    rightssss = 0;
+                    //    double isISI =  100;
+                    //    string ISISISS = "ISI :" + ISI + "毫秒";
+                    //    string isisiis = "正确率 = " + isISI + "%";
+                    //    Invoke(new Action(() =>
+                    //    {
+                    //        label2.Text = ISISISS;
+                    //        label1.Text = isisiis;
+                    //    }));
+                    //    //iswait = true;
+                    //    //while (iswait) { }
+                    //    Thread.Sleep(6000);
+                    //    Invoke(new Action(() =>
+                    //    {
+                    //        label1.Text = "";
+                    //        label2.Text = "";
+                    //    }));
+                    //}
                     
                     
                     while (!isInput) { }
@@ -891,19 +891,20 @@ namespace AttentionTransferSpeedTest
                         isisrights[ts] = 0;
                         falsesss++;
                     }
-                    if ((ISI == 56 && tls == 19) || (tls == 19 && rightssss < 10))
+                    if ((ISI == 56 && tls == 9) /*|| (tls == 9 && rightssss < 10)*/)
                     {
                         isco = false;
                     }
-                    if (tls == 19)
+                    if (tls == 9)
                     {
-                        double isISI = rightssss * 1.0 / 20 * 100;
+                        double isISI = rightssss * 1.0 / 10 * 100;
                         string ISISISS = "ISI :" + ISI + "毫秒";
                         string isisiis = "正确率 = " + isISI + "%";
                         Invoke(new Action(() =>
                         {
                             label2.Text = ISISISS;
                             label1.Text = isisiis;
+                            pictureBox28.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/p0.png");
                         }));
                         //iswait = true;
                         //while (iswait) { }
@@ -916,7 +917,7 @@ namespace AttentionTransferSpeedTest
                         
                     }
                     
-                    if (tls == 19 && rightssss >= 10)
+                    if (tls == 9 /*&& rightssss >= 10*/)
                     {
                         level++;
                         tls = 0;
