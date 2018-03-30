@@ -11,9 +11,10 @@ namespace AttentionTransferSpeedTest
 {
     public partial class Form1 : Form
     {
-        private int X;
-        private int Y;
+        //private int X;
+        //private int Y;
         private AutoSizeFormClass asc = new AutoSizeFormClass();
+
         private System.Media.SoundPlayer s = new System.Media.SoundPlayer("resources/music/start_music.wav");
         private Thread t1;
         private Thread t2;
@@ -25,7 +26,7 @@ namespace AttentionTransferSpeedTest
         private int endTime;
         private Boolean isInput = false;
         private int[] sameComnination = new int[12];
-        private int[] ISIS = { 1000, 618, 382, 236, 146, 90, 56 };
+        private int[] ISIS = { 2000, 1000, 500, 250, 125, 67 };
         private Boolean isRight = false;
         private int p;
         private int sp;
@@ -56,6 +57,7 @@ namespace AttentionTransferSpeedTest
         private int rightssss = 0;
         private Boolean iswait = false;
         private int falsesss = 0;
+
         private User GetUerInfo()
         {
             User user = new User();
@@ -127,6 +129,7 @@ namespace AttentionTransferSpeedTest
                         panel8.Visible = true;
                     }
                     break;
+
                 case 13:
                     panel13.Visible = true;
                     break;
@@ -290,8 +293,6 @@ namespace AttentionTransferSpeedTest
                 pictureBox15.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/y.png");
                 pictureBox14.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/y.png");
                 pictureBox28.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/y.png");
-               
-
 
                 endTime = System.Environment.TickCount;
                 currentCount = endTime - startTime;
@@ -305,12 +306,9 @@ namespace AttentionTransferSpeedTest
             }
             else if (Input != 0 && !isInput && isSubmit == true)
             {
-                
                 pictureBox15.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/n.png");
                 pictureBox14.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/n.png");
                 pictureBox28.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/n.png");
-                
-
 
                 endTime = System.Environment.TickCount;
                 currentCount = endTime - startTime;
@@ -321,7 +319,7 @@ namespace AttentionTransferSpeedTest
                 isSubmit = false;
                 Thread.Sleep(200);
             }
-            if(fromss == 3&& isSkip == true&&isStart == true)
+            if (fromss == 3 && isSkip == true && isStart == true)
             {
                 iswait = false;
             }
@@ -335,7 +333,7 @@ namespace AttentionTransferSpeedTest
                 s.Play();
                 PanelIsDisplay(2);
             }
-            if (fromss == 3 && isStart == false&&isSkip==false)
+            if (fromss == 3 && isStart == false && isSkip == false)
             {
                 isStart = true;
                 PanelIsDisplay(8);
@@ -355,8 +353,9 @@ namespace AttentionTransferSpeedTest
                 t2.IsBackground = true;
                 t2.Start();
             }
-           
-            if (fromss == 3 && panel13.Visible==true) {
+
+            if (fromss == 3 && panel13.Visible == true)
+            {
                 PanelIsDisplay(1);
             }
         }
@@ -369,7 +368,6 @@ namespace AttentionTransferSpeedTest
             {
                 Invoke(new Action(() =>
                 {
-
                     p = randomPoint();
                     pictureBox14.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/p" + p + ".png");
                     pictureBox2.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + arr1[0] + ".png");
@@ -428,7 +426,6 @@ namespace AttentionTransferSpeedTest
             {
                 Invoke(new Action(() =>
                 {
-
                     p = randomPoint();
                     pictureBox15.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/p" + p + ".png");
                     pictureBox27.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + arr1[0] + ".png");
@@ -629,9 +626,8 @@ namespace AttentionTransferSpeedTest
             t4 = new Thread(() =>
             {
                 int rrrrs = 0;
-                while(rrrrs<9)
+                while (rrrrs < 9)
                 {
-                    
                     Thread.Sleep(1000);
                     pictureBox14.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/p0.png");
                     s.SoundLocation = "resources/music/di.wav";
@@ -666,12 +662,11 @@ namespace AttentionTransferSpeedTest
                     Thread.Sleep(2000);
                     while (!isRight)
                     {
-                       
                         Thread.Sleep(200);
                         testSame();
                         isInput = false;
                         startTime = System.Environment.TickCount;
-                        
+
                         while (!isInput)
                         {
                         }
@@ -711,14 +706,13 @@ namespace AttentionTransferSpeedTest
         private void Continue2_Click(object sender, EventArgs e)
         {
             s.Stop();
-           
+
             s.SoundLocation = "resources/music/Continue2_music.wav";
             t6 = new Thread(() =>
             {
                 int rrrss = 0;
-                while(rrrss<5)
+                while (rrrss < 5)
                 {
-                    
                     Thread.Sleep(100);
                     pictureBox15.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/p0.png");
                     s.SoundLocation = "resources/music/di.wav";
@@ -749,7 +743,6 @@ namespace AttentionTransferSpeedTest
 
                     while (!isRight)
                     {
-                       
                         Thread.Sleep(200);
                         testSame2();
                         isInput = false;
@@ -794,13 +787,13 @@ namespace AttentionTransferSpeedTest
             panel5.BackColor = Color.FromArgb(220, 220, 220);
             PanelIsDisplay(5);
         }
-        
+
         private void Continue3_Click(object sender, EventArgs e)
         {
             s.Stop();
             pictureBox28.Image = null;
             s.SoundLocation = "resources/music/finish_music.wav";
- 
+
             t6.Abort();
             t10 = new Thread(() =>
             {
@@ -811,7 +804,7 @@ namespace AttentionTransferSpeedTest
                 int rs = 0;
                 int fs = 0;
                 Boolean isiisiisisi = false;
-               
+
                 while (isco)
                 {
                     if (isiisiisisi)
@@ -821,47 +814,19 @@ namespace AttentionTransferSpeedTest
                     }
                     ISI = ISIS[level];
 
-                    //测试开始
-                    //Thread.Sleep(ISI);
-                    
                     Thread.Sleep(1000);
 
                     pictureBox28.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/p0.png");
                     s.SoundLocation = "resources/music/di.wav";
                     s.Play();
                     Thread.Sleep(1000);
-                   
+
                     isInput = false;
                     isRight = false;
                     currentCount = 0;
 
                     test3();
-                    
 
-                    //if (rightssss == 6 && falsesss == 0)
-                    //{
-                    //    level++;
-                    //    tls = 0;
-                    //    rightssss = 0;
-                    //    double isISI =  100;
-                    //    string ISISISS = "ISI :" + ISI + "毫秒";
-                    //    string isisiis = "正确率 = " + isISI + "%";
-                    //    Invoke(new Action(() =>
-                    //    {
-                    //        label2.Text = ISISISS;
-                    //        label1.Text = isisiis;
-                    //    }));
-                    //    //iswait = true;
-                    //    //while (iswait) { }
-                    //    Thread.Sleep(6000);
-                    //    Invoke(new Action(() =>
-                    //    {
-                    //        label1.Text = "";
-                    //        label2.Text = "";
-                    //    }));
-                    //}
-                    
-                    
                     while (!isInput) { }
                     pictureBox40.Image = null;
                     pictureBox39.Image = null;
@@ -897,7 +862,7 @@ namespace AttentionTransferSpeedTest
                         isisrights[ts] = 0;
                         falsesss++;
                     }
-                    if ((ISI == 56 && tls == 9) /*|| (tls == 9 && rightssss < 10)*/)
+                    if ((ISI == 67 && tls == 9) /*|| (tls == 9 && rightssss < 10)*/)
                     {
                         isco = false;
                     }
@@ -912,17 +877,14 @@ namespace AttentionTransferSpeedTest
                             label1.Text = isisiis;
                             pictureBox28.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/p0.png");
                         }));
-                        //iswait = true;
-                        //while (iswait) { }
                         Thread.Sleep(6000);
                         Invoke(new Action(() =>
                         {
                             label1.Text = "";
                             label2.Text = "";
                         }));
-                        
                     }
-                    
+
                     if (tls == 9 /*&& rightssss >= 10*/)
                     {
                         level++;
@@ -931,20 +893,19 @@ namespace AttentionTransferSpeedTest
                         falsesss = 0;
                     }
 
-                  
-                        Result result = new Result();
-                        result.Num = ts + 1;
-                        result.Name = user.Name;
-                        result.ISI = ISI;
-                        result.Combination = Combinations[ts];
-                        result.P = ps[ts];
-                        result.Correct = Corrects[ts];
-                        result.Input = Inputs[ts];
-                        result.isRight = isisrights[ts];
-                        result.RT = RT[ts];
-                        ResultGateway resultGateway = new ResultGateway();
-                        resultGateway.InsertResult(result);
-                 
+                    Result result = new Result();
+                    result.Num = ts + 1;
+                    result.Name = user.Name;
+                    result.ISI = ISI;
+                    result.Combination = Combinations[ts];
+                    result.P = ps[ts];
+                    result.Correct = Corrects[ts];
+                    result.Input = Inputs[ts];
+                    result.isRight = isisrights[ts];
+                    result.RT = RT[ts];
+                    ResultGateway resultGateway = new ResultGateway();
+                    resultGateway.InsertResult(result);
+
                     ts++;
                     tls++;
                 }
@@ -961,14 +922,11 @@ namespace AttentionTransferSpeedTest
                 {
                     PanelIsDisplay(7);
                 }));
-
             });
 
             t10.Start();
             panel6.BackColor = Color.FromArgb(220, 220, 220);
             PanelIsDisplay(6);
-           
-            
         }
 
         private Questionnaire GetQuestionnaire()
@@ -1001,61 +959,6 @@ namespace AttentionTransferSpeedTest
             PanelIsDisplay(13);
         }
 
-        /// <summary>
-        /// 淡入效果
-        /// </summary>
-        /// <param name="bmp">Bitmap 对象</param>
-        /// <param name="picBox">PictureBox 对象</param>
-
-        //private void start_Click_1(object sender, EventArgs e)
-        //{
-        //    PanelIsDisplay(8);
-        //    s.Stop();
-        //    s.SoundLocation = "resources/music/bgm.wav";
-        //    s.Play();
-        //    ship2.Visible = false;
-        //    this.ship2.Parent = this.pictureBox41;
-        //    this.ship2.Location = new Point(500, 646);
-        //    t1 = new Thread(() =>
-        //    {
-        //        Thread.Sleep(6000);
-        //        Invoke(new Action(() =>
-        //        {
-        //            ship2.Visible = true;
-        //        }));
-        //    });
-        //    t1.IsBackground = true;
-        //    t1.Start();
-        //    Image image1 = Image.FromFile(Application.StartupPath + @"/resources/photos/bg1.jpg");
-
-        //    Bitmap bitmap1 = new Bitmap(image1);
-        //    Image image2 = Image.FromFile(Application.StartupPath + @"/resources/photos/bg2.jpg");
-        //    Bitmap bitmap2 = new Bitmap(image2);
-
-        //    t2 = new Thread(() =>
-        //    {
-        //        for (int i = 0; i < 5; i++)
-        //        {
-        //            DanRu(bitmap1, pictureBox41);
-        //            Thread.Sleep(5000);
-        //            DanRu(bitmap2, pictureBox41);
-        //            Thread.Sleep(5000);
-        //        }
-        //    });
-        //    t2.IsBackground = true;
-        //    t2.Start();
-        //}
-
-        //private void ship2_Click(object sender, EventArgs e)
-        //{
-        //    t1.Abort();
-        //    t2.Abort();
-        //    s.Stop();
-        //    s.SoundLocation = "resources/music/info_music.wav";
-        //    s.Play();
-        //    PanelIsDisplay(2);
-        //}
-
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             System.Environment.Exit(0);
@@ -1084,39 +987,6 @@ namespace AttentionTransferSpeedTest
 
         private void 开始ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //PanelIsDisplay(8);
-            //s.Stop();
-            //s.SoundLocation = "resources/music/bgm.wav";
-            //s.Play();
-            ////ship2.Visible = false;
-            ////t1 = new Thread(() =>
-            ////{
-            ////    Thread.Sleep(60000);
-            ////    Invoke(new Action(() =>
-            ////    {
-            ////        ship2.Visible = true;
-            ////    }));
-            ////});
-            ////t1.IsBackground = true;
-            ////t1.Start();
-            //t2 = new Thread(() =>
-            //{
-            //    for (int i = 0; i < 40; i++)
-            //    {
-            //        for (int j = 1; j < 7; j++)
-            //        {
-            //            Invoke(new Action(() =>
-            //            {
-            //                panel8.BackgroundImage = Image.FromFile(Application.StartupPath + @"/resources/photos/bg" + j + ".jpg");
-            //                panel8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            //            }));
-
-            //            Thread.Sleep(5000);
-            //        }
-            //    }
-            //});
-            //t2.IsBackground = true;
-            //t2.Start();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -1127,6 +997,10 @@ namespace AttentionTransferSpeedTest
         private void panel13_Paint(object sender, PaintEventArgs e)
         {
             PanelIsDisplay(1);
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
         }
     }
 }
