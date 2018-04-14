@@ -446,7 +446,7 @@ namespace AttentionTransferSpeedTest
                     }
                     Correct = arr1[p - 1];
                 }));
-                Thread.Sleep(400);
+                Thread.Sleep(300);
 
                 t7.IsBackground = true;
                 t7.Start();
@@ -522,7 +522,7 @@ namespace AttentionTransferSpeedTest
                     Correct = arr1[p - 1];
                 }));
 
-                Thread.Sleep(300);
+                Thread.Sleep(200);
 
                 t8.IsBackground = true;
                 t8.Start();
@@ -604,7 +604,7 @@ namespace AttentionTransferSpeedTest
                     pictureBox16.Image = Image.FromFile(Application.StartupPath + @"/resources/photos/" + sameComnination[11] + ".png");
                 }));
                 Input = 0;
-                Thread.Sleep(300);
+                Thread.Sleep(200);
                 t7.IsBackground = true;
                 t7.Start();
             });
